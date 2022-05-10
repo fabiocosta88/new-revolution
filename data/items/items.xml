@@ -24481,10 +24481,16 @@
 		<attribute key="description" value="It was awarded during the festivities of Tibia's 15th anniversary"/>
 		<attribute key="weight" value="1250"/>
 	</item>
-	<item id="14674" article="an" name="anniversary backpack">
-		<attribute key="description" value="It was awarded during the festivities of Tibia's 15th anniversary"/>
-		<attribute key="containersize" value="15"/>
+	<item id="14674" article="an" name="vip backpack">
+		<attribute key="description" value="Este item concede velocidade e regeneracao de mana e vida."/>
+		<attribute key="containersize" value="50"/>
 		<attribute key="weight" value="1500"/>
+		<attribute key="showAttributes" value="1"/>
+		<attribute key="manaticks" value="6000"/>
+		<attribute key="managain" value="70"/>
+		<attribute key="healthticks" value="6000"/>
+		<attribute key="healthgain" value="50"/>
+		<attribute key="speed" value="60"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="increase capacity" value="3"/>
 		</attribute>
@@ -50425,12 +50431,14 @@
 		<attribute key="attack" value="78"/>
 		<attribute key="weight" value="90"/>
 	</item>
-	<item id="35909" name="chaos critical dice">
-		<attribute key="description" value="The one prepared to handle this mortal instrument has the power to alter the equilibrium established by the Gods. Choose a target and roll the dice. Awarded by ManjaTibia.com.br"/>
+	<item id="35909" name="vip teleport stone">
+		<attribute key="description" value="Use essa pedra para se teletransportar para os templos das cidades ou para sua casa."/>
 		<attribute key="weight" value="40"/>
+		<attribute key="duration" value="5"/>
+		<attribute key="decayto" value="35910"/>
 	</item>
-	<item id="35910" name="chaos critical dice">
-		<attribute key="description" value="The one prepared to handle this mortal instrument has the power to alter the equilibrium established by the Gods. Choose a target and roll the dice. Awarded by ManjaTibia.com.br"/>
+	<item id="35910" name="vip teleport stone">
+		<attribute key="description" value="Use essa pedra para se teletransportar para os templos das cidades ou para sua casa."/>
 		<attribute key="weight" value="40"/>
 		<attribute key="duration" value="5"/>
 		<attribute key="decayto" value="35909"/>

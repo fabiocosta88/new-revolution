@@ -1,0 +1,126 @@
+local teleport_stone = Action("Teleport_Stone")
+
+local first_option = {
+    [1] = {name = "Cities"},
+    [2] = {name = "House"}
+}
+
+local cities = {
+    [1] = {name = "Ab'Dendriel", positions = {x = 32732, y = 31634, z = 7}},
+    [2] = {name = "Ankrahmun", positions = {x = 33195, y = 32853, z = 8}},
+	[3] = {name = "Carlin", positions = {x = 32360, y = 31782, z = 7}},
+	[4] = {name = "Darashia", positions = {x = 33213, y = 32454, z = 1}},
+	[5] = {name = "Edron", positions = {x = 33217, y = 31814, z = 8}},
+	[6] = {name = "Gray Island", positions = {x = 33448, y = 31322, z = 9}},
+	[7] = {name = "Issavi", positions = {x = 33921, y = 31477, z = 5}},
+	[8] = {name = "Krailos", positions = {x = 33657, y = 31665, z = 8}},
+	[9] = {name = "Liberty Bay", positions = {x = 32317, y = 32826, z = 7}},
+	[10] = {name = "Rathleton", positions = {x = 33594, y = 31899, z = 6}},
+	[11] = {name = "Roshamuul", positions = {x = 33513, y = 32363, z = 6}},
+	[12] = {name = "Svargrond", positions = {x = 32212, y = 31132, z = 7}},
+	[13] = {name = "Thais", positions = {x = 32369, y = 32241, z = 7}},
+	[14] = {name = "Venore", positions = {x = 32957, y = 32076, z = 7}}
+}
+
+function teleport_stone.onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
+	if player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT) or player:isPzLocked() then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You cannot use this item in battle.')
+        return true
+    end
+    player:registerEvent("ModalWindow_Teleport_Stone")
+ 
+    local title = "Vip Teleport Stone"
+    local message = "Para onde voce deseja ir?"
+ 
+    local window = ModalWindow(1001, title, message)
+ 
+    window:addButton(101, "Cancel")
+	window:addButton(100, "Confirm")
+ 
+    window:addChoice(1, "Cities")
+    window:addChoice(2, "House")
+ 
+    window:setDefaultEnterButton(100)
+    window:setDefaultEscapeButton(101)
+ 
+    window:sendToPlayer(player)
+    return true
+end
+
+teleport_stone:id(35909,35910)
+teleport_stone:register()
+
+local modalTp = CreatureEvent("ModalWindow_Teleport_Cities")
+modalTp:type("modalwindow")
+
+function modalTp.onModalWindow(player, modalWindowId, buttonId, choiceId)
+    player:unregisterEvent("ModalWindow_Teleport_Cities")
+    if modalWindowId == 1000 then
+        if buttonId == 100 then
+            player:getPosition():sendMagicEffect(CONST_ME_SMOKE)
+            player:teleportTo(cities[choiceId].positions)
+            player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Teleported to '.. cities[choiceId].name ..'.')
+        end
+    end
+    return true
+end
+
+modalTp:register()
+
+local modalTpCities = CreatureEvent("ModalWindow_Teleport_Stone")
+modalTpCities:type("modalwindow")
+
+function modalTpCities.onModalWindow(player, modalWindowId, buttonId, choiceId)
+	player:unregisterEvent("ModalWindow_Teleport_Stone")
+	if modalWindowId == 1001 then
+		if buttonId == 100 then
+			if choiceId == 1 then
+				player:registerEvent("ModalWindow_Teleport_Cities")
+		
+				local title = "Vip Teleport Stone"
+				local message = "Escolha uma cidade:"
+			
+				local window = ModalWindow(1000, title, message)
+
+				window:addChoice(1, "Ab'Dendriel")
+				window:addChoice(2, "Ankrahmun")
+				window:addChoice(3, "Carlin")
+				window:addChoice(4, "Darashia")
+				window:addChoice(5, "Edron")
+				window:addChoice(6, "Gray Island")
+				window:addChoice(7, "Issavi")
+				window:addChoice(8, "Krailos")
+				window:addChoice(9, "Liberty Bay")
+				window:addChoice(10, "Rathleton")
+				window:addChoice(11, "Roshamuul")
+				window:addChoice(12, "Svargrond")
+				window:addChoice(13, "Thais")
+				window:addChoice(14, "Venore")
+			
+				window:addButton(101, "Cancel")
+				window:addButton(100, "Confirm")
+			
+				window:setDefaultEnterButton(100)
+				window:setDefaultEscapeButton(101)
+			
+				window:sendToPlayer(player)
+			end
+			if choiceId == 2 then
+				if getHouseByPlayerGUID(getPlayerGUID(player)) then
+					player:getPosition():sendMagicEffect(CONST_ME_SMOKE)
+					player:teleportTo(getHouseEntry(getHouseByPlayerGUID(getPlayerGUID(player))))
+					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Teleported to your house.')
+					return true
+				else
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Teleported to your house.')
+					return true
+				end
+			end	
+		end	
+	end
+	return true
+end
+
+modalTpCities:register()
