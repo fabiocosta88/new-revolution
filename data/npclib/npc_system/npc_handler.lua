@@ -222,16 +222,16 @@ if NpcHandler == nil then
 		self:setTalkStart(playerId, nil)
 		self:setTopic(playerId, nil)
 
+		-- If it is an npc that has a shop and the shop is open, it will be closed
+		npc:removePlayerInteraction(player)
+		if npc:isMerchant() then
+			npc:closeShopWindow(player)
+		end
+
 		local callback = self:getCallback(CALLBACK_REMOVE_INTERACTION)
 		if callback == nil or callback(npc, player) then
 			self:processModuleCallback(CALLBACK_REMOVE_INTERACTION, npc, player)
 		end
-
-		-- If it is an npc that has a shop and the shop is open, it will be closed
-		if npc:isMerchant() then
-			npc:closeShopWindow(player)
-		end
-		npc:removePlayerInteraction(player)
 	end
 
 	-- Returns the callback function with the specified id or nil if no such callback function exists
@@ -594,6 +594,9 @@ if NpcHandler == nil then
 	-- This implements the currently set type of talkdelay.
 	-- The "delay" variable sets the delay for the interval between messages
 	function NpcHandler:say(message, npc, player, delay, textType)
+		if player == nill then
+			return false
+		end
 		local playerId = player:getId()
 		if type(message) == "table" then
 			return self:doNPCTalkALot(message, delay, npc, player)

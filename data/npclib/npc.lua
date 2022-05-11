@@ -48,7 +48,7 @@ function SayEvent(npcId, playerId, messageDelayed, npcHandler)
 	local player = Player(playerId)
 	local npc = Npc(npcId)
 	if not npc then
-		return Spdlog.error("[NpcHandler:say] - Npc parameter is missing, nil or not found")
+		return false
 	end
 
 	if not player then
