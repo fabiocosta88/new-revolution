@@ -47,7 +47,7 @@ function teleport_stone.onUse(player, item, fromPosition, itemEx, toPosition, is
     return true
 end
 
-teleport_stone:id(35909,35910)
+teleport_stone:id(35910)
 teleport_stone:register()
 
 local modalTp = CreatureEvent("ModalWindow_Teleport_Cities")

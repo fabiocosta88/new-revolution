@@ -50431,17 +50431,13 @@
 		<attribute key="attack" value="78"/>
 		<attribute key="weight" value="90"/>
 	</item>
-	<item id="35909" name="vip teleport stone">
-		<attribute key="description" value="Use essa pedra para se teletransportar para os templos das cidades ou para sua casa."/>
+	<item id="35909" name="chaos critical dice">
+		<attribute key="description" value="The one prepared to handle this mortal instrument has the power to alter the equilibrium established by the Gods. Choose a target and roll the dice. Awarded by ManjaTibia.com.br"/>
 		<attribute key="weight" value="40"/>
-		<attribute key="duration" value="5"/>
-		<attribute key="decayto" value="35910"/>
 	</item>
 	<item id="35910" name="vip teleport stone">
 		<attribute key="description" value="Use essa pedra para se teletransportar para os templos das cidades ou para sua casa."/>
 		<attribute key="weight" value="40"/>
-		<attribute key="duration" value="5"/>
-		<attribute key="decayto" value="35909"/>
 	</item>
 	<item id="35911" article="a" name="grandiose cupboard">
 		<attribute key="containersize" value="8"/>
