@@ -13,13 +13,14 @@ local cities = {
 	[5] = {name = "Edron", positions = {x = 33217, y = 31814, z = 8}},
 	[6] = {name = "Gray Island", positions = {x = 33448, y = 31322, z = 9}},
 	[7] = {name = "Issavi", positions = {x = 33921, y = 31477, z = 5}},
-	[8] = {name = "Krailos", positions = {x = 33657, y = 31665, z = 8}},
-	[9] = {name = "Liberty Bay", positions = {x = 32317, y = 32826, z = 7}},
-	[10] = {name = "Rathleton", positions = {x = 33594, y = 31899, z = 6}},
-	[11] = {name = "Roshamuul", positions = {x = 33513, y = 32363, z = 6}},
-	[12] = {name = "Svargrond", positions = {x = 32212, y = 31132, z = 7}},
-	[13] = {name = "Thais", positions = {x = 32369, y = 32241, z = 7}},
-	[14] = {name = "Venore", positions = {x = 32957, y = 32076, z = 7}}
+	[8] = {name = "Kazordoon", positions = {x = 32649, y = 31925, z = 11}},
+	[9] = {name = "Krailos", positions = {x = 33657, y = 31665, z = 8}},
+	[10] = {name = "Liberty Bay", positions = {x = 32317, y = 32826, z = 7}},
+	[11] = {name = "Rathleton", positions = {x = 33594, y = 31899, z = 6}},
+	[12] = {name = "Roshamuul", positions = {x = 33513, y = 32363, z = 6}},
+	[13] = {name = "Svargrond", positions = {x = 32212, y = 31132, z = 7}},
+	[14] = {name = "Thais", positions = {x = 32369, y = 32241, z = 7}},
+	[15] = {name = "Venore", positions = {x = 32957, y = 32076, z = 7}}
 }
 
 function teleport_stone.onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
@@ -90,13 +91,14 @@ function modalTpCities.onModalWindow(player, modalWindowId, buttonId, choiceId)
 				window:addChoice(5, "Edron")
 				window:addChoice(6, "Gray Island")
 				window:addChoice(7, "Issavi")
-				window:addChoice(8, "Krailos")
-				window:addChoice(9, "Liberty Bay")
-				window:addChoice(10, "Rathleton")
-				window:addChoice(11, "Roshamuul")
-				window:addChoice(12, "Svargrond")
-				window:addChoice(13, "Thais")
-				window:addChoice(14, "Venore")
+				window:addChoice(8, "Kazordoon")
+				window:addChoice(9, "Krailos")
+				window:addChoice(10, "Liberty Bay")
+				window:addChoice(11, "Rathleton")
+				window:addChoice(12, "Roshamuul")
+				window:addChoice(13, "Svargrond")
+				window:addChoice(14, "Thais")
+				window:addChoice(15, "Venore")
 			
 				window:addButton(101, "Cancel")
 				window:addButton(100, "Confirm")
