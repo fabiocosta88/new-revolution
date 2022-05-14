@@ -2,7 +2,8 @@ local teleport_stone = Action("Teleport_Stone")
 
 local first_option = {
     [1] = {name = "Cities"},
-    [2] = {name = "House"}
+    [2] = {name = "House"},
+	[3] = {name = "Guild House"}
 }
 
 local cities = {
@@ -28,10 +29,15 @@ function teleport_stone.onUse(player, item, fromPosition, itemEx, toPosition, is
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You cannot use this item in battle.')
         return true
     end
+	if not player:isPremium() then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You are not VIP to use this item.')
+        return true
+	end	
     player:registerEvent("ModalWindow_Teleport_Stone")
  
     local title = "Vip Teleport Stone"
     local message = "Para onde voce deseja ir?"
+	local playerGuild = player:getGuild()
  
     local window = ModalWindow(1001, title, message)
  
@@ -40,7 +46,10 @@ function teleport_stone.onUse(player, item, fromPosition, itemEx, toPosition, is
  
     window:addChoice(1, "Cities")
     window:addChoice(2, "House")
- 
+	if playerGuild then
+		window:addChoice(3, "Guild House")
+	end
+
     window:setDefaultEnterButton(100)
     window:setDefaultEscapeButton(101)
  
@@ -119,6 +128,8 @@ function modalTpCities.onModalWindow(player, modalWindowId, buttonId, choiceId)
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Teleported to your house.')
 					return true
 				end
+			end	
+			if choiceId == 3 then
 			end	
 		end	
 	end
