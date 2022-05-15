@@ -4272,7 +4272,7 @@ GameStore.Categories = {
           price = 1250,
           id = 146,
           description = "{info} usable by all characters of the account\n{speedboost}\n\n<i>A fierce and grim guardian of the underworld has risen to fight side by side with the bravest warriors in order to send evil creatures into the realm of the dead. The three headed Cerberus Champion is constantly baying for blood and using its sharp fangs it easily rips apart even the strongest armour and shield.",
-          type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
+          type = GameStore.OfferTypes.OFFER_TYPE_TOURNAMENT,
           coinType = GameStore.CointType.Tournament,
         },
         {
@@ -4321,7 +4321,7 @@ GameStore.Categories = {
           itemtype = 31464,
           count = 1,
           description = "{house}\n{box}\n{storeinbox}\n{use}\n{backtoinbox}",
-          type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
+          type = GameStore.OfferTypes.OFFER_TYPE_TOURNAMENT,
           coinType = GameStore.CointType.Tournament,
         },
         {

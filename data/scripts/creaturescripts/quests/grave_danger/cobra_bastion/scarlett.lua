@@ -32,8 +32,10 @@ local eventDoDamage = function(creatureid, attackerid, type)
 
 	local damage = creature:getMaxHealth()/4
 	creature:say('AHHHHHHHHHHH!', TALKTYPE_MONSTER_SAY)
-	doTargetCombatHealth(attackerid, creature, type, -damage, -damage, CONST_ME_POFF, ORIGIN_NONE)
-	creature:setMoveLocked(false)
+	if creature then
+		doTargetCombatHealth(attackerid, creature, type, -damage, -damage, CONST_ME_POFF, ORIGIN_NONE)
+		creature:setMoveLocked(false)
+	end
 end
 
 local eventRemoveFreeze = function(creatureid, evented)

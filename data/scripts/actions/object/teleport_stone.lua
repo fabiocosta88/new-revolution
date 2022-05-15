@@ -125,11 +125,24 @@ function modalTpCities.onModalWindow(player, modalWindowId, buttonId, choiceId)
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Teleported to your house.')
 					return true
 				else
-					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Teleported to your house.')
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You dont have a house.')
 					return true
 				end
 			end	
 			if choiceId == 3 then
+				local guild = player:getGuild()
+				local guildLeaderPlayerId = db.storeQuery("SELECT `ownerid` FROM `guilds` WHERE `id` = " .. guild:getId())
+				local guildLeader = Player(guildLeaderPlayerId)
+				if getHouseByPlayerGUID(getPlayerGUID(guildLeader)) then
+					player:getPosition():sendMagicEffect(CONST_ME_SMOKE)
+					player:teleportTo(getHouseEntry(getHouseByPlayerGUID(getPlayerGUID(guildLeader))))
+					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Teleported to guild house of your guild.')
+					return true
+				else
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Your guild dont have a guild house.')
+					return true
+				end
 			end	
 		end	
 	end

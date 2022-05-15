@@ -31,7 +31,8 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_HIRELING_NAMECHANGE = 21,
 	OFFER_TYPE_HIRELING_SEXCHANGE = 22,
 	OFFER_TYPE_HIRELING_SKILL = 23,
-	OFFER_TYPE_HIRELING_OUTFIT = 24
+	OFFER_TYPE_HIRELING_OUTFIT = 24,
+	OFFER_TYPE_TOURNAMENT = 25
 }
 
 GameStore.ActionType = {
@@ -367,8 +368,14 @@ function parseBuyStoreOffer(playerId, msg)
 	-- At this point the purchase is assumed to be formatted correctly
 	local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)] or offer.price
 
-	if not player:canRemoveCoins(offerPrice) then
-		return queueSendStoreAlertToUser("You don't have enough coins. Your purchase has been cancelled.", 250, playerId)
+	if offer.type == GameStore.OfferTypes.OFFER_TYPE_TOURNAMENT then
+		if not player:canRemoveTournament(offerPrice) then
+			return queueSendStoreAlertToUser("You don't have enough coins. Your purchase has been cancelled.", 250, playerId)
+		end
+	else 
+		if not player:canRemoveCoins(offerPrice) then
+			return queueSendStoreAlertToUser("You don't have enough coins. Your purchase has been cancelled.", 250, playerId)
+		end	
 	end
 
 	-- Use pcall to catch unhandled errors and send an alert to the user because the client expects it at all times; (OTClient will unlock UI)
@@ -400,6 +407,8 @@ function parseBuyStoreOffer(playerId, msg)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE   then GameStore.processHirelingChangeSexPurchase(player, offer)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL       then GameStore.processHirelingSkillPurchase(player, offer)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT      then GameStore.processHirelingOutfitPurchase(player, offer)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT      then GameStore.processHirelingOutfitPurchase(player, offer)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_TOURNAMENT      then GameStore.processTournamentItemPurchase(player, offer.id, offer.count)
 		else
 			-- This should never happen by our convention, but just in case the guarding condition is messed up...
 			error({code = 0, message = "This offer is unavailable [2]"})
@@ -419,7 +428,11 @@ function parseBuyStoreOffer(playerId, msg)
 
 	local configure = useOfferConfigure(offer.type)
 	if configure ~= GameStore.ConfigureOffers.SHOW_CONFIGURE then
-		player:removeCoinsBalance(offerPrice)
+		if offer.type == GameStore.OfferTypes.OFFER_TYPE_TOURNAMENT then
+			player:removeTournamentBalance(offerPrice)
+		else
+			player:removeCoinsBalance(offerPrice)
+		end
 		GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, offer.name, (offerPrice) * -1)
 		local message = string.format("You have purchased %s for %d coins.", offer.name, offerPrice)
 		sendUpdateCoinBalance(playerId)
@@ -910,7 +923,7 @@ function sendUpdateCoinBalance(playerId)
 	msg:addU32(player:getCoinsBalance())
 	msg:addU32(player:getCoinsBalance())
 	msg:addU32(player:getCoinsBalance())
-	msg:addU32(0) -- Tournament Coins
+	msg:addU32(player:getTournamentBalance()) -- Tournament Coins
 
 	msg:sendToPlayer(player)
 end
@@ -1233,6 +1246,21 @@ end
 -- index is present the error is assumed to be unhandled.
 
 function GameStore.processItemPurchase(player, offerId, offerCount)
+	if player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount) then
+		return error({ code = 0, message = "Please make sure you have free capacity to hold this item."})
+	end
+
+	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
+	if inbox and inbox:getEmptySlots() > offerCount then
+		for t = 1, offerCount do
+			inbox:addItem(offerId, offerCount or 1)
+		end
+	else
+		return error({ code = 0, message = "Please make sure you have free slots in your store inbox."})
+	end
+end
+
+function GameStore.processTournamentItemPurchase(player, offerId, offerCount)
 	if player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount) then
 		return error({ code = 0, message = "Please make sure you have free capacity to hold this item."})
 	end
@@ -1603,6 +1631,39 @@ function Player.addCoinsBalance(self, coins, update)
 	if update then sendCoinBalanceUpdating(self, true) end
 	return true
 end
+
+function Player.getTournamentBalance(self)
+	resultId = db.storeQuery("SELECT `tournamentBalance` FROM `accounts` WHERE `id` = " .. self:getAccountId())
+	if not resultId then return 0 end
+	return result.getDataInt(resultId, "tournamentBalance")
+end
+
+function Player.setTournamentBalance(self, coins)
+	db.query("UPDATE `accounts` SET `tournamentBalance` = " .. coins .. " WHERE `id` = " .. self:getAccountId())
+	return true
+end
+
+function Player.canRemoveTournament(self, coins)
+	if self:getTournamentBalance() < coins then
+		return false
+	end
+	return true
+end
+
+function Player.removeTournamentBalance(self, coins)
+	if self:canRemoveTournament(coins) then
+		return self:setTournamentBalance(self:getTournamentBalance() - coins)
+	end
+
+	return false
+end
+
+function Player.addTournamentBalance(self, coins, update)
+	self:setTournamentBalance(self:getTournamentBalance() + coins)
+	if update then sendCoinBalanceUpdating(self, true) end
+	return true
+end
+
 
 function Player.sendButtonIndication(self, value1, value2)
 	local msg = NetworkMessage()
