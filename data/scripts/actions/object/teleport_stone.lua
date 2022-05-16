@@ -131,11 +131,9 @@ function modalTpCities.onModalWindow(player, modalWindowId, buttonId, choiceId)
 			end	
 			if choiceId == 3 then
 				local guild = player:getGuild()
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, guild:getId())
 				local guildLeaderPlayerId = db.storeQuery("SELECT `ownerid` FROM `guilds` WHERE `id` = " .. guild:getId())
 				local leaderId = result.getDataInt(guildLeaderPlayerId, "ownerid")
 				result.free(guildLeaderPlayerId)
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, leaderId)
 				local guildhouse = getHouseByPlayerGUID(leaderId)
 				if guildhouse then
 					player:getPosition():sendMagicEffect(CONST_ME_SMOKE)
