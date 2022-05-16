@@ -131,11 +131,15 @@ function modalTpCities.onModalWindow(player, modalWindowId, buttonId, choiceId)
 			end	
 			if choiceId == 3 then
 				local guild = player:getGuild()
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, guild:getId())
 				local guildLeaderPlayerId = db.storeQuery("SELECT `ownerid` FROM `guilds` WHERE `id` = " .. guild:getId())
-				local guildLeader = Player(guildLeaderPlayerId)
-				if getHouseByPlayerGUID(getPlayerGUID(guildLeader)) then
+				local leaderId = result.getDataInt(guildLeaderPlayerId, "ownerid")
+				result.free(guildLeaderPlayerId)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, leaderId)
+				local guildhouse = getHouseByPlayerGUID(leaderId)
+				if guildhouse then
 					player:getPosition():sendMagicEffect(CONST_ME_SMOKE)
-					player:teleportTo(getHouseEntry(getHouseByPlayerGUID(getPlayerGUID(guildLeader))))
+					player:teleportTo(getHouseEntry(guildhouse))
 					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Teleported to guild house of your guild.')
 					return true
