@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Many Faces")
 local monster = {}
 
 monster.description = "a many faces"
-monster.experience = 28600
+monster.experience = 18870
 monster.outfit = {
 	lookType = 1296,
 	lookHead = 0,
@@ -35,7 +35,7 @@ monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
-	chance = 0
+	chance = 10
 }
 
 monster.strategiesTarget = {
@@ -99,15 +99,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -550, maxDamage = -800, range = 7, shootEffect = CONST_ANI_SNOWBALL, effect = CONST_ME_ICEATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_ICEDAMAGE, minDamage = -500, maxDamage = -900, range = 7, radius = 5, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 2000, chance = 17, type = COMBAT_HOLYDAMAGE, minDamage = -500, maxDamage = -900, radius = 3, effect = CONST_ME_HOLYAREA, target = false},
-	{name ="combat", interval = 3000, chance = 25, type = COMBAT_HOLYDAMAGE, minDamage = -500, maxDamage = -800, radius = 4, effect = CONST_ME_HOLYDAMAGE, target = false},
-	{name ="combat", interval = 2000, chance = 18, type = COMBAT_HOLYDAMAGE, minDamage = -500, maxDamage = -900, radius = 4, effect = CONST_ME_HOLYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -600, maxDamage = -1100, radius = 7, effect = CONST_ME_BIGCLOUDS, target = false}
-	-- Chain: const_me-> CONST_ME_YELLOW_ENERGY_SPARK, combat_t->COMBAT_HOLYDAMAGE
-
+	{name ="melee", interval = 2000, chance = 100, minDamage = -500, maxDamage = -1100},
+	{name ="combat", interval = 2000, chance = 23, type = COMBAT_ICEDAMAGE, minDamage = -1020, maxDamage = -1200, range = 7, shootEffect = CONST_ANI_SNOWBALL, effect = CONST_ME_ICEATTACK, target = true},
+	{name ="combat", interval = 3000, chance = 26, type = COMBAT_ICEDAMAGE, minDamage = -800, maxDamage = -1250, range = 7, radius = 5, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
+	{name ="combat", interval = 4000, chance = 21, type = COMBAT_HOLYDAMAGE, minDamage = -1050, maxDamage = -1300, radius = 3, effect = CONST_ME_HOLYAREA, target = false},
+	{name ="many faces chain", interval = 5000, chance = 10, minDamage = -0, maxDamage = -0, range = 5, effect = CONST_ME_HOLYDAMAGE, target = true}
 }
 
 monster.defenses = {
