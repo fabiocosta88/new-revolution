@@ -375,7 +375,6 @@ client_assertions.txt
 *.exe
 *.manifest
 *.otbm
-*.rar
 
 # SFTP for Sublime
 sftp-config.json
