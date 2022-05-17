@@ -33,7 +33,6 @@ local raids = {
 	--Domingo
 	['Sunday'] = {
 		['15:00'] = {raidName = 'Midnight Panther'},
-		['13:00'] = {raidName = 'Orc Backpack'}
 	},
 
 	-- By date (Day/Month)

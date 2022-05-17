@@ -6,10 +6,11 @@ combat:setParameter(COMBAT_PARAM_USECHARGES, 1)
 combat:setArea(createCombatArea(AREA_CIRCLE3X3))
 
 function onGetFormulaValues(player, skill, attack, factor)
-	local level = player:getLevel()	
-	local min = (level / 5) + (skill + attack) * 0.5
-	local max = (level / 5) + (skill + attack) * 1.1
-	return -min * 1.28, -max * 1.28 -- TODO : Use New Real Formula instead of an %
+    local weapon = player:getSlotItem(CONST_SLOT_LEFT).itemid
+    local eledmg = ItemType(weapon):getElementDamage() ~= nil and ItemType(weapon):getElementDamage() or 0
+    local attackTotal = attack + eledmg
+    local levelTotal = player:getLevel() / 5
+	return -(levelTotal + (skill + attackTotal + 15) * 0.9), -(levelTotal + (skill + attackTotal+ 25) * 1.6)
 end
 
 combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")

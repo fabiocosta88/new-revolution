@@ -6,7 +6,9 @@ combat:setParameter(COMBAT_PARAM_BLOCKARMOR, 1)
 combat:setParameter(COMBAT_PARAM_USECHARGES, 1)
 
 function onGetFormulaValues(player, skill, attack, factor)
-	local skillTotal = skill * attack
+	local weapon = player:getSlotItem(CONST_SLOT_LEFT).itemid
+    local eledmg = ItemType(weapon):getElementDamage() ~= nil and ItemType(weapon):getElementDamage() or 0
+    local skillTotal = skill * (attack + eledmg)
 	local levelTotal = player:getLevel() / 5
 	return -(((skillTotal * 0.17) + 13) + (levelTotal)) * 1.28, -(((skillTotal * 0.20) + 34) + (levelTotal)) * 1.28 -- TODO : Use New Real Formula instead of an %
 end
