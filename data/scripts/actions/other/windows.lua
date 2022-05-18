@@ -16,6 +16,8 @@ function windows.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	for index, value in ipairs(windowTable) do
 		if value.closedWindow == item.itemid then
 			item:transform(value.openWindow)
+			player:addAchievementProgress("Let the Sunshine In", 100)
+			player:addAchievementProgress("Do Not Disturb", 100)
 			return true
 		end
 	end

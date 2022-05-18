@@ -359,6 +359,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if table.contains(holes, target.itemid) then
 		target:transform(target.itemid + 1)
+		player:addAchievementProgress("The Undertaker", 500)
 		target:decay()
 	elseif table.contains({231, 231}, target.itemid) then
 		local rand = math.random(100)
@@ -367,6 +368,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 			target:decay()
 		elseif rand == 1 then
 			Game.createItem(3042, 1, toPosition)
+			player:addAchievementProgress("Gold Digger", 100)
 		elseif rand > 95 then
 			Game.createMonster("Scarab", toPosition)
 		end
@@ -512,6 +514,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		else
 			player:addItem(3028, 1) -- 49% chance of getting small diamond
 		end
+		player:addAchievementProgress("Petrologist", 100)
 		target:getPosition():sendMagicEffect(CONST_ME_BLOCKHIT)
 		target:remove(1)
 	elseif target.itemid == 10310 then
@@ -738,6 +741,7 @@ function onUseMachete(player, item, fromPosition, target, toPosition, isHotkey)
 	if table.contains(JUNGLE_GRASS, target.itemid) then
 		target:transform(target.itemid == 17153 and 17151 or target.itemid - 1)
 		target:decay()
+		player:addAchievementProgress("Nothing Can Stop Me", 100)
 		return true
 	end
 
@@ -884,14 +888,16 @@ function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	if target.itemid == 5464 then
-		target:transform(5463)
+	if target.itemid == 5464 or target.itemid == 5465 then --burning sugar cane or sugar cane
+		target:transform(5463) --sugar cane
 		target:decay()
-		Game.createItem(5466, 1, toPosition)
-	elseif target.itemid == 3653 then
-		target:transform(3651)
+		Game.createItem(5466, 1, toPosition) --bunch of sugar cane.
+		player:addAchievementProgress("Natural Sweetener", 50)
+	elseif target.itemid == 3653 then --wheat
+		target:transform(3651) --harvested wheat
 		target:decay()
-		Game.createItem(3605, 1, toPosition)
+		Game.createItem(3605, 1, toPosition) --wheat
+		player:addAchievementProgress("Happy Farmer", 200)
 	-- The secret library
 	elseif toPosition == Position(32177, 31925, 7) then
 		player:teleportTo({x = 32515, y = 32535, z = 12})

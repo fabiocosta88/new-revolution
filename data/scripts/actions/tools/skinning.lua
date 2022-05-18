@@ -68,10 +68,20 @@ local config = {
 		[22742] = {value = 22344, newItem = 22186, after = 22744}, -- after being killed
 
 		-- The Mutated Pumpkin
-		[12816] = { { value = 5000, newItem = 123 }, { value = 10000, newItem = 653 }, { value = 20000, 6491 }, { value = 26764, newItem = 8032 }, { value = 45000, newItem = 3594 }, { value = 60000, newItem = 2977 }, { value = 90000, newItem = 8177, amount = 50 } },
-
+		[12816] = { 
+			{ value = 5000, newItem = 123 }, 
+			{ value = 10000, newItem = 653 }, 
+			{ value = 20000, 6491 },
+			{ value = 26764, newItem = 8032 }, 
+			{ value = 45000, newItem = 3594 }, 
+			{ value = 60000, newItem = 2977 }, 
+			{ value = 90000, newItem = 8177, amount = 50 } 
+		},
 		-- Marble
-		[10426] = { { value = 10000, newItem = 10429, desc = "This little figurine of Tibiasula was masterfully sculpted by |PLAYERNAME|." }, {value = 26764, newItem = 10428, desc = "This little figurine made by |PLAYERNAME| has some room for improvement." }, {value = 60000, newItem = 10427, desc = "This shoddy work was made by |PLAYERNAME|." } },
+		[10426] = { 
+			{ value = 10000, newItem = 10429, desc = "This little figurine of Tibiasula was masterfully sculpted by |PLAYERNAME|." }, 
+			{value = 26764, newItem = 10428, desc = "This little figurine made by |PLAYERNAME| has some room for improvement." }, 
+			{value = 60000, newItem = 10427, desc = "This shoddy work was made by |PLAYERNAME|." } },
 
 		-- Ice Cube
 		[7441] = {value = 22344, newItem = 7442},
@@ -148,7 +158,7 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 	if charmMType then
 		local charmCorpse = charmMType:getCorpseId()
 		if charmCorpse == target.itemid or ItemType(charmCorpse):getDecayId() == target.itemid then
-			chanceRange = chanceRange * ((100 - GLOBAL_CHARM_SCAVENGE)/100)
+			chanceRange = chanceRange * ((100 - 25)/100)
 		end
 	end
 
@@ -162,6 +172,10 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 				if target.itemid == 10426 then
 					target:getPosition():sendMagicEffect(CONST_ME_ICEAREA)
 					local gobletItem = player:addItem(_skin.newItem, _skin.amount or 1)
+					if gobletItem.itemid == 10429 then 
+						player:addAchievement("Marblelous")
+						player:addAchievementProgress("Marble Madness", 5)
+					end
 					if gobletItem then
 						gobletItem:setDescription(_skin.desc:gsub('|PLAYERNAME|', player:getName()))
 					end
@@ -187,10 +201,16 @@ function skinning.onUse(player, item, fromPosition, target, toPosition, isHotkey
 		if isInArray({7441, 7442, 7444, 7445}, target.itemid) then
 			if skin.newItem == 7446 then
 				player:addAchievement('Ice Sculptor')
+				player:addAchievementProgress("Cold as Ice", 10)
 			end
 			target:transform(skin.newItem, 1)
 			effect = CONST_ME_HITAREA
 		else
+			if table.contains({5906,5905}, skin.newItem) then
+				player:addAchievementProgress("Ashes to Dust", 500)
+			else
+				player:addAchievementProgress("Skin-Deep", 500)
+			end	
 			player:addItem(skin.newItem, skin.amount or 1)
 		end
 	else
