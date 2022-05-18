@@ -7,7 +7,7 @@ npcConfig.description = internalNpcName
 
 npcConfig.health = 100
 npcConfig.maxHealth = npcConfig.health
-npcConfig.walkInterval = 2000
+npcConfig.walkInterval = 6000
 npcConfig.walkRadius = 1
 
 npcConfig.outfit = {
@@ -36,13 +36,16 @@ function addTournamentCoins(player)
 	result.free(resultId)
 	local new_amount = nowcoins + 1000
 	db.query("UPDATE `accounts` set `tournamentBalance` = " .. new_amount .. " WHERE id = " .. accountId)
+    return true
 end
 
 function addExperience(player)
 	if player:getLevel() < 500 then
 		player:addExperience(500000000)
+        return true
 	else 
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have reached the maximum level of the Test Server.')
+        return false
 	end
 end
 

@@ -21,7 +21,8 @@ local cities = {
 	[12] = {name = "Roshamuul", positions = {x = 33513, y = 32363, z = 6}},
 	[13] = {name = "Svargrond", positions = {x = 32212, y = 31132, z = 7}},
 	[14] = {name = "Thais", positions = {x = 32369, y = 32241, z = 7}},
-	[15] = {name = "Venore", positions = {x = 32957, y = 32076, z = 7}}
+	[15] = {name = "Venore", positions = {x = 32957, y = 32076, z = 7}},
+	[16] = {name = "Yalahar", positions = {x = 32787, y = 31276, z = 7}}
 }
 
 function teleport_stone.onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
@@ -106,6 +107,7 @@ function modalTpCities.onModalWindow(player, modalWindowId, buttonId, choiceId)
 				window:addChoice(13, "Svargrond")
 				window:addChoice(14, "Thais")
 				window:addChoice(15, "Venore")
+				window:addChoice(16, "Yalahar")
 			
 				window:addButton(101, "Cancel")
 				window:addButton(100, "Confirm")
