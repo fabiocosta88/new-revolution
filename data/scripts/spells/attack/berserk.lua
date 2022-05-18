@@ -6,11 +6,8 @@ combat:setParameter(COMBAT_PARAM_USECHARGES, 1)
 combat:setArea(createCombatArea(AREA_SQUARE1X1))
 
 function onGetFormulaValues(player, skill, attack, factor)
-    local weapon = player:getSlotItem(CONST_SLOT_LEFT).itemid
-    local eledmg = ItemType(weapon):getElementDamage() ~= nil and ItemType(weapon):getElementDamage() or 0
-    local skillTotal = skill * (attack + eledmg)
-    local levelTotal = player:getLevel() / 5
-    return -(((skillTotal * 0.02) + 2) + (levelTotal)), -(((skillTotal * 0.03) + 25) + (levelTotal))
+    local levelTotal = player:getLevel()/5
+    return -(((skill + attack) * 1.3) + (levelTotal)), -(((skill + attack) * 2) + (levelTotal))
 end
 
 combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")

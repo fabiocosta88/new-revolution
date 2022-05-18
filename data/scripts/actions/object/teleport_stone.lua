@@ -25,7 +25,7 @@ local cities = {
 }
 
 function teleport_stone.onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
-	if player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT) or player:isPzLocked() then
+	if player:getCondition(CONDITION_INFIGHT) or player:isPzLocked() then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You cannot use this item in battle.')
         return true
     end
