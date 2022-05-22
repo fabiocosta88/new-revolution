@@ -810,8 +810,8 @@
 	<npc centerx="33047" centery="32622" centerz="6" radius="1">
 		<npc name="Ubaid" x="0" y="0" z="6" spawntime="60" />
 	</npc>
-	<npc centerx="31915" centery="32710" centerz="6" radius="1">
-		<npc name="Captain Max (Calassa)" x="0" y="0" z="6" spawntime="60" />
+	<npc centerx="31916" centery="32710" centerz="6" radius="1">
+		<npc name="Captain Max (Calassa)" x="-1" y="0" z="6" spawntime="60" />
 	</npc>
 	<npc centerx="32621" centery="32738" centerz="6" radius="1">
 		<npc name="Gail" x="0" y="0" z="6" spawntime="60" />
@@ -1287,6 +1287,9 @@
 	<npc centerx="32022" centery="31692" centerz="7" radius="1">
 		<npc name="Carlson" x="0" y="0" z="7" spawntime="60" />
 	</npc>
+	<npc centerx="33232" centery="31697" centerz="7" radius="1">
+		<npc name="The Thaian" x="0" y="-1" z="7" spawntime="60" />
+	</npc>
 	<npc centerx="32673" centery="31698" centerz="7" radius="1">
 		<npc name="Olrik" x="0" y="0" z="7" spawntime="60" />
 	</npc>
@@ -1479,8 +1482,8 @@
 	<npc centerx="32177" centery="31936" centerz="7" radius="1">
 		<npc name="Costello" x="0" y="0" z="7" spawntime="60" />
 	</npc>
-	<npc centerx="32318" centery="31937" centerz="7" radius="1">
-		<npc name="Penny" x="0" y="0" z="7" spawntime="60" />
+	<npc centerx="32319" centery="31937" centerz="7" radius="1">
+		<npc name="Penny" x="-1" y="0" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="33584" centery="31942" centerz="7" radius="1">
 		<npc name="Roswitha" x="0" y="0" z="7" spawntime="60" />
@@ -1560,6 +1563,9 @@
 	<npc centerx="32271" centery="32052" centerz="7" radius="1">
 		<npc name="Valentina" x="0" y="0" z="7" spawntime="60" />
 	</npc>
+	<npc centerx="33332" centery="32052" centerz="7" radius="5">
+		<npc name="Ghostly Wolf" x="0" y="0" z="7" spawntime="60" />
+	</npc>
 	<npc centerx="32253" centery="32055" centerz="7" radius="1">
 		<npc name="Tokel" x="0" y="0" z="7" spawntime="60" />
 	</npc>
@@ -1572,8 +1578,8 @@
 	<npc centerx="32959" centery="32077" centerz="7" radius="1">
 		<npc name="Yberius" x="0" y="0" z="7" spawntime="60" />
 	</npc>
-	<npc centerx="32333" centery="32090" centerz="7" radius="1">
-		<npc name="Albinius" x="0" y="0" z="7" spawntime="60" />
+	<npc centerx="32334" centery="32090" centerz="7" radius="1">
+		<npc name="Albinius" x="-1" y="0" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="32326" centery="32093" centerz="7" radius="1">
 		<npc name="Ivalisse" x="0" y="0" z="7" spawntime="60" />
@@ -1641,8 +1647,8 @@
 	<npc centerx="32015" centery="32197" centerz="7" radius="1">
 		<npc name="Loui" x="0" y="0" z="7" spawntime="60" />
 	</npc>
-	<npc centerx="32361" centery="32198" centerz="7" radius="1">
-		<npc name="Sam" x="0" y="0" z="7" spawntime="60" />
+	<npc centerx="32362" centery="32198" centerz="7" radius="1">
+		<npc name="Sam" x="-1" y="0" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="32085" centery="32199" centerz="7" radius="1">
 		<npc name="Tom" x="0" y="0" z="7" spawntime="60" />
@@ -1692,8 +1698,8 @@
 	<npc centerx="32398" centery="32222" centerz="7" radius="1">
 		<npc name="Xodet" x="0" y="0" z="7" spawntime="60" />
 	</npc>
-	<npc centerx="33504" centery="32222" centerz="7" radius="1">
-		<npc name="Valindara" x="0" y="0" z="7" spawntime="60" />
+	<npc centerx="33505" centery="32223" centerz="7" radius="1">
+		<npc name="Valindara" x="-1" y="-1" z="7" spawntime="60" />
 	</npc>
 	<npc centerx="32066" centery="32225" centerz="7" radius="1">
 		<npc name="Lily" x="0" y="0" z="7" spawntime="60" />
@@ -2277,8 +2283,8 @@
 	<npc centerx="33444" centery="31321" centerz="9" radius="1">
 		<npc name="Rock With A Soft Spot" x="0" y="0" z="9" spawntime="60" />
 	</npc>
-	<npc centerx="33639" centery="31377" centerz="9" radius="1">
-		<npc name="Navigator" x="0" y="0" z="9" spawntime="60" />
+	<npc centerx="33640" centery="31377" centerz="9" radius="1">
+		<npc name="Navigator" x="-1" y="0" z="9" spawntime="60" />
 	</npc>
 	<npc centerx="32592" centery="31445" centerz="9" radius="1">
 		<npc name="Harog" x="0" y="0" z="9" spawntime="60" />
@@ -2777,12 +2783,6 @@
 	</npc>
 	<npc centerx="32306" centery="32546" centerz="14" radius="1">
 		<npc name="A Lost Thrower" x="0" y="0" z="14" spawntime="60" />
-	</npc>
-	<npc centerx="33332" centery="32052" centerz="7" radius="5">
-		<npc name="Ghostly Wolf" x="0" y="0" z="14" spawntime="60" />
-	</npc>
-	<npc centerx="33504" centery="32222" centerz="7" radius="5">
-		<npc name="Talila" x="0" y="0" z="14" spawntime="60" />
 	</npc>
 	<npc centerx="32245" centery="32600" centerz="14" radius="1">
 		<npc name="Gnomargery" x="0" y="0" z="14" spawntime="60" />

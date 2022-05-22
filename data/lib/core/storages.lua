@@ -1712,7 +1712,15 @@ Storage = {
 			ThePaleWorm = 53000,
 			TheUnwelcome = 53001,
 			TheFearFeaster = 53002,
-			TheDreadMaiden = 53004
+			TheDreadMaiden = 53004,
+			VokTheFreakish = 53005,
+			IrgixTheFlimsy = 53006,
+			IrgixTheFlimsy = 53006,
+			UnaztheMean = 53007,
+			BrainDead = 53008,
+			Thaian = 53009,
+			ThePaleWormSummon = 53010,
+			ThePaleWormDamage = 53011
 		}
 	},
 	RottinWoodAndMaried = {

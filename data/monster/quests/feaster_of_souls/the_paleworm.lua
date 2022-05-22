@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Pale worm")
 local monster = {}
 
 monster.description = "a pale worm"
-monster.experience = 30000
+monster.experience = 50000
 monster.outfit = {
 	lookType = 1272,
 	lookHead = 0,
@@ -13,16 +13,16 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 300000
-monster.maxHealth = 300000
+monster.health = 380000
+monster.maxHealth = 380000
 monster.race = "undead"
 monster.corpse = 32702
 monster.speed = 250
 monster.manaCost = 0
 
 monster.changeTarget = {
-	interval = 60000,
-	chance = 0
+	interval = 6000,
+	chance = 10
 }
 
 monster.strategiesTarget = {
@@ -60,9 +60,7 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Where... Where am I?", yell = false},
-	{text = "Is that you, Tom?", yell = false},
-	{text = "Phew, what an awful smell ... oh, that's me.", yell = false}
+	{text = "DEATH!!!!!", yell = false},
 }
 
 monster.loot = {
