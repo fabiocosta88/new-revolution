@@ -64,14 +64,14 @@ monster.loot = {
 	{name = "ivory comb", chance = 83330, maxCount = 1},
 	{name = "skull coin", chance = 66666, maxCount = 1},
 	{name = "moonstone", chance = 33333, maxCount = 2},
-	{name = "diamond", chance = 8300, , maxCount = 2},
+	{name = "diamond", chance = 8300, maxCount = 2},
 	{name = "machete", chance = 8300, maxCount = 1},
 	{name = "pair of nightmare boots", chance = 2500, maxCount = 1},
 	{name = "skull staff", chance = 8300, maxCount = 1},
 	{name = "warrior's axe", chance = 8300, maxCount = 1},
 	{name = "death toll", chance = 5500, maxCount = 1},
 	{name = "silver hand mirror", chance = 5500, maxCount = 1},
-	{name = "red gem", chance = 25000, maxCount = 2} -- red gem
+	{id = 3039, chance = 25000, maxCount = 2} -- red gem
 }
 
 monster.attacks = {

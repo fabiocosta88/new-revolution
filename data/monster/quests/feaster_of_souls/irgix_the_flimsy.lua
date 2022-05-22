@@ -67,12 +67,12 @@ monster.loot = {
 	{name = "white gem", chance = 33333, maxCount = 1},
 	{name = "terra rod", chance = 16670, maxCount = 1},
 	{name = "yellow gem", chance = 16670, maxCount = 1},
-	{name = "red gem", chance = 16670, maxCount = 1},
-	{name = "necklace of the deep", chance = 8330, , maxCount = 1},
-	{name = "wand of starstorm", chance = 8330, , maxCount = 1},
+	{id = 3039, chance = 16670, maxCount = 1},
+	{name = "necklace of the deep", chance = 8330, maxCount = 1},
+	{name = "wand of starstorm", chance = 8330, maxCount = 1},
 	{name = "wand of cosmic energy", chance = 8330, , maxCount = 1},
-	{name = "death toll", chance = 8330, , maxCount = 1},
-	{name = "pair of nightmare boots", chance = 530, , maxCount = 1}
+	{name = "death toll", chance = 8330, maxCount = 1},
+	{name = "pair of nightmare boots", chance = 530, maxCount = 1}
 }
 
 monster.attacks = {
