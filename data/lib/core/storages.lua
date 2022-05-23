@@ -1720,7 +1720,10 @@ Storage = {
 			BrainDead = 53008,
 			Thaian = 53009,
 			ThePaleWormSummon = 53010,
-			ThePaleWormDamage = 53011
+			ThePaleWormDamage = 53011,
+			TheFearFeasterTeleported1 = 53012,
+			TheFearFeasterTeleported2 = 53013,
+			TheFearFeasterTeleported3 = 53014
 		}
 	},
 	RottinWoodAndMaried = {

@@ -22,14 +22,10 @@ function weak_spot_damage.onHealthChange(creature, attacker, primaryDamage, prim
     local pale = searchmonster()
 
     if pale then
-        doTargetCombatHealth(attacker, creature, primaryType, -primaryDamage, -primaryDamage, CONST_ME_POFF, ORIGIN_NONE)
         doTargetCombatHealth(attacker, pale, primaryType, -primaryDamage, -primaryDamage, CONST_ME_POFF, ORIGIN_NONE)
-        return
-    else
-        doTargetCombatHealth(attacker, creature, primaryType, -primaryDamage, -primaryDamage, CONST_ME_POFF, ORIGIN_NONE)
     end
-
-    return
+    
+    return creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin
 end
 
 weak_spot_damage:register()
