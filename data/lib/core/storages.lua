@@ -2318,9 +2318,13 @@ GlobalStorage = {
 		ServantsKilled = 60011
 	},
 	Feroxa = {
-		-- Reserved storage from 60020 - 60029
+		-- Reserved storage from 60020 - 60028
 		Chance = 60020,
 		Active = 60021
+	},
+	TheDreadMaiden = {
+		-- Reserved storage from 60029 - 60029
+		Damage = 60029,
 	},
 	FerumbrasAscendant = {
 		-- Reserved storage from 60030 - 60069

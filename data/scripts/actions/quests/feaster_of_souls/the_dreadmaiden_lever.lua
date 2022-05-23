@@ -17,8 +17,43 @@ local config = {
 	teleportPosition = Position(33711, 31510, 14),
 	bossPosition = Position(33712, 31503, 14),
 	specPos = Position(33746, 31506, 14),
-    storage = Storage.FeasterOfSouls.BossTimer.TheDreadMaiden
+    storage = Storage.FeasterOfSouls.BossTimer.TheDreadMaiden,
+	damage_storage = GlobalStorage.TheDreadMaiden.Damage
 }
+
+function spawnGhosts()
+	local player
+	local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
+	for i = 1, #specs do
+		spec = specs[i]
+		if spec:isPlayer() then
+			player = spec
+			break
+		end
+	end
+	if player then 
+		local from = {x=33706,y=31500}
+		local to = {x=33717,y=31502}
+		local setX = math.random(from.x,to.x)
+		local setY = math.random(from.y,to.y)
+		local summons = {"Red Soul Stealer", "Blue Soul Stealer", "Green Soul Stealer"}
+		local index = math.random(1,3)
+		local counter = 0
+		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
+		for i = 1, #specs do
+			spec = specs[i]
+			if spec:isMonster() then
+				if spec:getName():lower() == "blue soul stealer" or spec:getName():lower() == "green soul stealer" or spec:getName():lower() == "red soul stealer"  then
+					counter = counter + 1
+				end
+			end
+		end
+		if counter <= 3 then
+			Game.createMonster(summons[index], {x = setX, y=setY, z = 14})
+		end
+		addEvent(spawnGhosts, 10 * 10000)
+	end
+end
 
 local dreadmaiden = Action()
 function dreadmaiden.onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -65,6 +100,7 @@ function dreadmaiden.onUse(player, item, fromPosition, target, toPosition, isHot
 		-- One hour for clean the room
 		addEvent(clearRoom, config.clearRoomTime * 60 * 1000, config.centerRoom)
 		Game.createMonster(config.bossName, config.bossPosition)
+		Game.setStorageValue(config.damage_storage, 10)
 
 		-- Teleport team participants
 		for i = 1, #team do
@@ -87,6 +123,7 @@ function dreadmaiden.onUse(player, item, fromPosition, target, toPosition, isHot
 						end
 				end, config.timeToDefeatBoss * 60 * 1000)
 		end
+		addEvent(spawnGhosts,  10000)
 	end
 	return true
 end

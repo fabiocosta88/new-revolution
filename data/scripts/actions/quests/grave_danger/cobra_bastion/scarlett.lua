@@ -35,7 +35,7 @@ function graveScarlettUid.onUse(player, item, fromPosition, target, toPosition, 
 			for x = info.middle.x - 1, info.middle.x + 1 do
 				for y = info.middle.y - 1, info.middle.y + 1 do
 					local sqm = Tile(Position(x, y, 6))
-					if sqm and sqm:getGround():getId() == 18013 then
+					if sqm and sqm:getGround():getId() == 10146 then
 						local player_ = sqm:getTopCreature()
 						if player_ and player_:isPlayer() then
 							if player_:getStorageValue(info.timer) > os.time() then
