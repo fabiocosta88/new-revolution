@@ -20,6 +20,46 @@ local config = {
     storage = Storage.FeasterOfSouls.BossTimer.TheUnwelcome
 }
 
+function hasPlayers()
+	local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
+	for i = 1, #specs do
+		spec = specs[i]
+		if spec:isPlayer() then
+			return spec
+		end
+	end
+	return false
+end
+
+function countMonster()
+    local counter = 0
+	local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
+	for i = 1, #specs do
+		spec = specs[i]
+		if spec:isMonster() then
+			if spec:getName():lower() == "greed worm" then
+                counter = counter + 1
+			end
+		end
+	end
+    return counter
+end
+
+function spawnGreedWorm()
+	local player = hasPlayers()
+	if player then 
+		local from = {x=33704,y=31534}
+		local to = {x=33707,y=31544}
+		local setX = math.random(from.x,to.x)
+		local setY = math.random(from.y,to.y)
+		local counter = countMonster()
+		if counter <= 5 then
+			Game.createMonster("Greed Worm", {x = setX, y=setY, z = 14})
+		end
+		addEvent(spawnGreedWorm, 15 * 1000)
+	end
+end
+
 local unwelcome = Action()
 function unwelcome.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == config.leverId then
@@ -87,6 +127,10 @@ function unwelcome.onUse(player, item, fromPosition, target, toPosition, isHotke
 						end
 				end, config.timeToDefeatBoss * 60 * 1000)
 		end
+		addEvent(function()
+			Game.createMonster("Brother Worm", Position({x = 33703, y = 31540, z = 14}), false, true)
+		end, 30000)
+		addEvent(spawnGreedWorm, 30000)
 	end
 	return true
 end

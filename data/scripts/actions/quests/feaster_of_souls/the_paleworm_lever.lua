@@ -140,7 +140,7 @@ function spawnGreedWormUp()
 		end
 	end
 	if player or player2 then
-		addEvent(spawnGreedWormUp, 20 * 1000)
+		addEvent(spawnGreedWormUp, 10 * 1000)
 	end
 end
 

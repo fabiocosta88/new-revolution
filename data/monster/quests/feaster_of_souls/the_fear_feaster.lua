@@ -89,10 +89,10 @@ monster.loot = {
 	{name = "grimace", chance = 5880},
 	{name = "amber", chance = 5880},
 	{name = "amber with a dragonfly", chance = 3920},
-	{name = "ghost claw", chance = 1960},
+	{name = "amber with a bug", chance = 3920},
 	{name = "bloody tears", chance = 1500},
-	{name = "ghost chestplate", chance = 150},
-	{name = "spooky hood", chance = 150}
+	{name = "ghost chestplate", chance = 550},
+	{name = "spooky hood", chance = 550}
 }
 
 monster.attacks = {

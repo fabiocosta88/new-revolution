@@ -1,7 +1,7 @@
-local mType = Game.createMonsterType("Hunger Worm")
+local mType = Game.createMonsterType("Brother Worm")
 local monster = {}
 
-monster.description = "a hunger worm"
+monster.description = "a brother worm"
 monster.experience = 25000
 monster.outfit = {
 	lookType = 295,
@@ -14,11 +14,11 @@ monster.outfit = {
 }
 
 monster.events = {
-	"hungerWormDeath"
+	"brother_worm_damage"
 }
 
-monster.health = 200000
-monster.maxHealth = 200000
+monster.health = 300000
+monster.maxHealth = 300000
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 250
@@ -63,7 +63,7 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10,
+	chance = 5,
 	{text = "RUN!!!", yell = false},
 }
 
@@ -72,28 +72,30 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -250, maxDamage = -500, condition = {type = CONDITION_POISON, totalDamage = 4, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -550, radius = 3, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="askarak wave", interval = 2000, chance = 15, minDamage = -350, maxDamage = -700, target = false},
+	{name ="combat", interval = 3000, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -550, radius = 3, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="askarak wave", interval = 2000, chance = 20, minDamage = -350, maxDamage = -700, target = false},
+	{name ="combat", interval = 3000, chance = 45, type = COMBAT_FIREDAMAGE, minDamage = -600, maxDamage = -1200, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 3000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000, maxDamage = -1750, radius = 2, shootEffect = CONST_ANI_SMALLEARTH, target = false},
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 10,
 	{name ="speed", interval = 10000, chance = 40, speedChange = 510, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 20000},
-	{name ="combat", interval = 5000, chance = 60, type = COMBAT_HEALING, minDamage = 800, maxDamage = 2500, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 5000, chance = 60, type = COMBAT_HEALING, minDamage = 800, maxDamage = 2500, effect = CONST_ME_MAGIC_BLUE, target = false},
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = -10},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 
 monster.immunities = {

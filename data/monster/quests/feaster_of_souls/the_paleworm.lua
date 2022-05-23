@@ -69,7 +69,7 @@ monster.loot = {
 	{name = "moonstone", chance = 52940, maxCount = 2},
 	{name = "ultimate mana potion", chance = 43140, maxCount = 6},
 	{name = "supreme health potion", chance = 29410, maxCount = 6},
-	{name = "silver hand mirror", chance = 27450},
+	{name = "silver hand mirror", chance = 27450, maxCount = 1},
 	{name = "berserk potion", chance = 23530, maxCount = 10},
 	{name = "ultimate spirit potion", chance = 23530, maxCount = 6},
 	{name = "bullseye potion", chance = 19610, maxCount = 10},
@@ -79,14 +79,16 @@ monster.loot = {
 	{name = "angel figurine", chance = 11760},
 	{name = "diamond", chance = 11760},
 	{name = "cursed bone", chance = 7840},
-	{name = "soulforged lantern", chance = 7840},
-	{name = "grimace", chance = 5880},
 	{name = "amber", chance = 5880},
 	{name = "amber with a dragonfly", chance = 3920},
-	{name = "ghost claw", chance = 1960},
-	{name = "bloody tears", chance = 1500},
-	{name = "ghost chestplate", chance = 150},
-	{name = "spooky hood", chance = 150}
+	{name = "spectral scrap of cloth", chance = 1960},
+	{name = "ghost chestplate", chance = 500},
+	{name = "fabulous legs", chance = 1500},
+	{name = "pair of nightmare boots", chance = 2500},
+	{name = "phantasmal axe", chance = 1500},
+	{name = "ring of souls", chance = 3000},
+	{name = "soulful legs", chance = 2000},
+	{name = "ghost backpack", chance = 500},
 }
 
 monster.attacks = {

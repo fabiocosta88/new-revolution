@@ -13,6 +13,10 @@ monster.outfit = {
 	lookMount = 0
 }
 
+monster.events = {
+	"the_unwelcome_damage"
+}
+
 monster.health = 300000
 monster.maxHealth = 300000
 monster.race = "undead"
@@ -67,12 +71,12 @@ monster.voices = {
 
 monster.loot = {
 	{name = "crystal coin", chance = 96080, maxCount = 2},
-	{name = "white gem", chance = 52940, maxCount = 2},
+	{name = "white gem", chance = 52940, maxCount = 1},
 	{name = "moonstone", chance = 52940, maxCount = 2},
 	{name = "ultimate mana potion", chance = 43140, maxCount = 6},
 	{name = "supreme health potion", chance = 29410, maxCount = 6},
-	{name = "silver hand mirror", chance = 27450},
-	{name = "berserk potion", chance = 23530, maxCount = 10},
+	{name = "silver hand mirror", chance = 27450, maxCount = 1},
+	{name = "berserk potion", chance = 23530, maxCount = 6},
 	{name = "ultimate spirit potion", chance = 23530, maxCount = 6},
 	{name = "bullseye potion", chance = 19610, maxCount = 10},
 	{name = "mastermind potion", chance = 19610, maxCount = 10},
@@ -82,21 +86,18 @@ monster.loot = {
 	{name = "diamond", chance = 11760},
 	{name = "cursed bone", chance = 7840},
 	{name = "soulforged lantern", chance = 7840},
-	{name = "grimace", chance = 5880},
 	{name = "amber", chance = 5880},
-	{name = "amber with a dragonfly", chance = 3920},
-	{name = "ghost claw", chance = 1960},
-	{name = "bloody tears", chance = 1500},
-	{name = "ghost chestplate", chance = 150},
-	{name = "spooky hood", chance = 150}
+	{name = "ghost claw", chance = 2560},
+	{name = "fabulous legs", chance = 1500},
+	{name = "soulful legs", chance = 1000},
+	{name = "writhing brain", chance = 5000},
+	{name = "writhing heart", chance = 5000},
 }
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 600, maxDamage = -1050, condition = {type = CONDITION_POISON, totalDamage = 4, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 100, type = COMBAT_LIFEDRAIN, minDamage = -900, maxDamage = -1400, effect = CONST_ME_MAGIC_RED, target = true},
 	{name ="combat", interval = 1000, chance = 40, type = COMBAT_PHYSICALDAMAGE, minDamage = -1000, maxDamage = -1750, radius = 2, shootEffect = CONST_ANI_SMALLEARTH, target = false},
-	{name ="drunk", interval = 1000, chance = 70, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="strength", interval = 1000, chance = 60, range = 7, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_ENERGYAREA, target = false},
 	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ENERGYDAMAGE, minDamage = 0, maxDamage = -900, length = 5, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
 	{name ="combat", interval = 1000, chance = 34, type = COMBAT_FIREDAMAGE, minDamage = -600, maxDamage = -1200, range = 7, radius = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="speed", interval = 3000, chance = 40, speedChange = -1400, effect = CONST_ME_MAGIC_RED, target = true, duration = 20000}
