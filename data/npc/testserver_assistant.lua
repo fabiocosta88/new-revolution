@@ -40,13 +40,7 @@ function addTournamentCoins(player)
 end
 
 function addExperience(player)
-	if player:getLevel() < 500 then
-		player:addExperience(500000000)
-        return true
-	else 
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have reached the maximum level of the Test Server.')
-        return false
-	end
+	player:addExperience(50000000)
 end
 
 local keywordHandler = KeywordHandler:new()
