@@ -96,7 +96,7 @@ monster.loot = {
 	{name = "dark armor", chance = 4370},
 	{id = 3456, chance = 650}, -- pick
 	{name = "steel boots", chance = 380},
-	{name = "meat", chance = 30000, maxCount = 6},
+	{id = 3582, chance = 30000, maxCount = 6},
 	{name = "perfect behemoth fang", chance = 1090},
 	{name = "behemoth claw", chance = 430},
 	{name = "assassin star", chance = 9750, maxCount = 5},

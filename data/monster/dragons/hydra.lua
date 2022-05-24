@@ -96,7 +96,7 @@ monster.loot = {
 	{name = "knight armor", chance = 1000},
 	{name = "royal helmet", chance = 210},
 	{name = "medusa shield", chance = 270},
-	{name = "ham", chance = 60000, maxCount = 4},
+	{id = 3582, chance = 60000, maxCount = 4},
 	{name = "hydra egg", chance = 930},
 	{name = "strong mana potion", chance = 380},
 	{name = "cucumber", chance = 4780},

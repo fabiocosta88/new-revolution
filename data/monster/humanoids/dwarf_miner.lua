@@ -72,7 +72,7 @@ monster.loot = {
 	{name = "studded armor", chance = 6666},
 	{id = 3456, chance = 11111}, -- pick
 	{name = "leather legs", chance = 9090},
-	{name = "meat", chance = 3846},
+	{id = 3582, chance = 3846},
 	{name = "iron ore", chance = 793}
 }
 

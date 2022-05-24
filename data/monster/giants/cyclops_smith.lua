@@ -87,7 +87,7 @@ monster.loot = {
 	{name = "dark helmet", chance = 200},
 	{name = "plate shield", chance = 2000},
 	{name = "battle shield", chance = 6190},
-	{name = "meat", chance = 49950},
+	{id = 3582, chance = 49950},
 	{id = 7398, chance = 140}, -- cyclops trophy
 	{name = "spiked squelcher", chance = 150},
 	{name = "strong health potion", chance = 390},

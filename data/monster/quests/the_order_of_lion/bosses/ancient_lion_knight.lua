@@ -67,7 +67,7 @@ monster.loot = {
 	{name = "twigs", chance = 8300},
 	{name = "fishbone", chance = 9500},
 	{name = "dark shield", chance = 2000},
-	{name = "ham", chance = 53750},
+	{id = 3582, chance = 53750},
 	{name = "dirty cape", chance = 47500},
 	{id = 3114, chance = 28750}, -- skull
 	{name = "knife", chance = 25000},

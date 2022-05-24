@@ -73,10 +73,10 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "ham", chance = 20120},
+	{id = 3582, chance = 20120},
 	{id = 3012, chance = 2000}, -- wolf tooth chain
 	{name = "gold coin", chance = 65000, maxCount = 48},
-	{name = "meat", chance = 55000, maxCount = 2},
+	{id = 3582, chance = 55000, maxCount = 2},
 	{name = "wolf paw", chance = 980}
 }
 

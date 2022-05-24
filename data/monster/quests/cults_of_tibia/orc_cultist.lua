@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "small topaz", chance = 6002, maxCount = 3},
 	{name = "orcish axe", chance = 9005},
 	{name = "cultish robe", chance = 4960},
-	{name = "ham", chance = 7020, maxCount = 3},
+	{id = 3582, chance = 7020, maxCount = 3},
 	{name = "orc tusk", chance = 8260, maxCount = 2},
 	{name = "green piece of cloth", chance = 4960},
 	{name = "brown crystal splinter", chance = 4960}

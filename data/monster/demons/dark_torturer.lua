@@ -87,7 +87,7 @@ monster.loot = {
 	{name = "golden legs", chance = 30},
 	{id = 3461, chance = 5250}, -- saw
 	{name = "steel boots", chance = 5050},
-	{name = "ham", chance = 60000, maxCount = 2},
+	{id = 3582, chance = 60000, maxCount = 2},
 	{name = "orichalcum pearl", chance = 2760, maxCount = 2},
 	{name = "cat's paw", chance = 2222},
 	{name = "jewelled backpack", chance = 1192},

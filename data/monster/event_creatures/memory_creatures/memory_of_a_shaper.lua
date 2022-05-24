@@ -69,7 +69,7 @@ monster.loot = {
 	{name = "gemmed figurine", chance = 7000},
 	{name = "great health potion", chance = 7000},
 	{name = "brown mushroom", chance = 7000},
-	{name = "meat", chance = 12000},
+	{id = 3582, chance = 12000},
 	{name = "platinum coin", chance = 22000, maxCount = 2},
 	{name = "small ruby", chance = 7000, maxCount = 2}
 }

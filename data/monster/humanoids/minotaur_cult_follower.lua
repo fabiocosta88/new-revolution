@@ -91,14 +91,14 @@ monster.loot = {
 	{name = "small emerald", chance = 3410, maxCount = 2},
 	{name = "small amethyst", chance = 2950, maxCount = 2},
 	{name = "red piece of cloth", chance = 810},
-	{name = "ham", chance = 59410},
+	{id = 3582, chance = 59410},
 	{name = "bronze amulet", chance = 15140},
 	{name = "mino shield", chance = 12670},
 	{id = 3098, chance = 3190}, -- ring of healing
 	{name = "mino lance", chance = 1810},
 	{name = "warrior helmet", chance = 570},
 	{id= 3039, chance = 170}, -- red gem
-	{name = "meat", chance = 8020},
+	{id = 3582, chance = 8020},
 	{name = "minotaur leather", chance = 11530},
 	{name = "minotaur horn", chance = 14550, maxCount = 2}
 }

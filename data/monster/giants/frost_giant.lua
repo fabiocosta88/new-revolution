@@ -87,7 +87,7 @@ monster.loot = {
 	{name = "short sword", chance = 8140},
 	{name = "dark helmet", chance = 180},
 	{name = "battle shield", chance = 1350},
-	{name = "meat", chance = 4970, maxCount = 2},
+	{id = 3582, chance = 4970, maxCount = 2},
 	{name = "shard", chance = 60},
 	{id = 7441, chance = 2180}, -- ice cube
 	{name = "norse shield", chance = 250},
