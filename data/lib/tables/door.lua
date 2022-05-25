@@ -113,6 +113,7 @@ CustomDoorTable = {
 	{ closedDoor = 9563, openDoor = 9564 },
 	{ closedDoor = 11705, openDoor = 11708 },
 	{ closedDoor = 11714, openDoor = 11716 },
+	{ closedDoor = 12035, openDoor = 12036 },
 	{ closedDoor = 12249, openDoor = 12250 },
 	{ closedDoor = 15687, openDoor = 15688 },
 	{ closedDoor = 17563, openDoor = 17564 },

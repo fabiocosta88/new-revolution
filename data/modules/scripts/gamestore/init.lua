@@ -1326,12 +1326,9 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
 	local PARCEL_ID = 3504
 	local isKeg = isKegItem(offerId) 
 
-<<<<<<< HEAD
 	local PARCEL_ID = 3504
 	local isKeg = isKegItem(offerId)
 
-=======
->>>>>>> pr/16
     if isKeg then
         if player:getFreeCapacity() < ItemType(offerId):getWeight(1) + ItemType(PARCEL_ID):getWeight() then
             return error({code = 0, message = "Please make sure you have free capacity to hold this item."})
@@ -1385,11 +1382,7 @@ function GameStore.processHouseRelatedPurchase(player, offerId, offerCount)
 	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
 	if inbox and inbox:getEmptySlots() > 0 then
 		local decoKit = inbox:addItem(23398, 1)
-<<<<<<< HEAD
 		if decoKit then
-=======
-		if decoKit then		
->>>>>>> pr/16
 			decoKit:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "You bought this item in the Store.\nUnwrap it in your own house to create a <" .. ItemType(offerId):getName() .. ">.")
 			decoKit:setCustomAttribute("unWrapId", offerId)
 			if isCaskItem(offerId) then
