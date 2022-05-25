@@ -74,7 +74,7 @@ monster.loot = {
 	{name = "great mana potion", chance = 15000, maxCount = 3},
 	{name = "brown crystal splinter", chance = 16000},
 	{name = "banana skin", chance = 9500},
-	{name = "ham", chance = 6000, maxCount = 2},
+	{id = 3582, chance = 6000, maxCount = 2},
 	{name = "violet crystal shard", chance = 3000},
 	{name = "gold ingot", chance = 2300},
 	{name = "fishbone", chance = 10000}

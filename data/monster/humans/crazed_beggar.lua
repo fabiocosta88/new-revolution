@@ -88,7 +88,7 @@ monster.loot = {
 	{name = "wooden hammer", chance = 6500},
 	{name = "wooden spoon", chance = 9750},
 	{id = 3473, chance = 5650}, -- rolling pin
-	{name = "meat", chance = 9500},
+	{id = 3582, chance = 9500},
 	{name = "roll", chance = 22500},
 	{name = "red rose", chance = 4700},
 	{name = "sling herb", chance = 420},

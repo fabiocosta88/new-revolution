@@ -74,8 +74,8 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "meat", chance = 45000, maxCount = 4},
-	{name = "ham", chance = 18430, maxCount = 2},
+	{id = 3582, chance = 45000, maxCount = 4},
+	{id = 3582, chance = 18430, maxCount = 2},
 	{name = "lion's mane", chance = 1400}
 }
 

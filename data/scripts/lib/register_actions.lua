@@ -228,6 +228,32 @@ local cutItems = {
 	[25800] = 0
 }
 
+-- Ferumbras ascendant ring reward
+local function addFerumbrasAscendantReward(player, target, toPosition)
+	local stonePos = Position(32648, 32134, 10)
+	if (toPosition == stonePos) then
+		local tile = Tile(stonePos)
+		local stone = tile:getItemById(1772)
+		if stone then
+			stone:remove(1)
+			toPosition:sendMagicEffect(CONST_ME_POFF)
+			addEvent(function()
+				Game.createItem(1772, 1, stonePos)
+			end, 20000)
+			return true
+		end
+	end
+
+	if target.itemid == 10551 and target.actionid == 53803 then
+		if player:getStorageValue(Storage.FerumbrasAscendant.Ring) >= 1 then
+			return false
+		end
+
+		player:addItem(22170, 1)
+		player:setStorageValue(Storage.FerumbrasAscendant.Ring, 1)
+	end
+end
+
 function onDestroyItem(player, item, fromPosition, target, toPosition, isHotkey)
 	if not target or target == nil or type(target) ~= "userdata" or not target:isItem() then
 		return false
@@ -330,6 +356,7 @@ function onUseRope(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
+	addFerumbrasAscendantReward(player, target, toPosition)
 	--Dawnport quest (Morris amulet task)
 	local sandPosition = Position(32099, 31933, 7)
 	if (toPosition == sandPosition) then
@@ -359,6 +386,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if table.contains(holes, target.itemid) then
 		target:transform(target.itemid + 1)
+		player:addAchievementProgress("The Undertaker", 500)
 		target:decay()
 	elseif table.contains({231, 231}, target.itemid) then
 		local rand = math.random(100)
@@ -367,6 +395,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 			target:decay()
 		elseif rand == 1 then
 			Game.createItem(3042, 1, toPosition)
+			player:addAchievementProgress("Gold Digger", 100)
 		elseif rand > 95 then
 			Game.createMonster("Scarab", toPosition)
 		end
@@ -512,6 +541,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		else
 			player:addItem(3028, 1) -- 49% chance of getting small diamond
 		end
+		player:addAchievementProgress("Petrologist", 100)
 		target:getPosition():sendMagicEffect(CONST_ME_BLOCKHIT)
 		target:remove(1)
 	elseif target.itemid == 10310 then
@@ -738,6 +768,7 @@ function onUseMachete(player, item, fromPosition, target, toPosition, isHotkey)
 	if table.contains(JUNGLE_GRASS, target.itemid) then
 		target:transform(target.itemid == 17153 and 17151 or target.itemid - 1)
 		target:decay()
+		player:addAchievementProgress("Nothing Can Stop Me", 100)
 		return true
 	end
 
@@ -884,14 +915,16 @@ function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	if target.itemid == 5464 then
-		target:transform(5463)
+	if target.itemid == 5464 or target.itemid == 5465 then --burning sugar cane or sugar cane
+		target:transform(5463) --sugar cane
 		target:decay()
-		Game.createItem(5466, 1, toPosition)
-	elseif target.itemid == 3653 then
-		target:transform(3651)
+		Game.createItem(5466, 1, toPosition) --bunch of sugar cane.
+		player:addAchievementProgress("Natural Sweetener", 50)
+	elseif target.itemid == 3653 then --wheat
+		target:transform(3651) --harvested wheat
 		target:decay()
-		Game.createItem(3605, 1, toPosition)
+		Game.createItem(3605, 1, toPosition) --wheat
+		player:addAchievementProgress("Happy Farmer", 200)
 	-- The secret library
 	elseif toPosition == Position(32177, 31925, 7) then
 		player:teleportTo({x = 32515, y = 32535, z = 12})

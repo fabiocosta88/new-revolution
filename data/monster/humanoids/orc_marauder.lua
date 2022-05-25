@@ -79,7 +79,7 @@ monster.loot = {
 	{name = "orcish axe", chance = 1320},
 	{name = "crossbow", chance = 440},
 	{name = "bow", chance = 5210},
-	{name = "meat", chance = 24600},
+	{id = 3582, chance = 24600},
 	{name = "silkweaver bow", chance = 70},
 	{name = "orc tooth", chance = 3890},
 	{name = "shaggy tail", chance = 10090},

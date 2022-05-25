@@ -20,11 +20,11 @@ Blessings.Credits = {
 }
 
 Blessings.Config = {
-	AdventurerBlessingLevel = 0, -- Free full bless until level
+	AdventurerBlessingLevel = 100, -- Free full bless until level
 	HasToF = false, -- Enables/disables twist of fate
 	InquisitonBlessPriceMultiplier = 1.1, -- Bless price multiplied by henricus
-	SkulledDeathLoseStoreItem = true, -- Destroy all items on store when dying with red/blackskull
-	InventoryGlowOnFiveBless = true, -- Glow in yellow inventory items when the player has 5 or more bless,
+	SkulledDeathLoseStoreItem = false, -- Destroy all items on store when dying with red/blackskull
+	InventoryGlowOnFiveBless = false, -- Glow in yellow inventory items when the player has 5 or more bless,
 	Debug = false -- Prin debug messages in console if enabled
 }
 

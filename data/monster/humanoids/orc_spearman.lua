@@ -82,7 +82,7 @@ monster.loot = {
 	{name = "machete", chance = 3000},
 	{name = "studded legs", chance = 10000},
 	{name = "studded helmet", chance = 9000},
-	{name = "meat", chance = 30200},
+	{id = 3582, chance = 30200},
 	{name = "orc tooth", chance = 150},
 	{name = "orc leather", chance = 2300},
 	{id = 23986, chance = 1000} -- heavy old tome

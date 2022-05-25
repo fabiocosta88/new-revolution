@@ -98,7 +98,7 @@ monster.loot = {
 	{name = "arrow", chance = 26000, maxCount = 13},
 	{name = "green tunic", chance = 8000},
 	{name = "scarf", chance = 1110},
-	{name = "meat", chance = 8200, maxCount = 3},
+	{id = 3582, chance = 8200, maxCount = 3},
 	{name = "grapes", chance = 19850},
 	{name = "red rose", chance = 20450},
 	{name = "red piece of cloth", chance = 2006},

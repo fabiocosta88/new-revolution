@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Vok The Freakish")
 local monster = {}
 
 monster.description = "Vok The Freakish"
-monster.experience = 26700
+monster.experience = 40500
 monster.outfit = {
 	lookType = 1268,
 	lookHead = 0,
@@ -60,24 +60,24 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "platinum coin", chance = 100000, maxCount = 10},
-	{name = "cursed bone", chance = 40000, maxCount = 10},
-	{name = "skull coin", chance = 40000},
+	{name = "platinum coin", chance = 100000, maxCount = 10, maxCount = 10},
+	{id = 3039, chance = 40000, maxCount = 2},
+	{name = "skull coin", chance = 40000, maxCount = 1},
 	{name = "white gem", chance = 40000, maxCount = 2},
-	{name = "moonstone", chance = 30000},
-	{name = "gemmed figurine", chance = 20000},
-	{name = "ornate crossbow", chance = 10000},
-	{name = "silver hand mirror", chance = 150},
-	{name = "death toll", chance = 150},
-	{name = "pair of nightmare boots", chance = 150}
+	{name = "moonstone", chance = 30000, maxCount = 2},
+	{name = "gemmed figurine", chance = 20000, maxCount = 1},
+	{name = "ornate crossbow", chance = 10000, maxCount = 1},
+	{name = "silver hand mirror", chance = 10000, maxCount = 1},
+	{name = "death toll", chance = 5550, maxCount = 1},
+	{name = "pair of nightmare boots", chance = 3000, maxCount = 1}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
-	{name ="combat", interval = 1500, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -500, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
-	{name ="combat", interval = 1500, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -650, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 1500, chance = 35, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -650, radius = 4, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 1500, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -650, radius = 4, effect = CONST_ME_GREEN_RINGS, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -450, maxDamage = -700},
+	{name ="combat", interval = 1500, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -350, maxDamage = -500, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
+	{name ="combat", interval = 1500, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -450, maxDamage = -650, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="combat", interval = 1500, chance = 35, type = COMBAT_DEATHDAMAGE, minDamage = -500, maxDamage = -850, radius = 4, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 1500, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -450, maxDamage = -690, radius = 4, effect = CONST_ME_GREEN_RINGS, target = true}
 }
 
 monster.defenses = {
@@ -87,14 +87,14 @@ monster.defenses = {
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 50},
-	{type = COMBAT_ENERGYDAMAGE, percent = 100},
-	{type = COMBAT_EARTHDAMAGE, percent = 50},
-	{type = COMBAT_FIREDAMAGE, percent = 50},
+	{type = COMBAT_ENERGYDAMAGE, percent = 50},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 50},
-	{type = COMBAT_HOLYDAMAGE , percent = 50},
+	{type = COMBAT_ICEDAMAGE, percent = -10},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
 	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 

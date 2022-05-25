@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Pale worm")
 local monster = {}
 
 monster.description = "a pale worm"
-monster.experience = 30000
+monster.experience = 50000
 monster.outfit = {
 	lookType = 1272,
 	lookHead = 0,
@@ -13,16 +13,16 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 300000
-monster.maxHealth = 300000
+monster.health = 380000
+monster.maxHealth = 380000
 monster.race = "undead"
 monster.corpse = 32702
 monster.speed = 250
 monster.manaCost = 0
 
 monster.changeTarget = {
-	interval = 60000,
-	chance = 0
+	interval = 6000,
+	chance = 10
 }
 
 monster.strategiesTarget = {
@@ -60,9 +60,7 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Where... Where am I?", yell = false},
-	{text = "Is that you, Tom?", yell = false},
-	{text = "Phew, what an awful smell ... oh, that's me.", yell = false}
+	{text = "DEATH!!!!!", yell = false},
 }
 
 monster.loot = {
@@ -71,7 +69,7 @@ monster.loot = {
 	{name = "moonstone", chance = 52940, maxCount = 2},
 	{name = "ultimate mana potion", chance = 43140, maxCount = 6},
 	{name = "supreme health potion", chance = 29410, maxCount = 6},
-	{name = "silver hand mirror", chance = 27450},
+	{name = "silver hand mirror", chance = 27450, maxCount = 1},
 	{name = "berserk potion", chance = 23530, maxCount = 10},
 	{name = "ultimate spirit potion", chance = 23530, maxCount = 6},
 	{name = "bullseye potion", chance = 19610, maxCount = 10},
@@ -81,14 +79,16 @@ monster.loot = {
 	{name = "angel figurine", chance = 11760},
 	{name = "diamond", chance = 11760},
 	{name = "cursed bone", chance = 7840},
-	{name = "soulforged lantern", chance = 7840},
-	{name = "grimace", chance = 5880},
 	{name = "amber", chance = 5880},
 	{name = "amber with a dragonfly", chance = 3920},
-	{name = "ghost claw", chance = 1960},
-	{name = "bloody tears", chance = 1500},
-	{name = "ghost chestplate", chance = 150},
-	{name = "spooky hood", chance = 150}
+	{name = "spectral scrap of cloth", chance = 1960},
+	{name = "ghost chestplate", chance = 500},
+	{name = "fabulous legs", chance = 1500},
+	{name = "pair of nightmare boots", chance = 2500},
+	{name = "phantasmal axe", chance = 1500},
+	{id = 32621, chance = 3000},
+	{name = "soulful legs", chance = 2000},
+	{name = "ghost backpack", chance = 500},
 }
 
 monster.attacks = {

@@ -973,30 +973,6 @@ Storage = {
 		SnakeDestroyer = 51070,
 		ShamanOufit = 51071
 	},
-	TheNewFrontier = {
-		-- Reserved storage from 51080 - 51109
-		Questline = 51080,
-		Mission01 = 51081,
-		Mission02 = 51082,
-		Mission03 = 51083,
-		Mission04 = 51084,
-		Mission05 = 51085,
-		Mission06 = 51086,
-		Mission07 = 51087,
-		Mission08 = 51088,
-		Mission09 = 51089,
-		Mission10 = 51090,
-		TomeofKnowledge = 51091,
-		Beaver1 = 51092,
-		Beaver2 = 51093,
-		Beaver3 = 51094,
-		BribeKing = 51095,
-		BribeLeeland = 51096,
-		BribeExplorerSociety = 51097,
-		BribeWydrin = 51098,
-		BribeTelas = 51099,
-		BribeHumgolf = 51100
-	},
 	TheInquisition = {
 		-- Reserved storage from 51110 - 51139
 		Questline = 51110,
@@ -1736,7 +1712,18 @@ Storage = {
 			ThePaleWorm = 53000,
 			TheUnwelcome = 53001,
 			TheFearFeaster = 53002,
-			TheDreadMaiden = 53004
+			TheDreadMaiden = 53004,
+			VokTheFreakish = 53005,
+			IrgixTheFlimsy = 53006,
+			IrgixTheFlimsy = 53006,
+			UnaztheMean = 53007,
+			BrainDead = 53008,
+			Thaian = 53009,
+			ThePaleWormSummon = 53010,
+			ThePaleWormDamage = 53011,
+			TheFearFeasterTeleported1 = 53012,
+			TheFearFeasterTeleported2 = 53013,
+			TheFearFeasterTeleported3 = 53014
 		}
 	},
 	RottinWoodAndMaried = {
@@ -2110,7 +2097,39 @@ Storage = {
 		AnUneasyAlliance = {},
 		ChildrenOfTheRevolution = {},
 		SeaOfLight = {},
-		TheNewFrontier = {},
+		TheNewFrontier = { -- The New Frontier - Reserved storage from 51080 - 51109
+			Questline = 51080,
+			FarmineFirstTravel = 51081,
+			Mission01 = 51082,
+			Mission02 = 51083,
+			Mission03 = 51084,
+			Mission04 = 51085,
+			Mission05 = 51086,
+			Mission06 = 51087,
+			Mission07 = 51088,
+			Mission08 = 51089,
+			Mission09 = 51090,
+			Mission10 = 51091,
+			TomeofKnowledge = 51092,
+			Beaver1 = 51093,
+			Beaver2 = 51094,
+			Beaver3 = 51095,
+			Mission5_1_KingTibianus = 51096,
+			Mission5_2_Leeland = 51097,
+			Mission5_3_Angus = 51098,
+			Mission5_4_Wydrin = 51099,
+			Mission5_5_Telas = 51100,
+			Mission5_6_Humgolf = 51101,
+			Mission7_HiddenNote = 51102,
+			Mission9_ArenaDoor = 51103,
+			Mission9_RewardDoor = 51104,
+			Mission10_MagicCarpetDoor = 51105,
+			Reward = {
+				Chest01 = 51106,
+				Chest02 = 51107,
+				Chest03 = 51108
+			}
+		},
 		TomesOfKnowledge = {},
 		UnnaturalSelection = {},
 		WarmasterOutfits = {},
@@ -2299,9 +2318,13 @@ GlobalStorage = {
 		ServantsKilled = 60011
 	},
 	Feroxa = {
-		-- Reserved storage from 60020 - 60029
+		-- Reserved storage from 60020 - 60028
 		Chance = 60020,
 		Active = 60021
+	},
+	TheDreadMaiden = {
+		-- Reserved storage from 60029 - 60029
+		Damage = 60029,
 	},
 	FerumbrasAscendant = {
 		-- Reserved storage from 60030 - 60069

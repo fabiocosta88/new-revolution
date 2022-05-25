@@ -78,7 +78,7 @@ monster.loot = {
 	{name = "gold coin", chance = 50000, maxCount = 80},
 	{name = "small emerald", chance = 10150, maxCount = 5},
 	{name = "obsidian lance", chance = 4975},
-	{name = "ham", chance = 40100},
+	{id = 3582, chance = 40100},
 	{name = "crocodile boots", chance = 510},
 	{id = 281, chance = 1130}, -- giant shimmering pearl (green)
 	{name = "piece of crocodile leather", chance = 25430},

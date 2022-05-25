@@ -82,7 +82,8 @@ startupGlobalStorages = {
 	GlobalStorage.FerumbrasAscendant.Elements.First,
 	GlobalStorage.FerumbrasAscendant.Elements.Second,
 	GlobalStorage.FerumbrasAscendant.Elements.Third,
-	GlobalStorage.FerumbrasAscendant.Elements.Done
+	GlobalStorage.FerumbrasAscendant.Elements.Done,
+	GlobalStorage.TheDreadMaiden.Damage,
 }
 
 table.contains = function(array, value)

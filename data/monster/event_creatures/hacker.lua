@@ -79,7 +79,7 @@ monster.loot = {
 	{name = "halberd", chance = 10000},
 	{name = "axe", chance = 10000},
 	{name = "war hammer", chance = 5000},
-	{name = "ham", chance = 50000},
+	{id = 3582, chance = 50000},
 	{id = 6570, chance = 5538}, -- surprise bag
 	{id = 6571, chance = 1538} -- surprise bag
 }

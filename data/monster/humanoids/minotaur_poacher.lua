@@ -66,7 +66,7 @@ monster.loot = {
 	{name = "broken crossbow", chance = 19400},
 	{name = "chain armor", chance = 9840},
 	{name = "studded armor", chance = 4920},
-	{name = "meat", chance = 3280},
+	{id = 3582, chance = 3280},
 	{name = "minotaur leather", chance = 1400},
 	{name = "crossbow", chance = 710},
 	{name = "minotaur horn", chance = 710}

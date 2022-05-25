@@ -35,7 +35,7 @@ monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
-	chance = 0
+	chance = 15
 }
 
 monster.strategiesTarget = {
@@ -98,10 +98,15 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 3000, chance = 24, type = COMBAT_DEATHDAMAGE, minDamage = -550, maxDamage = -1000, range = 7, radius = 3, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -650, maxDamage = -1000, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -450, maxDamage = -1100, radius = 4, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -800, maxDamage = -1250, length = 6, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -250, maxDamage = -800},
+	--strike fogo
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -950, maxDamage = -1300, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_HITBYFIRE, target = false},
+	--wave
+	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -980, maxDamage = -1150, radius = 3, effect = CONST_ME_FIREAREA, target = false},
+	--sd em area -- quebra wall
+	{name ="combat", interval = 3000, chance = 20, type = COMBAT_DEATHDAMAGE, minDamage = -900, maxDamage = -1350, range = 7, radius = 4, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
+	--exori de mort
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -850, maxDamage = -1200, radius = 3, effect = CONST_ME_DEATHAREA, target = false}, 
 }
 
 monster.defenses = {

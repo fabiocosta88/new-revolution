@@ -134,7 +134,7 @@ local function creatureSayCallback(npc, creature, type, message)
 	elseif MsgContains(message, 'enchant') then
 		npcHandler:say("The following items can be enchanted: {pendulet}, {sleep shawl}, {blister ring}, {theurgic amulet}. Make you choice!", npc, creature)
 		npcHandler:setTopic(playerId, 1)
-	elseif isInArray({'pendulet', 'sleep shawl', 'blister ring', 'theurgic amulet'}, message:lower()) and npcHandler:getTopic(playerId) == 1 then
+	elseif isInArray({'pendulet', 'sleep shawl', 'ring of souls', 'blister ring', 'theurgic amulet'}, message:lower()) and npcHandler:getTopic(playerId) == 1 then
 		npcHandler:say("Should I enchant the item pendulet for 2 ".. ItemType(npc:getCurrency()):getPluralName():lower() .."?", npc, creature)
 		charge = message:lower()
 		npcHandler:setTopic(playerId, 2)

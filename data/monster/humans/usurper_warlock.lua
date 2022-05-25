@@ -93,7 +93,7 @@ monster.loot = {
 	{name = "lightning headband", chance = 3778},
 	{name = "green gem", chance = 3556},
 	{name = "springsprout rod", chance = 2667},
-	{name = "ham", chance = 2444},
+	{id = 3582, chance = 2444},
 	{name = "magma monocle", chance = 1778},
 	{name = "wand of cosmic energy", chance = 1778},
 	{name = "underworld rod", chance = 1333},

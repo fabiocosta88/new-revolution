@@ -78,7 +78,7 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "ham", chance = 40080, maxCount = 4},
+	{id = 3582, chance = 40080, maxCount = 4},
 	{name = "diremaw brainpan", chance = 24120},
 	{name = "poisonous slime", chance = 11930, maxCount = 5},
 	{name = "blue crystal shard", chance = 9660},
