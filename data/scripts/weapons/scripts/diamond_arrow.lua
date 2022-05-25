@@ -1,9 +1,9 @@
 local area = createCombatArea({
- 	{0, 1, 1, 1, 0},
- 	{1, 1, 1, 1, 1},
- 	{1, 1, 3, 1, 1},
-	{1, 1, 1, 1, 1},
-	{0, 1, 1, 1, 0},
+     {0, 1, 1, 1, 0},
+     {1, 1, 1, 1, 1},
+     {1, 1, 3, 1, 1},
+     {1, 1, 1, 1, 1},
+     {0, 1, 1, 1, 0},
  })
 
 local combat = Combat()
@@ -25,7 +25,7 @@ combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")
 local diamondArrow = Weapon(WEAPON_AMMO)
 
 function diamondArrow.onUseWeapon(player, variant)
-	return combat:execute(player, variant)
+    return combat:execute(player, variant)
 end
 
 diamondArrow:id(25757)
