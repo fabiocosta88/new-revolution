@@ -35834,9 +35834,9 @@
 		<attribute key="wrapableto" value="23398"/>
 		<attribute key="weight" value="850"/>
 	</item>
-	<item id="23721" article="a" name="gold pouch">
-		<attribute key="description" value="A infinity bag where you can hold coins."/>
-		<attribute key="containersize" value="8"/>
+	<item id="23721" article="a" name="loot pouch">
+		<attribute key="description" value="A infinity bag where you can hold items and coins."/>
+		<attribute key="containersize" value="40"/>
 	</item>
 	<item id="23722" article="a" name="gold converter">
 		<attribute key="showCharges" value="1"/>
