@@ -431,7 +431,8 @@ Storage = {
 		TatteredSwanFeathers03 = 50303,
 		TatteredSwanFeathers04 = 50304,
 		TatteredSwanFeathers05 = 50305,
-		PoacherChest = 50306
+		PoacherChest = 50306,
+		FacelessBaneWalk = 50307
 	},
 	FirstDragon = {
 		-- Reserved storage from 50350 - 50379
@@ -2321,6 +2322,11 @@ GlobalStorage = {
 		-- Reserved storage from 60020 - 60028
 		Chance = 60020,
 		Active = 60021
+	},
+	FacelessBane = {
+		-- Reserved storage from 60029 - 60029
+		Damage = 60028,
+		Count = 60027,
 	},
 	TheDreadMaiden = {
 		-- Reserved storage from 60029 - 60029

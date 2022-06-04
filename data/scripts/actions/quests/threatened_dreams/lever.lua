@@ -3,8 +3,8 @@ local config = {
 	requiredLevel = 250,
 	leverId = 9111,
 	timeToFightAgain = 20, -- In hour
-	timeToDefeatBoss = 20, -- In minutes
-	clearRoomTime = 60, -- In minutes
+	timeToDefeatBoss = 10, -- In minutes
+	clearRoomTime = 10, -- In minutes
 	daily = true,
 	centerRoom = Position(33617, 32562, 13),
 	playerPositions = {
@@ -16,7 +16,8 @@ local config = {
 	},
 	teleportPosition = Position(33617, 32567, 13),
 	bossPosition = Position(33617, 32561, 13),
-	specPos = Position(33618, 32523, 15)
+	specPos = Position(33618, 32523, 15),
+	facelessdamage = GlobalStorage.FacelessBane.Damage
 }
 
 local threatenedLever = Action()
@@ -64,7 +65,8 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 		-- One hour for clean the room
 		addEvent(clearRoom, config.clearRoomTime * 60 * 1000, config.centerRoom)
 		Game.createMonster(config.bossName, config.bossPosition)
-
+		Game.setStorageValue(config.facelessdamage, math.random(7, 13))
+		Game.setStorageValue(GlobalStorage.FacelessBane.Count, 3)
 		-- Teleport team participants
 		for i = 1, #team do
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
@@ -73,18 +75,18 @@ function threatenedLever.onUse(player, item, fromPosition, target, toPosition, i
 			-- Assign boss timer
 			team[i]:setStorageValue(Storage.ThreatenedDreams.FacelessBaneTime, os.time() + config.timeToFightAgain * 60 * 60) -- 20 hours
 			item:transform(config.leverId)
-			
-				addEvent(function()
-					local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
-						for i = 1, #specs do
-							spec = specs[i]
-							if spec:isPlayer() then
-								spec:teleportTo(config.specPos)
-								spec:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-								spec:say("Time out! You were teleported out by strange forces.", TALKTYPE_MONSTER_SAY)
-							end
+
+			addEvent(function()
+				local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
+					for i = 1, #specs do
+						spec = specs[i]
+						if spec:isPlayer() then
+							spec:teleportTo(config.specPos)
+							spec:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+							spec:say("Time out! You were teleported out by strange forces.", TALKTYPE_MONSTER_SAY)
 						end
-				end, config.timeToDefeatBoss * 60 * 1000)
+					end
+			end, config.timeToDefeatBoss * 60 * 1000)
 		end
 	end
 	return true

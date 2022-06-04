@@ -25,6 +25,11 @@ monster.changeTarget = {
 	chance = 10
 }
 
+monster.events = {
+	"faceless_damage",
+	"facelessDeath"
+}
+
 monster.strategiesTarget = {
 	nearest = 70,
 	health = 10,
