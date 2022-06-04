@@ -1,6 +1,14 @@
 local refiller = TalkAction("!refiller")
 
 function refiller.onSay(player, words, param)	
+    if player:isPzLocked() or getCreatureCondition(player, CONDITION_INFIGHT) == true then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You cannot use this command in battle.')
+        return true
+    end
+	if not player:isPremium() then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You are not VIP or not buy Refiller to use this command.')
+        return true
+	end	
     if player:removeMoneyBank(50000) then
         local position = player:getPosition()
         local npc = Game.createNpc("Refiller", position)
