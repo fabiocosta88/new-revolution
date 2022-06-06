@@ -281,7 +281,7 @@ local questTable = {
 	{storage = Storage.ForgottenKnowledge.AccessFire, storageValue = 1},
 	{storage = Storage.ForgottenKnowledge.AccessIce, storageValue = 1},
 	{storage = Storage.ForgottenKnowledge.AccessGolden, storageValue = 1},
-	{storage = Storage.WhiteRavenMonastery.Passage, storageValue = 2},
+	{storage = Storage.WhiteRavenMonastery.Passage, storageValue = 1},
 	{storage = Storage.WhiteRavenMonastery.QuestLog, storageValue = 2},
 	{storage = Storage.WhiteRavenMonastery.Diary, storageValue = 2},
 	{storage = Storage.WhiteRavenMonastery.Door, storageValue = 2},
