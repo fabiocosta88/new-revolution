@@ -1,5 +1,9 @@
 local config = {
 	bossName = "King Zelos",
+	miniBossName1 = "The Red Knight",
+	miniBossName2 = "Nargol The Impaler",
+	miniBossName3 = "Magnor Mournbringer",
+	miniBossName4 = "Rewar The Bloody",
 	requiredLevel = 250,
 	leverId = 8911,
 	timeToFightAgain = 20, -- In hour
@@ -19,10 +23,14 @@ local config = {
 		Position(33486, 31545, 13),
 		Position(33486, 31544, 13)
 	},
-	teleportPosition = Position(33443, 31554, 13),
+	teleportPosition = Position(33443, 31571, 13),
 	bossPosition = Position(33443, 31545, 13),
+	miniBossPosition1 = Position(33423, 31562, 13),
+	miniBossPosition2 = Position(33423, 31529, 13),
+	miniBossPosition3 = Position(33463, 31529, 13),
+	miniBossPosition4 = Position(33463, 31562, 13),
 	specPos = Position(33489, 31546, 13),
-    storage = Storage.GraveDanger.BossTimer.KingZelosTimer
+    storage = Storage.GraveDanger.BossTimer.KingZelos
 }
 
 local kingzelos = Action()
@@ -57,7 +65,7 @@ function kingzelos.onUse(player, item, fromPosition, target, toPosition, isHotke
 		end
 
 		-- Check if a team currently inside the boss room
-		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
+		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 31, 31, 31, 31)
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
@@ -69,13 +77,23 @@ function kingzelos.onUse(player, item, fromPosition, target, toPosition, isHotke
 
 		-- One hour for clean the room
 		addEvent(clearRoom, config.clearRoomTime * 60 * 1000, config.centerRoom)
+		addEvent(clearRoom, config.clearRoomTime * 60 * 1000, config.miniBossPosition1)
+		addEvent(clearRoom, config.clearRoomTime * 60 * 1000, config.miniBossPosition2)
+		addEvent(clearRoom, config.clearRoomTime * 60 * 1000, config.miniBossPosition3)
+		addEvent(clearRoom, config.clearRoomTime * 60 * 1000, config.miniBossPosition4)
 		Game.createMonster(config.bossName, config.bossPosition)
+		Game.createMonster(config.miniBossName1, config.miniBossPosition1)
+		Game.createMonster(config.miniBossName2, config.miniBossPosition2)
+		Game.createMonster(config.miniBossName3, config.miniBossPosition3)
+		Game.createMonster(config.miniBossName4, config.miniBossPosition4)
+		Game.setStorageValue(GlobalStorage.KingZelos.Minibosses, 0)
 
 		-- Teleport team participants
 		for i = 1, #team do
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
 			team[i]:teleportTo(config.teleportPosition)
-			team[i]:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have ".. config.timeToDefeatBoss .." minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.")
+			team[i]:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+			team[i]:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have ".. config.timeToDefeatBoss .." minutes to kill and loot " .. config.bossName .. ". Otherwise you will lose that chance and will be kicked out.")
 			-- Assign boss timer
 			team[i]:setStorageValue(config.storage, os.time() + config.timeToFightAgain * 60 * 60) -- 20 hours
 			item:transform(config.leverId)

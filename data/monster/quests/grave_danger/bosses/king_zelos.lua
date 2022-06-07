@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("King Zelos")
 local monster = {}
 
 monster.description = "King Zelos"
-monster.experience = 251300
+monster.experience = 112500
 monster.outfit = {
 	lookType = 1224,
 	lookHead = 10,
@@ -13,15 +13,15 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 125000
+monster.health = 480000
 monster.maxHealth = monster.health
 monster.race = "venom"
 monster.corpse = 31611
 monster.speed = 425
 
 monster.changeTarget = {
-	interval = 4000,
-	chance = 10
+	interval = 6000,
+	chance = 25
 }
 
 monster.flags = {
@@ -73,28 +73,33 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2000, minDamage = -900, maxDamage = -2700},
-	{name = "combat", type = COMBAT_FIREDAMAGE, interval = 2000, chance = 15, length = 8, spread = 0, minDamage = -1200, maxDamage = -3200, effect = CONST_ME_HITBYFIRE},
-	{name = "combat", type = COMBAT_LIFEDRAIN, interval = 2000, chance = 10, length = 8, spread = 3, minDamage = -600, maxDamage = -1600, effect = CONST_ME_SMALLCLOUDS},
+	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2000, minDamage = -900, maxDamage = -1900},
+	{name = "combat", type = COMBAT_FIREDAMAGE, interval = 2000, chance = 22, length = 8, spread = 0, minDamage = -1200, maxDamage = -3200, effect = CONST_ME_HITBYFIRE},
+	{name = "combat", type = COMBAT_LIFEDRAIN, interval = 2000, chance = 18, length = 8, spread = 3, minDamage = -600, maxDamage = -1600, effect = CONST_ME_SMALLCLOUDS},
+	{name ="king zelos death wave", interval = 2000, chance = 10, minDamage = -1000, maxDamage = -2000, target = false},
 }
 
 monster.defenses = {
-	defense = 78,
-	armor = 78,
-	{name = "combat", type = COMBAT_HEALING, chance = 15, interval = 2000, minDamage = 1450, maxDamage = 5350, effect = CONST_ME_MAGIC_BLUE},
+	defense = 110,
+	armor = 90,
+	{name = "combat", type = COMBAT_HEALING, chance = 25, interval = 2000, minDamage = 1450, maxDamage = 5350, effect = CONST_ME_MAGIC_BLUE},
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 3},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 5},
+	{type = COMBAT_FIREDAMAGE, percent = -10},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_HOLYDAMAGE , percent = -5},
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
+}
+
+monster.heals = {
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 
 monster.immunities = {
@@ -105,7 +110,7 @@ monster.immunities = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "Feel the power of death unleashed!", yell = false},
+	{text = "Mine is the power of death! You can't defeat me!", yell = false},
 	{text = "I will rule again and my realm of death will span the world!", yell = false},
 	{text = "My lich-knights will conquer this world for me!", yell = false},
 }

@@ -2424,7 +2424,7 @@ GlobalStorage = {
 		}
 	},
 	ElementalSphere = {
-		-- Reserved storage from 60140 - 60159
+		-- Reserved storage from 60140 - 60158
 		BossRoom = 60140,
 		KnightBoss = 60141,
 		SorcererBoss = 60142,
@@ -2434,6 +2434,10 @@ GlobalStorage = {
 		Machine2 = 60146,
 		Machine3 = 60147,
 		Machine4 = 60148
+	},
+	KingZelos = {
+		-- Reserved storage from 60159 - 60159
+		Minibosses = 60159,
 	},
 	TheAncientTombs = {
 		-- Reserved storage from 60160 - 60169

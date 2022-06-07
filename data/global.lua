@@ -86,6 +86,7 @@ startupGlobalStorages = {
 	GlobalStorage.TheDreadMaiden.Damage,
 	GlobalStorage.FacelessBane.Damage,
 	GlobalStorage.FacelessBane.Count,
+	GlobalStorage.KingZelos.Minibosses,
 }
 
 table.contains = function(array, value)
