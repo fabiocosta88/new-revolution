@@ -73,7 +73,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -550},
 	{name ="explosion wave", interval = 2000, chance = 14, minDamage = -450, maxDamage = -600, target = false},
 	{name ="combat", interval = 2000, chance = 10, type = COMBAT_FIREDAMAGE, minDamage = -400, maxDamage = -750, radius = 5, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 12, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -930, radius = 4, effect = CONST_ME_FIREATTACK, target = false}
+	{name ="combat", interval = 2000, chance = 12, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -930, radius = 4, effect = CONST_ME_FIREATTACK, target = false},
 	-- energy damage
 	{name ="condition", type = CONDITION_ENERGY, interval = 2000, chance = 18, minDamage = -300, maxDamage = -400, radius = 6, effect = CONST_ME_ENERGYHIT, target = false},
 	-- fire
