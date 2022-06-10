@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 15000
-monster.maxHealth = 30000
+monster.health = 22500
+monster.maxHealth = 45000
 monster.race = "blood"
 monster.corpse = 0
 monster.speed = 240
@@ -64,8 +64,7 @@ monster.light = {
 monster.summon = {
 	maxSummons = 2,
 	summons = {
-		{name = "Barkless Fanatic", chance = 20, interval = 2000, count = 1},
-		{name = "Barkless Fanatic", chance = 30, interval = 2000, count = 1}
+		{name = "Barkless Fanatic", chance = 100, interval = 2000, count = 2}
 	}
 }
 
@@ -79,7 +78,9 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800},
+	{name ="leiden life drain beam", interval = 2000, chance = 15, minDamage = -150, maxDamage = -450, target = false},
+	{name ="leiden mort beam", interval = 2000, chance = 20, minDamage = -250, maxDamage = -750, target = false},
 }
 
 monster.defenses = {

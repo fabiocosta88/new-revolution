@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Barkless Fanatic")
 local monster = {}
 
 monster.description = "a barkless fanatic"
-monster.experience = 2500
+monster.experience = 3750
 monster.outfit = {
 	lookType = 990,
 	lookHead = 0,
@@ -30,7 +30,7 @@ monster.health = 3200
 monster.maxHealth = 3200
 monster.race = "blood"
 monster.corpse = 6012
-monster.speed = 240
+monster.speed = 250
 monster.manaCost = 390
 
 monster.changeTarget = {
@@ -86,9 +86,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -230},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -220, maxDamage = -450, range = 7, radius = 4, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = 0, maxDamage = -150, radius = 6, effect = CONST_ME_GREEN_RINGS, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -240, maxDamage = -450, range = 7, radius = 4, shootEffect = CONST_ANI_SPEAR, effect = CONST_ME_GREEN_RINGS, target = true},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -210, maxDamage = -350, radius = 6, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="barkless skill reducer", interval = 4000, chance = 10, target = false}
+	
 }
 
 monster.defenses = {
@@ -98,15 +100,15 @@ monster.defenses = {
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 1},
+	{type = COMBAT_ENERGYDAMAGE, percent = 17},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 1},
+	{type = COMBAT_FIREDAMAGE, percent = 10},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 1},
+	{type = COMBAT_ICEDAMAGE, percent = 15},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 1}
+	{type = COMBAT_DEATHDAMAGE , percent = 15}
 }
 
 monster.immunities = {

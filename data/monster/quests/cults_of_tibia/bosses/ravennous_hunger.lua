@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 100000
-monster.maxHealth = 100000
+monster.health = 190000
+monster.maxHealth = 190000
 monster.race = "blood"
 monster.corpse = 6323
 monster.speed = 280
@@ -111,25 +111,27 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -900}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1200},
+	{name ="leiden life drain beam", interval = 2000, chance = 15, minDamage = -150, maxDamage = -550, target = false},
+	{name ="leiden mort beam", interval = 2000, chance = 20, minDamage = -250, maxDamage = -950, target = false},
 }
 
 monster.defenses = {
-	defense = 50,
-	armor = 35
+	defense = 100,
+	armor = 95
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
 	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = -80}
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 
 monster.immunities = {
