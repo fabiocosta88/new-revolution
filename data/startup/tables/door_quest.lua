@@ -677,6 +677,14 @@ QuestDoorAction = {
 		itemId = 20450,
 		itemPos = {{x = 32761, y = 32630, z = 7}}
 	},
+	[Storage.Quest.TheDreamCourts.StrickenSoul] = {
+		itemId = false,
+		itemPos = {
+			{x = 32700, y = 32244, z = 9},
+			{x = 32671, y = 32652, z = 7},
+			{x = 33088, y = 32388, z = 8}
+		}
+	},
 	-- Kilmaresh doors
 	[Storage.Kilmaresh.First.Title] = {
 		itemId = false,

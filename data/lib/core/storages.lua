@@ -2287,7 +2287,8 @@ Storage = {
 		-- update 12.00
 		DreamWarriorOutfits = {},
 		TheDreamCourts = {
-			AndrewDoor = 14900
+			AndrewDoor = 14900,
+			StrickenSoul = 14901
 		},
 		-- update 12.02
 		TibiaAnniversary = {},
