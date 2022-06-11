@@ -16582,7 +16582,7 @@
 		<attribute key="weight" value="2000"/>
 	</item>
 	<item id="8149" name="Tibiacity Encyclopedia">
-		<attribute key="description" value="It contains all the knowledge of Tibia"/>
+		<attribute key="description" value="Souvenir from Thais Museum"/>
 		<attribute key="weight" value="1337"/>
 	</item>
 	<item id="8150" article="a" name="key of numerous locks">
@@ -33762,7 +33762,7 @@
 		<attribute key="decayTo" value="0"/>
 	</item>
 	<item fromid="22151" toid="22152" name="Cateroide's doll">
-		<attribute key="description" value="A rare doll that only worthy warriors can touch! Awarded by Cateroide.com.br"/>
+		<attribute key="description" value="Souvenir from Thais Museum"/>
 		<attribute key="weight" value="1500"/>
 	</item>
 	<item fromid="22153" toid="22154" name="dark wizard's crown">
@@ -38179,7 +38179,7 @@
 		<attribute key="description" value="Souvenir from Thais Museum"/>
 		<attribute key="weight" value="1500"/>
 	</item>
-	<item id="25980" article="a" name="emblem">
+	<item id="25980" article="a" name="TibiaHispano emblem">
 		<attribute key="description" value="Souvenir from Thais Museum"/>
 		<attribute key="weight" value="500"/>
 	</item>

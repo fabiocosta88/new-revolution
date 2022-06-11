@@ -52,40 +52,44 @@ end
 local items = {
 	 [1] = {name = "Abacus", id = 19151},
 	 [2] = {name = "Assassin Doll", id = 28897},
-	 [3] = {name = "Bag of Oriental Spices", id = 10817},
-	 [4] = {name = "Bookworm Doll", id = 18343},
-	 [5] = {name = "Cateroides Doll", id = 22151},
-	 [6] = {name = "Doll of Durin the Almighty", id = 14764},
+	 [3] = {name = "Bag of Oriental Spices", id = 23682},
+	 [4] = {name = "Bookworm Doll", id = 28895},
+	 [5] = {name = "Cateroide's Doll", id = 22151},
+	 [6] = {name = "Doll of Durin the Almighty", id = 23679},
 	 [7] = {name = "Dragon Eye", id = 22027},
 	 [8] = {name = "Dragon Goblet", id = 31265},
-	 [9] = {name = "Draken Doll", id = 12043},
-	 [10] = {name = "Encyclopedia", id = 8149},
-	 [11] = {name = "Friendship Amulet", id = 19153},
-	 [12] = {name = "Frozen Heart", id = 19156},
-	 [13] = {name = "Golden Falcon", id = 28896},
-	 [14] = {name = "Golden Newspaper", id = 8153},
-	 [15] = {name = "Hand Puppets", id = 9189},
-	 [16] = {name = "Imortus", id = 12811},
+	 [9] = {name = "Draken Doll", id = 25979},
+	 [10] = {name = "Friendship Amulet", id = 19153},
+	 [11] = {name = "Frozen Heart", id = 19156},
+	 [12] = {name = "Golden Falcon", id = 28896},
+	 [13] = {name = "Golden Newspaper", id = 23681},
+	 [14] = {name = "Goromaphone", id = 34210},
+	 [15] = {name = "Hand Puppets", id = 23676},
+	 [16] = {name = "Imortus", id = 23683},
 	 [17] = {name = "Jade Amulet", id = 31268},
 	 [18] = {name = "Key of Numerous Locks", id = 19152},
-	 [19] = {name = "Loremaster Doll", id = 31267},
-	 [20] = {name = "Mathmaster Shield", id = 14760},
-	 [21] = {name = "Medusa Skull", id = 14762},
-	 [22] = {name = "Music Box", id = 12045},
-	 [23] = {name = "Noble Sword", id = 16276},
-	 [24] = {name = "Norsemal Doll", id = 19150},
-	 [25] = {name = "Old Radio", id = 12813},
-	 [26] = {name = "Orcs Jaw Shredder", id = 19155},
-	 [27] = {name = "Pigeon Trophy", id = 31266},
-	 [28] = {name = "Phoenix Statue", id = 22026},
-	 [29] = {name = "The Mexcalibur", id = 19154},
-	 [30] = {name = "TibiaHispano Emblem", id = 25980},
-	 [31] = {name = "Goromaphone", id = 34210}
+	 [19] = {name = "Little Adventurer Doll", id = 37058},
+	 [20] = {name = "Loremaster Doll", id = 31267},
+	 [21] = {name = "Lucky Clover Amulet", id = 37059},
+	 [22] = {name = "Mathmaster Shield", id = 25982},
+	 [23] = {name = "Medusa Skull", id = 23680},
+	 [24] = {name = "Music Box", id = 23677},
+	 [25] = {name = "Noble Sword", id = 22028},
+	 [26] = {name = "Norseman Doll", id = 19150},
+	 [27] = {name = "Old Radio", id = 28894},
+	 [28] = {name = "Orcs Jaw Shredder", id = 19155},
+	 [29] = {name = "Pigeon Trophy", id = 31266},
+	 [30] = {name = "Phoenix Statue", id = 22026},
+	 [31] = {name = "Shield of Endless Search", id = 37060},
+	 [32] = {name = "The Mexcalibur", id = 19154},
+	 [33] = {name = "Tibiacity Encyclopedia", id = 8149},
+	 [34] = {name = "TibiaHispano Emblem", id = 25980},
 }
 
 local function greetCallback(npc, creature)
 	local playerId = creature:getId()
-	return true
+	npcHandler:setMessage(MESSAGE_GREET, "Hello " .. creature:getName() .. ", I sell {souvenirs} from the old tibia fan sites.")
+		return true
 end
 
 local function creatureSayCallback(npc, creature, type, message)
@@ -99,15 +103,18 @@ local function creatureSayCallback(npc, creature, type, message)
 
 	if message then
 		for i = 1, #items do
-		  if MsgContains(message, items[i].name) then
-				if getPlayerItemCount(creature, 19083) >= 20 then
-					doPlayerRemoveItem(creature, 19083, 20)
-					doPlayerAddItem(creature, items[i].id, 1)
-					selfSay('You just swapped 20 silver raid tokens for 1 '.. getItemName(items[i].name) ..'.', npc, creature)
-				else
-					selfSay('You need 20 silver raid tokens.', npc, creature)
-				end
+			if MsgContains(message, "souvenirs") then
+				npcHandler:say("Here is a list of my souvenirs: {Abacus}, {Assasin Doll}, {Bag of Oriental Spices}, {Bookworm Doll}, {Cateroide's Doll}, {Doll of Durin the Almighty}, {Dragon Eye}, {Dragon Goblet}, {Draken Doll}, {Friendship Amulet}, {Frozen Heart}, {Golden Falcon}, {Golden Newspaper}, {Goromaphone}, {Hand Puppets}, {Imortus}, {Jade Amulet}, {Key of Numerous Locks}, {Little Adventurer Doll}, {Loremaster Doll}, {Lucky Clover Amulet}, {Mathmaster Shield}, {Medusa Skull}, {Music Box}, {Noble Sword}, {Norseman Doll}, {Old Radio}, {Orcs Jaw Shredder}, {Pigeon Trophy}, {Phoenix Statue}, {Shield of Endless Search}, {The Mexcalibur}, {Tibiacity Encyclopedia} and {TibiaHispano Emblem}", npc, creature)
 			end
+			if MsgContains(message, items[i].name) then
+					if getPlayerItemCount(creature, 19083) >= 20 then
+						doPlayerRemoveItem(creature, 19083, 20)
+						doPlayerAddItem(creature, items[i].id, 1)
+						selfSay('You just swapped 20 silver raid tokens for 1 '.. getItemName(items[i].name) ..'.', npc, creature)
+					else
+						selfSay('You need 20 silver raid tokens to buy 1 ' .. getItemName(items[i].name) .. '.', npc, creature)
+					end
+				end
 		end
 	end
 	return true
