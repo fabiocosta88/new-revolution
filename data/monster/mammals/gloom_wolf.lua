@@ -76,8 +76,9 @@ monster.loot = {
 	{id = 3582, chance = 20120},
 	{id = 3012, chance = 2000}, -- wolf tooth chain
 	{name = "gold coin", chance = 65000, maxCount = 48},
-	{id = 3582, chance = 55000, maxCount = 2},
-	{name = "wolf paw", chance = 980}
+	{name = "meat", chance = 55000, maxCount = 2},
+	{name = "wolf paw", chance = 980},
+	{id = 22007, chance = 8000} --gloom wolf fur
 }
 
 monster.attacks = {
