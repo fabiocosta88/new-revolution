@@ -1717,7 +1717,9 @@
 		<attribute key="absorbpercentfire" value="-5"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="weight" value="750"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase speed" value="3"/>
+		</attribute>
 	</item>
 	<item id="814" article="a" name="terra amulet">
 		<attribute key="showCharges" value="1"/>
@@ -1765,7 +1767,9 @@
 		<attribute key="absorbpercentenergy" value="-5"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="weight" value="750"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase speed" value="3"/>
+		</attribute>
 	</item>
 	<item id="820" name="lightning boots">
 		<attribute key="absorbpercentpoison" value="-5"/>
@@ -4813,7 +4817,9 @@
 		<attribute key="showAttributes" value="1"/>
 		<attribute key="speed" value="40"/>
 		<attribute key="weight" value="750"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase speed" value="3"/>
+		</attribute>
 	</item>
 	<item id="3080" article="a" name="broken amulet">
 		<attribute key="weight" value="420"/>
@@ -4979,7 +4985,15 @@
 	<item id="3101" article="a" name="spellbook">
 		<attribute key="defense" value="14"/>
 		<attribute key="weight" value="1800"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="elemental protection death" value="3"/>
+			<attribute key="elemental protection earth" value="3"/>
+			<attribute key="elemental protection fire" value="3"/>
+			<attribute key="elemental protection ice" value="3"/>
+			<attribute key="elemental protection energy" value="3"/>
+			<attribute key="elemental protection holy" value="3"/>
+			<attribute key="skillboost shielding" value="3"/>
+        </attribute>
 	</item>
 	<item id="3102" article="a" name="paw amulet">
 		<attribute key="weight" value="420"/>
@@ -7442,10 +7456,10 @@
 	<item id="3549" article="a" name="pair of soft boots">
 		<attribute key="showduration" value="1"/>
 		<attribute key="showAttributes" value="1"/>
-		<attribute key="manaticks" value="6000"/>
-		<attribute key="managain" value="12"/>
-		<attribute key="healthticks" value="6000"/>
-		<attribute key="healthgain" value="3"/>
+		<attribute key="manaticks" value="8000"/>
+		<attribute key="managain" value="30"/>
+		<attribute key="healthticks" value="5000"/>
+		<attribute key="healthgain" value="10"/>
 		<attribute key="duration" value="14400"/>
 		<attribute key="transformdeequipto" value="6529"/>
 		<attribute key="decayTo" value="6530"/>
@@ -8145,7 +8159,9 @@
 		<attribute key="speed" value="30"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="weight" value="2500"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase speed" value="3"/>
+		</attribute>
 	</item>
 	<item id="4034" article="a" name="slain ghoul">
 		<attribute key="duration" value="300"/>
@@ -11670,7 +11686,7 @@
 	<item id="5973" article="a" name="dead dragon">
 		<attribute key="fluidsource" value="blood"/>
 		<attribute key="duration" value="10"/>
-		<attribute key="decayTo" value="4025"/>
+		<attribute key="decayTo" value="4286"/>
 		<attribute key="containersize" value="12"/>
 	</item>
 	<item id="5974" article="a" name="dead spider">
@@ -15095,7 +15111,9 @@
 		<attribute key="speed" value="-12"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="weight" value="1200"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase speed" value="3"/>
+		</attribute>
 	</item>
 	<item id="7458" article="a" name="fur cap">
 		<attribute key="description" value="It feels nice and warm on your ears"/>
@@ -16582,7 +16600,7 @@
 		<attribute key="weight" value="2000"/>
 	</item>
 	<item id="8149" name="Tibiacity Encyclopedia">
-		<attribute key="description" value="Souvenir from Thais Museum"/>
+		<attribute key="description" value="It contains all the knowledge of Tibia"/>
 		<attribute key="weight" value="1337"/>
 	</item>
 	<item id="8150" article="a" name="key of numerous locks">
@@ -19820,7 +19838,9 @@
 		<attribute key="absorbpercentholy" value="-2"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="weight" value="2250"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase speed" value="3"/>
+		</attribute>
 	</item>
 	<item id="10324" article="an" name="expedition backpack">
 		<attribute key="containersize" value="20"/>
@@ -23882,7 +23902,9 @@
 		<attribute key="speed" value="-10"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="weight" value="3700"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase speed" value="3"/>
+		</attribute>
 	</item>
 	<item id="13998" article="a" name="depth scutum">
 		<attribute key="weaponType" value="shield"/>
@@ -24474,16 +24496,10 @@
 		<attribute key="description" value="It was awarded during the festivities of Tibia's 15th anniversary"/>
 		<attribute key="weight" value="1250"/>
 	</item>
-	<item id="14674" article="an" name="vip backpack">
-		<attribute key="description" value="Este item concede velocidade e regeneracao de mana e vida."/>
-		<attribute key="containersize" value="50"/>
+	<item id="14674" article="an" name="anniversary backpack">
+		<attribute key="description" value="It was awarded during the festivities of Tibia's 15th anniversary"/>
+		<attribute key="containersize" value="20"/>
 		<attribute key="weight" value="1500"/>
-		<attribute key="showAttributes" value="1"/>
-		<attribute key="manaticks" value="6000"/>
-		<attribute key="managain" value="70"/>
-		<attribute key="healthticks" value="6000"/>
-		<attribute key="healthgain" value="50"/>
-		<attribute key="speed" value="60"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="increase capacity" value="3"/>
 		</attribute>
@@ -30034,7 +30050,13 @@
 		<attribute key="attack" value="50"/>
 		<attribute key="defense" value="30"/>
 		<attribute key="weight" value="4000"/>
-		<attribute key="imbuementslot" value="2"/>
+		<attribute key="imbuementslot" value="2">
+			<attribute key="elemental damage" value="3"/>
+			<attribute key="life leech" value="3"/>
+			<attribute key="mana leech" value="3"/>
+			<attribute key="critical hit" value="3"/>
+			<attribute key="skillboost club" value="3"/>
+        </attribute>
 	</item>
 	<item fromid="19401" toid="19404" article="a" name="sand"/>
 	<item fromid="19405" toid="19408" article="a" name="strange foundation"/>
@@ -33105,7 +33127,9 @@
 		<attribute key="speed" value="30"/>
 		<attribute key="armor" value="2"/>
 		<attribute key="weight" value="500"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase speed" value="3"/>
+		</attribute>
 	</item>
 	<item id="21982" article="a" name="nightmare teddy">
 		<attribute key="weight" value="590"/>
@@ -33762,7 +33786,7 @@
 		<attribute key="decayTo" value="0"/>
 	</item>
 	<item fromid="22151" toid="22152" name="Cateroide's doll">
-		<attribute key="description" value="Souvenir from Thais Museum"/>
+		<attribute key="description" value="A rare doll that only worthy warriors can touch! Awarded by Cateroide.com.br"/>
 		<attribute key="weight" value="1500"/>
 	</item>
 	<item fromid="22153" toid="22154" name="dark wizard's crown">
@@ -36129,10 +36153,16 @@
 	<item id="24394" article="an" name="orclops santa">
 		<attribute key="weight" value="650"/>
 	</item>
-	<item id="24395" article="a" name="birthday backpack">
-		<attribute key="description" value="It was awarded during the festivities of Tibia's 20th anniversary"/>
-		<attribute key="containersize" value="20"/>
-		<attribute key="weight" value="1500"/>
+	<item id="24395" article="a" name="VIP backpack">
+		<attribute key="description" value="Este item concede velocidade e regeneracao de mana e vida."/>
+		<attribute key="showAttributes" value="1"/>
+		<attribute key="manaticks" value="2000"/>
+		<attribute key="managain" value="50"/>
+		<attribute key="healthticks" value="2000"/>
+		<attribute key="healthgain" value="50"/>
+		<attribute key="speed" value="60"/>
+        <attribute key="containersize" value="50"/>
+        <attribute key="weight" value="1500"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="increase capacity" value="3"/>
 		</attribute>
@@ -37178,7 +37208,6 @@
 		<attribute key="weight" value="1200"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="elemental protection death" value="3"/>
-			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection fire" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
@@ -37361,8 +37390,6 @@
 		<attribute key="stopduration" value="0"/>
 		<attribute key="showduration" value="1"/>
 		<attribute key="magicpoints" value="2"/>
-		<attribute key="criticalhitdamage" value="35"/>
-		<attribute key="criticalhitchance" value="10"/>
 		<attribute key="duration" value="900"/>
 		<attribute key="decayTo" value="0"/>
 		<attribute key="range" value="4"/>
@@ -38181,7 +38208,7 @@
 		<attribute key="description" value="Souvenir from Thais Museum"/>
 		<attribute key="weight" value="1500"/>
 	</item>
-	<item id="25980" article="a" name="TibiaHispano emblem">
+	<item id="25980" article="a" name="emblem">
 		<attribute key="description" value="Souvenir from Thais Museum"/>
 		<attribute key="weight" value="500"/>
 	</item>
@@ -39905,8 +39932,6 @@
 			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection fire" value="3"/>
-			<attribute key="elemental protection ice" value="3"/>
-			<attribute key="elemental protection energy" value="3"/>
 			<attribute key="elemental protection holy" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
 		</attribute>
@@ -41323,7 +41348,6 @@
 		<attribute key="imbuementslot" value="1">
 			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
-			<attribute key="elemental protection fire" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
 			<attribute key="elemental protection holy" value="3"/>
@@ -41339,7 +41363,6 @@
 		<attribute key="imbuementslot" value="1">
 			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
-			<attribute key="elemental protection fire" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
 			<attribute key="elemental protection holy" value="3"/>
@@ -41771,7 +41794,6 @@
 		<attribute key="imbuementslot" value="2">
 			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
-			<attribute key="critical hit" value="3"/>
 			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
 	</item>
@@ -41779,13 +41801,14 @@
 		<attribute key="weaponType" value="wand"/>
 		<attribute key="shootType" value="smallice"/>
 		<attribute key="absorbpercentholy" value="8"/>
-		<attribute key="magicpoints" value="3"/>
+		<attribute key="magicpoints" value="2"/>
+		<attribute key="criticalhitdamage" value="25"/>
+		<attribute key="criticalhitchance" value="10"/>
 		<attribute key="range" value="5"/>
 		<attribute key="weight" value="3300"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
-			<attribute key="critical hit" value="3"/>
 			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
 	</item>
@@ -42471,7 +42494,6 @@
 		<attribute key="imbuementslot" value="2">
 			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
-			<attribute key="critical hit" value="3"/>
 			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
 	</item>
@@ -42500,6 +42522,7 @@
 			<attribute key="skillboost axe" value="3"/>
 			<attribute key="skillboost sword" value="3"/>
 			<attribute key="skillboost club" value="3"/>
+			<attribute key="skillboost magic level" value="1"/>
 			<attribute key="skillboost shielding" value="3"/>
 			<attribute key="skillboost distance" value="3"/>
 		</attribute>
@@ -42521,8 +42544,6 @@
 		<attribute key="imbuementslot" value="1">
 			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
-			<attribute key="elemental protection fire" value="3"/>
-			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
 			<attribute key="elemental protection holy" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
@@ -43904,7 +43925,9 @@
 		<attribute key="speed" value="20"/>
 		<attribute key="armor" value="3"/>
 		<attribute key="weight" value="900"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase speed" value="3"/>
+		</attribute>
 	</item>
 	<item id="30395" name="cobra club">
 		<attribute key="elementfire" value="44"/>
@@ -48807,6 +48830,7 @@
 		<attribute key="range" value="6"/>
 		<attribute key="weight" value="1900"/>
 		<attribute key="imbuementslot" value="2">
+			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
 			<attribute key="critical hit" value="3"/>
 			<attribute key="skillboost magic level" value="3"/>
@@ -48825,6 +48849,7 @@
 		<attribute key="weight" value="2500"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
+			<attribute key="life leech" value="3"/>
 			<attribute key="critical hit" value="3"/>
 			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
@@ -48915,7 +48940,6 @@
 		<attribute key="defense" value="42"/>
 		<attribute key="weight" value="5800"/>
 		<attribute key="imbuementslot" value="1">
-			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection fire" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
@@ -49128,8 +49152,8 @@
 		<attribute key="range" value="5"/>
 		<attribute key="weight" value="2600"/>
 		<attribute key="imbuementslot" value="2">
+			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
-			<attribute key="critical hit" value="3"/>
 			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
 	</item>
@@ -49158,7 +49182,6 @@
 			<attribute key="elemental protection death" value="3"/>
 			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection fire" value="3"/>
-			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
 			<attribute key="elemental protection holy" value="3"/>
 			<attribute key="skillboost shielding" value="3"/>
@@ -49172,7 +49195,6 @@
 		<attribute key="weight" value="6500"/>
 		<attribute key="imbuementslot" value="1">
 			<attribute key="elemental protection death" value="3"/>
-			<attribute key="elemental protection earth" value="3"/>
 			<attribute key="elemental protection fire" value="3"/>
 			<attribute key="elemental protection ice" value="3"/>
 			<attribute key="elemental protection energy" value="3"/>
@@ -49189,7 +49211,6 @@
 		<attribute key="defense" value="31"/>
 		<attribute key="weight" value="7500"/>
 		<attribute key="imbuementslot" value="2">
-			<attribute key="elemental damage" value="3"/>
 			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
 			<attribute key="critical hit" value="3"/>
@@ -50066,6 +50087,7 @@
 		<attribute key="defense" value="31"/>
 		<attribute key="weight" value="8900"/>
 		<attribute key="imbuementslot" value="2">
+			<attribute key="elemental damage" value="3"/>
 			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
 			<attribute key="critical hit" value="3"/>
@@ -50142,8 +50164,9 @@
 		<attribute key="range" value="4"/>
 		<attribute key="weight" value="3700"/>
 		<attribute key="imbuementslot" value="2">
+			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
-			<attribute key="critical hit" value="3"/>
+			<attribute key="critical hit" value="2"/>
 			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
 	</item>
@@ -50155,8 +50178,9 @@
 		<attribute key="range" value="4"/>
 		<attribute key="weight" value="3200"/>
 		<attribute key="imbuementslot" value="2">
+			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
-			<attribute key="critical hit" value="3"/>
+			<attribute key="critical hit" value="2"/>
 			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
 	</item>
@@ -50197,7 +50221,9 @@
 	<item id="35577" name="raccoon backpack">
 		<attribute key="containersize" value="20"/>
 		<attribute key="weight" value="1800"/>
-		<attribute key="imbuementslot" value="1"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase capacity" value="3"/>
+		</attribute>
 	</item>
 	<item id="35578" article="a" name="tiara" plural="tiaras">
 		<attribute key="weight" value="150"/>
@@ -51061,6 +51087,7 @@
 		<attribute key="range" value="4"/>
 		<attribute key="weight" value="3600"/>
 		<attribute key="imbuementslot" value="2">
+			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
 			<attribute key="critical hit" value="3"/>
 			<attribute key="skillboost magic level" value="3"/>
@@ -51076,6 +51103,7 @@
 		<attribute key="weight" value="3700"/>
 		<attribute key="imbuementslot" value="2">
 			<attribute key="mana leech" value="3"/>
+			<attribute key="life leech" value="3"/>
 			<attribute key="critical hit" value="3"/>
 			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
@@ -51144,12 +51172,10 @@
 		<attribute key="range" value="4"/>
 		<attribute key="weight" value="3500"/>
 		<attribute key="imbuementslot" value="2">
+			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
-			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
-			<attribute key="skillboost shielding" value="3"/>
-			<attribute key="skillboost distance" value="3"/>
+			<attribute key="critical hit" value="3"/>
+			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
 	</item>
 	<item id="36675" article="a" name="gilded eldritch rod">
@@ -51161,12 +51187,10 @@
 		<attribute key="range" value="4"/>
 		<attribute key="weight" value="3600"/>
 		<attribute key="imbuementslot" value="2">
+			<attribute key="life leech" value="3"/>
 			<attribute key="mana leech" value="3"/>
-			<attribute key="skillboost axe" value="3"/>
-			<attribute key="skillboost sword" value="3"/>
-			<attribute key="skillboost club" value="3"/>
-			<attribute key="skillboost shielding" value="3"/>
-			<attribute key="skillboost distance" value="3"/>
+			<attribute key="critical hit" value="3"/>
+			<attribute key="skillboost magic level" value="3"/>
 		</attribute>
 	</item>
 	<item id="36676" article="a" name="dead lavaworm">

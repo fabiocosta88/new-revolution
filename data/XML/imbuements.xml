@@ -14,14 +14,14 @@
 	<category id="7" name="Elemental Protection (Ice)" agressive="1" />
 	<category id="8" name="Elemental Protection (Energy)" agressive="1" />
 	<category id="9" name="Elemental Protection (Holy)" agressive="1" />
-	<category id="10" name="Increase Speed" agressive="0" />
+	<category id="10" name="Increase Speed" agressive="1" />
 	<category id="11" name="Skillboost (Axe Fighting)" agressive="1" />
 	<category id="12" name="Skillboost (Sword Fighting)" agressive="1" />
 	<category id="13" name="Skillboost (Club Fighting)" agressive="1" />
 	<category id="14" name="Skillboost (Shielding)" agressive="1" />
 	<category id="15" name="Skillboost (Distance Fighting)" agressive="1" />
 	<category id="16" name="Skillboost (Magic Level)" agressive="1" />
-	<category id="17" name="Increase Capacity" agressive="0" />
+	<category id="17" name="Increase Capacity" agressive="1" />
 
 	<!-- Damage Imbuement -->
 	<imbuement name="Scorch" base="1" subgroup=" (Fire)" category="0" iconid="13" premium="0" storage="0">
@@ -283,18 +283,18 @@
 	<!-- Speed Imbuement -->
 	<imbuement name="Swiftness" base="1" category="10" iconid="73" premium="0" storage="0">
 		<attribute key="description" value="Raises walking speed by 10." />
-		<attribute key="effect" type="speed" value="20" />
+		<attribute key="effect" type="speed" value="10" />
 		<attribute key="item" value="17458" count="15" />
 	</imbuement>
 	<imbuement name="Swiftness" base="2" category="10" iconid="73" premium="1" storage="0">
 		<attribute key="description" value="Raises walking speed by 15." />
-		<attribute key="effect" type="speed" value="30" />
+		<attribute key="effect" type="speed" value="15" />
 		<attribute key="item" value="17458" count="15" />
 		<attribute key="item" value="10302" count="25" />
 	</imbuement>
 	<imbuement name="Swiftness" base="3" category="10" iconid="73" premium="1" storage="50490">
 		<attribute key="description" value="Raises walking speed by 30." />
-		<attribute key="effect" type="speed" value="60" />
+		<attribute key="effect" type="speed" value="30" />
 		<attribute key="item" value="17458" count="15" />
 		<attribute key="item" value="10302" count="25" />
 		<attribute key="item" value="14081" count="20" />
@@ -410,19 +410,19 @@
 	</imbuement>
 	<!-- Capacity Imbuement -->
 	<imbuement name="Featherweight" base="1" category="17" iconid="64" premium="0" storage="0">
-		<attribute key="description" value="Raises capacity by 3." />
-		<attribute key="effect" type="capacity" value="3" />
+		<attribute key="description" value="Raises capacity by 10." />
+		<attribute key="effect" type="capacity" value="10" />
 		<attribute key="item" value="25694" count="20" />
 	</imbuement>
 	<imbuement name="Featherweight" base="2" category="17" iconid="64" premium="1" storage="0">
-		<attribute key="description" value="Raises capacity by 8." />
-		<attribute key="effect" type="capacity" value="8" />
+		<attribute key="description" value="Raises capacity by 20." />
+		<attribute key="effect" type="capacity" value="20" />
 		<attribute key="item" value="25694" count="20" />
 		<attribute key="item" value="25702" count="10" />
 	</imbuement>
 	<imbuement name="Featherweight" base="3" category="17" iconid="64" premium="1" storage="0">
-		<attribute key="description" value="Raises capacity by 15." />
-		<attribute key="effect" type="capacity" value="15" />
+		<attribute key="description" value="Raises capacity by 30." />
+		<attribute key="effect" type="capacity" value="30" />
 		<attribute key="item" value="25694" count="20" />
 		<attribute key="item" value="25702" count="10" />
 		<attribute key="item" value="20205" count="5" />
