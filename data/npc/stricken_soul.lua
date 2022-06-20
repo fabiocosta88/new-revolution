@@ -82,8 +82,8 @@ local function creatureSayCallback(npc, creature, type, message)
 				"Find the three passages... one is right here in the cellars, one in the jungles of Tiquanda and one in the deserts of Darama. ...",
 				"Restore their connection and open this nexus to access the buried cathedral and find the cause to this... eliminate all remainders there if you must, " .. player:getName() .. "."
 			 }, npc, creature, 1000)
-			 if player:getStorageValue(Storage.Quest.TheDreamCourts.StrickenSoul) ~= 1 then
-				player:setStorageValue(Storage.Quest.TheDreamCourts.StrickenSoul, 1)
+			 if player:getStorageValue(Storage.Quest.U12_00.TheDreamCourts.StrickenSoul) ~= 1 then
+				player:setStorageValue(Storage.Quest.U12_00.TheDreamCourts.StrickenSoul, 1)
 			end
 		end
 	end

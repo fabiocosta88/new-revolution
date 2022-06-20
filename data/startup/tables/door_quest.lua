@@ -677,7 +677,7 @@ QuestDoorAction = {
 		itemId = 20450,
 		itemPos = {{x = 32761, y = 32630, z = 7}}
 	},
-	[Storage.Quest.TheDreamCourts.StrickenSoul] = {
+	[Storage.Quest.U12_00.TheDreamCourts.StrickenSoul] = {
 		itemId = false,
 		itemPos = {
 			{x = 32700, y = 32244, z = 9},

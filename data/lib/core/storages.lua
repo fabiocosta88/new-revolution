@@ -2413,7 +2413,8 @@ Storage = {
 		U12_00 = { -- update 12.00 - Reserved Storages 76301 - 76600
 			DreamWarriorOutfits = {},
 			TheDreamCourts = {
-				AndrewDoor = 14900
+				AndrewDoor = 14900,
+				StrickenSoul = 149001
 			},
 		},
 		U12_02 = { -- update 12.02 - Reserved Storages 76601 - 76800
