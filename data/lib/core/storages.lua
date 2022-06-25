@@ -2375,8 +2375,62 @@ Storage = {
 			ForgottenKnowledge = {},
 		},
 		U11_40 = { -- update 11.40 - Reserved Storages 75651 - 75850
-			CultsOfTibia = {},
-			ThreatenedDreams = {},
+			CultsOfTibia = {}, -- 75651 - 75750
+			ThreatenedDreams = { -- 75751 - 75850
+				QuestLine = 75751,
+				Mission01 = {75752, -- Troubled Animals
+					PoacherChest = 75753,
+					PoacherNotes = 75754,
+					FeathersCount = 75755,
+					Feathers1 = 75756,
+					Feathers2 = 75757,
+					Feathers3 = 75758,
+					Feathers4 = 75759,
+					Feathers5 = 75760
+					},
+				Mission02 = {75761, -- Nightmare Intruders
+					FrazzlemawsCount = 75762,
+					EnfeebledCount = 75763,
+					KroazurAccess = 75764,
+					KroazurTimer = 75765,
+					KroazurKill = 75766,
+					DarkMoonMirror = 75767,
+					FairiesCounter = 75768,
+					Fairy01 = 75769,
+					Fairy02 = 75770,
+					Fairy03 = 75771,
+					Fairy04 = 75772,
+					Fairy05 = 75773,
+					ChargedMoonMirror = 75774,
+					MoonMirrorPos01 = 75775,
+					MoonMirrorPos02 = 75776,
+					MoonMirrorPos03 = 75777,
+					MoonMirrorPos04 = 75778,
+					MoonMirrorPos05 = 75779,
+					ChargedSunCatcher = 75780,
+					SunCatcherPos01 = 75781,
+					SunCatcherPos02 = 75782,
+					SunCatcherPos03 = 75783,
+					SunCatcherPos04 = 75784,
+					SunCatcherPos05 = 75785,
+					ChargedStarlightVial = 75786,
+					StarlightPos01 = 75787,
+					StarlightPos02 = 75788,
+					StarlightPos03 = 75789,
+					StarlightPos04 = 75790,
+					StarlightPos05 = 75791
+					},
+				Mission03 = {75792, -- An Unlikely Couple
+					UnlikelyCouple = 75793,
+					PanpipesTimer = 75794,
+					RavenHerbTimer = 75795,
+					DarkSunCatcher = 75796,
+					EmptyStarlightVial = 75797
+					},
+				Mission04 = {75798,
+					},
+				Mission05 = 75799
+			},
 		},
 		U11_50 = { -- update 11.50 - Reserved Storages 75851 - 76000
 			DangerousDepths = {},
@@ -2415,6 +2469,7 @@ Storage = {
 			TheDreamCourts = {
 				AndrewDoor = 14900,
 				StrickenSoul = 149001
+				FacelessBaneTime = 50283
 			},
 		},
 		U12_02 = { -- update 12.02 - Reserved Storages 76601 - 76800
