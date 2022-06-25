@@ -1,6 +1,6 @@
 -- Combat settings
 -- NOTE: valid values for worldType are: "pvp", "no-pvp" and "pvp-enforced"
-worldType = "pvp"
+worldType = "no-pvp"
 hotkeyAimbotEnabled = true
 protectionLevel = 7
 pzLocked = 60 * 1000
@@ -35,17 +35,12 @@ maxPlayers = 0
 motd = "Welcome to the Canary Global!"
 onePlayerOnlinePerAccount = true
 allowClones = false
-serverName = "Canary"
+serverName = "otservbr-global"
 statusTimeout = 5 * 1000
 replaceKickOnLogin = true
 maxPacketsPerSecond = 25
 maxItem = 2000
 maxContainer = 100
-
--- Packet Compression
--- Minimize network bandwith and reduce ping
--- Levels: 0 = disabled, 1 = best speed, 9 = best compression
-packetCompressionLevel = 6
 
 -- Depot Limit
 freeDepotLimit = 2000
@@ -92,12 +87,12 @@ thunderEffect = false
 allConsoleLog = false
 -- stashMoving = true, stow an container inside your stash
 -- the non-stackable items will be moved to the selected depot chest(I - XVIII).
-stashMoving = false
+stashMoving = true
 depotChest = 4
-autoLoot = false
+autoLoot = true
 -- autoBank = true, the dropped coins from monsters will be automatically 
 -- deposited to your bank account.
-autoBank = false
+autoBank = true
 
 -- Stamina in Trainers
 staminaTrainer = false
@@ -130,7 +125,7 @@ toggleImbuementShrineStorage = false
 -- toggleFreeQuest = enable/disable the system
 -- freeQuestStage = if you add more quests to the table, change this value to run freeQuest again
 toggleFreeQuest = true
-freeQuestStage = 2
+freeQuestStage = 3
 
 -- Deaths
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default
@@ -183,7 +178,7 @@ maxMarketOffersAtATimePerPlayer = 100
 -- MySQL
 mysqlHost = "127.0.0.1"
 mysqlUser = "root"
-mysqlPass = ""
+mysqlPass = "root"
 mysqlDatabase = "otservbr-global"
 mysqlPort = 3306
 mysqlSock = ""
@@ -225,10 +220,10 @@ sortLootByChance = false
 -- Rates
 -- NOTE: rateExp, rateSkill and rateMagic is used when 'rateUseStages = false' - or a fallback only
 -- To configure rates see file data/stages.lua
-rateUseStages = false
+rateUseStages = true
 rateExp = 1
 rateSkill = 1
-rateLoot = 1
+rateLoot = 5
 rateMagic = 1
 rateSpawn = 1
 
