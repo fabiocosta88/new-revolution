@@ -421,7 +421,6 @@ Storage = {
 		KroazurTimer = 50280,
 		CoupleMission01 = 50281,
 		CoupleMission02 = 50282,
-		FacelessBaneTime = 50283,
 		Reward01 = 50284,
 		Reward02 = 50285,
 		Reward03 = 50286,
@@ -2468,7 +2467,7 @@ Storage = {
 			DreamWarriorOutfits = {},
 			TheDreamCourts = {
 				AndrewDoor = 14900,
-				StrickenSoul = 149001
+				StrickenSoul = 149001,
 				FacelessBaneTime = 50283
 			},
 		},
