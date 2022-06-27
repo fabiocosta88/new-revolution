@@ -1698,7 +1698,7 @@ Storage = {
 			EarlOsamTimer = 52316,
 			SirBaelocSirNictrosTimer = 52317,
 			DukeKruleTimer = 52318,
-			KingZelos = 52319
+			KingZelos = 52319,
 		}
 	},
 
@@ -1715,7 +1715,6 @@ Storage = {
 			UnaztheMean = 53007,
 			BrainDead = 53008,
 			Thaian = 53009,
-			ThePaleWormBattle = 53010,
 			TheFearFeasterTeleported1 = 53012,
 			TheFearFeasterTeleported2 = 53013,
 			TheFearFeasterTeleported3 = 53014
@@ -2649,6 +2648,9 @@ GlobalStorage = {
 		ThalasSwitchesGlobalStorage = 60160,
 		DiprathSwitchesGlobalStorage = 60161,
 		AshmunrahSwitchesGlobalStorage = 60162
+	},
+	GraveDanger = {
+		SirBossesFight = 60163
 	},
 	FuryGates = 65000,
 	Yakchal = 65001,

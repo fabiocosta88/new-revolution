@@ -7,8 +7,8 @@ local config = {
 	requiredLevel = 250,
 	leverId = 8911,
 	timeToFightAgain = 20, -- In hour
-	timeToDefeatBoss = 15, -- In minutes
-	clearRoomTime = 60, -- In minutes
+	timeToDefeatBoss = 25, -- In minutes
+	clearRoomTime = 25, -- In minutes
 	daily = true,
 	centerRoom = Position(33443, 31545, 13),
 	playerPositions = {
@@ -32,6 +32,42 @@ local config = {
 	specPos = Position(33489, 31546, 13),
     storage = Storage.GraveDanger.BossTimer.KingZelos
 }
+
+local function getCustomSpectators(position, multifloor, showPlayers, showMonsters, showNPCs, minRangeX, maxRangeX, minRangeY, maxRangeY)
+    --getSpectators(position[, multifloor = false[, onlyPlayer = false[, minRangeX = 0[, maxRangeX = 0[, minRangeY = 0[, maxRangeY = 0]]]]]])
+    local spectators = Game.getSpectators(position, multifloor, false, minRangeX, maxRangeX, minRangeY, maxRangeY)
+    customSpectatorsList = {}
+    for _, spectatorCreature in ipairs(spectators) do
+        if (showPlayers and spectatorCreature:isPlayer()) or
+            (showMonsters and spectatorCreature:isMonster()) or
+            (showNPCs and spectatorCreature:isNpc()) then
+            table.insert(customSpectatorsList, spectatorCreature)
+        end
+    end
+    return customSpectatorsList
+end
+
+
+local function spawnRisenSoldier()
+	local spectators = getCustomSpectators(config.centerRoom, false, true, false, false, 14, 14, 14, 14)
+	if spectators then
+		local from = {x=33438,y=31540}
+		local to = {x=33448,y=31551}
+		local setX = math.random(from.x,to.x)
+		local setY = math.random(from.y,to.y)
+		local counter = 0
+		local monsters = getCustomSpectators(config.centerRoom, false, true, true, true, 14, 14, 14, 14)
+		for i = 1, #monsters do
+			if monsters[i]:getName():lower() == "risen soldier" then
+				counter = counter + 1
+			end
+		end
+		if counter <= 4 then
+			Game.createMonster("Risen Soldier", {x = setX, y=setY, z = 13})
+		end
+		addEvent(spawnRisenSoldier, 5000)
+	end
+end
 
 local kingzelos = Action()
 function kingzelos.onUse(player, item, fromPosition, target, toPosition, isHotkey)

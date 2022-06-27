@@ -86,10 +86,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -800},
-	{name ="combat", interval = 1800, chance = 60, type = COMBAT_MANADRAIN, minDamage = -400, maxDamage = -1200, length = 7, spread = 2, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 1800, chance = 19, type = COMBAT_PHYSICALDAMAGE, minDamage = -600, maxDamage = -1800, length = 7, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 1800, chance = 40, type = COMBAT_FIREDAMAGE, minDamage = -450, maxDamage = -850, radius = 10, effect = CONST_ME_HITBYFIRE, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -600, maxDamage = -1200},
+	{name ="combat", interval = 1800, chance = 60, type = COMBAT_MANADRAIN, minDamage = -400, maxDamage = -900, length = 7, spread = 2, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="combat", interval = 1800, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -600, maxDamage = -1800, length = 7, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 1800, chance = 40, type = COMBAT_FIREDAMAGE, minDamage = -450, maxDamage = -850, radius = 10, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="duke krule chain", interval = 6000, chance = 10, minDamage = -0, maxDamage = -0, range = 5, effect = CONST_ME_HITBYFIRE, target = true}
 }
 
 monster.defenses = {

@@ -54,13 +54,6 @@ monster.light = {
 	color = 0
 }
 
-monster.summon = {
-	maxSummons = 5,
-	summons = {
-		{name = "Frozen Soul", chance = 20, interval = 2000, count = 5}
-	}
-}
-
 monster.voices = {
 	interval = 5000,
 	chance = 10,
@@ -94,15 +87,16 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 3, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 1800, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -1000, length = 7, spread = 2, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 30, type = COMBAT_ENERGYDAMAGE, minDamage = -260, maxDamage = -420, range = 3, effect = CONST_ME_BLUE_ENERGY_SPARK, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -600, maxDamage = -1200},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_ICEDAMAGE, minDamage = -600, maxDamage = -1300, length = 7, spread = 3, effect = CONST_ME_ICEATTACK, target = false},
+	{name ="combat", interval = 1800, chance = 25, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -1800, length = 7, spread = 2, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", interval = 2000, chance = 30, type = COMBAT_ENERGYDAMAGE, minDamage = -460, maxDamage = -980, range = 3, effect = CONST_ME_BLUE_ENERGY_SPARK, target = true}
 }
 
 monster.defenses = {
 	defense = 25,
 	armor = 78,
-	{name ="combat", interval = 2000, chance = 35, type = COMBAT_HEALING, minDamage = 350, maxDamage = 550, effect = CONST_ME_MAGIC_BLUE, target = false}
+	{name ="combat", interval = 2000, chance = 35, type = COMBAT_HEALING, minDamage = 1200, maxDamage = 2050, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

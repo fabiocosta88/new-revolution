@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("Risen Soldier")
+local mType = Game.createMonsterType("Frozen Soul")
 local monster = {}
 
-monster.description = "an Risen Soldier"
+monster.description = "a frozen soul"
 monster.experience = 0
 monster.outfit = {
-	lookType = 306,
+	lookType = 560,
 	lookHead = 0,
 	lookBody = 0,
 	lookLegs = 0,
@@ -13,16 +13,16 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 6000
-monster.maxHealth = 6000
+monster.health = 750
+monster.maxHealth = 750
 monster.race = "undead"
-monster.corpse = 0
-monster.speed = 220
+monster.corpse = 11317
+monster.speed = 160
 monster.manaCost = 0
 
 monster.changeTarget = {
-	interval = 4000,
-	chance = 10
+	interval = 5000,
+	chance = 15
 }
 
 monster.strategiesTarget = {
@@ -40,7 +40,7 @@ monster.flags = {
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
-	targetDistance = 1,
+	targetDistance = 4,
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
@@ -63,33 +63,31 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -450},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_PHYSICALDAMAGE, minDamage = -100, maxDamage = -435, range = 7, shootEffect = CONST_ANI_WHIRLWINDSWORD, target = false}
+	{name ="combat", interval = 2000, chance = 100, type = COMBAT_ICEDAMAGE, minDamage = -150, maxDamage = -380, range = 5, shootEffect = CONST_ANI_SNOWBALL, effect = CONST_ME_ICEATTACK, target = false}
 }
 
 monster.defenses = {
-	defense = 45,
-	armor = 45,
-	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_BLUE}
+	defense = 10,
+	armor = 10
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 20},
-	{type = COMBAT_EARTHDAMAGE, percent = -10},
-	{type = COMBAT_FIREDAMAGE, percent = 80},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = -10},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = -10},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 10},
-	{type = COMBAT_DEATHDAMAGE , percent = -5}
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
 
 monster.immunities = {
 	{type = "paralyze", condition = false},
 	{type = "outfit", condition = false},
-	{type = "invisible", condition = true},
+	{type = "invisible", condition = false},
 	{type = "bleed", condition = false}
 }
 
