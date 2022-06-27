@@ -25,122 +25,93 @@ local config = {
 	bossPosition = Position(33805, 31504, 14),
 	specPos = Position(33779, 31504, 14),
     storage = Storage.FeasterOfSouls.BossTimer.ThePaleWorm,
-	storage_summon = Storage.FeasterOfSouls.BossTimer.ThePaleWormSummon,
-	storage_damage = Storage.FeasterOfSouls.BossTimer.ThePaleWormDamage,
 	boss_2_pos = Position(33805, 31505, 15)
 }
 
-
-function hasPlayers()
-	local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
-	for i = 1, #specs do
-		spec = specs[i]
-		if spec:isPlayer() then
-			return spec
-		end
-	end
-	return false
+local function getCustomSpectators(position, multifloor, showPlayers, showMonsters, showNPCs, minRangeX, maxRangeX, minRangeY, maxRangeY)
+    --getSpectators(position[, multifloor = false[, onlyPlayer = false[, minRangeX = 0[, maxRangeX = 0[, minRangeY = 0[, maxRangeY = 0]]]]]])
+    local spectators = Game.getSpectators(position, multifloor, false, minRangeX, maxRangeX, minRangeY, maxRangeY)
+    customSpectatorsList = {}
+    for _, spectatorCreature in ipairs(spectators) do
+        if (showPlayers and spectatorCreature:isPlayer()) or
+            (showMonsters and spectatorCreature:isMonster()) or
+            (showNPCs and spectatorCreature:isNpc()) then
+            table.insert(customSpectatorsList, spectatorCreature)
+        end
+    end
+    return customSpectatorsList
 end
 
-function hasPlayersDown()
-	local specs, spec = Game.getSpectators(config.centerRoom2, false, false, 14, 14, 13, 13)
-	for i = 1, #specs do
-		spec = specs[i]
-		if spec:isPlayer() then
-			return spec
-		end
-	end
-	return false
-end
 
-function countMonster()
-    local counter = 0
-	local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
-	for i = 1, #specs do
-		spec = specs[i]
-		if spec:isMonster() then
-			if spec:getName():lower() == "greed worm" then
-                counter = counter + 1
-			end
-		end
-	end
-    return counter
-end
-
-function countMonster2()
-    local counter = 0
-	local specs, spec = Game.getSpectators(config.centerRoom2, false, false, 14, 14, 13, 13)
-	for i = 1, #specs do
-		spec = specs[i]
-		if spec:isMonster() then
-			if spec:getName():lower() == "greed worm" then
-                counter = counter + 1
-			end
-		end
-	end
-    return counter
-end
-
-function getPaleWorm()
-	local specs, spec = Game.getSpectators(config.centerRoom2, false, false, 14, 14, 13, 13)
-	for i = 1, #specs do
-		spec = specs[i]
-		if spec:isMonster() then
-			if spec:getName():lower() == "the pale worm" then
-                return spec
-			end
-		end
-	end
-	return false
-end
-
-function damagePlayers()
-	local pale = getPaleWorm()
-	if pale then
-		local damage = 100
-		local specs, spec = Game.getSpectators(config.centerRoom2, false, false, 14, 14, 13, 13)
-		for i = 1, #specs do
-			spec = specs[i]
-			if spec:isPlayer() then
-				if spec:getStorageValue(config.storage_damage) == 1 then
-					doTargetCombatHealth(pale, spec, COMBAT_PHYSICALDAMAGE, -damage, -damage, CONST_ME_POFF, ORIGIN_NONE)
-					damage = damage + 100
-				end
-			end
-		end
-		addEvent(damagePlayers, 3 * 1000)
-	end
-end
-
-function spawnGreedWormUp()
-	local player = hasPlayers()
-	if player then 
-		if player:getStorageValue(config.storage_summon) == 1 then
+local function spawnGreedWorm()
+	if Game.getStorageValue(GlobalStorage.ThePaleWorm.Battle) == 1 then
+		local spectators = getCustomSpectators(config.centerRoom, false, true, false, false, 14, 14, 14, 14)
+		if spectators then
 			local from = {x=33799,y=31499}
 			local to = {x=33811,y=31503}
 			local setX = math.random(from.x,to.x)
 			local setY = math.random(from.y,to.y)
-			local counter = countMonster()
+			local counter = 0
+			local monsters = getCustomSpectators(config.centerRoom, false, true, true, true, 14, 14, 14, 14)
+			for i = 1, #monsters do
+				if monsters[i]:getName():lower() == "greed worm" then
+					counter = counter + 1
+				end
+			end
 			if counter <= 5 then
 				Game.createMonster("Greed Worm", {x = setX, y=setY, z = 14})
 			end
 		end
+		addEvent(spawnGreedWorm, 10000)
 	end
-	local player2 = hasPlayersDown()
-	if player2 then
-		if player2:getStorageValue(config.storage_summon) == 1 then
+end
+
+local function spawnGreedWormDown()
+	if Game.getStorageValue(GlobalStorage.ThePaleWorm.Battle) == 1 then
+		local spectators = getCustomSpectators(config.centerRoom2, false, true, false, false, 14, 14, 14, 14)
+		if spectators then
 			local from = {x=33799,y=31499}
 			local to = {x=33811,y=31503}
 			local setX = math.random(from.x,to.x)
 			local setY = math.random(from.y,to.y)
-			local counter2 = countMonster2()
-			if counter2 <= 5 then
+			local counter = 0
+			local monsters = getCustomSpectators(config.centerRoom2, false, true, true, true, 14, 14, 14, 14)
+			for i = 1, #monsters do
+				if monsters[i]:getName():lower() == "greed worm" then
+					counter = counter + 1
+				end
+			end
+			if counter <= 5 then
 				Game.createMonster("Greed Worm", {x = setX, y=setY, z = 15})
 			end
 		end
+		addEvent(spawnGreedWormDown, 10000)
 	end
-	if player or player2 then
-		addEvent(spawnGreedWormUp, 10 * 1000)
+end
+
+local function damagePlayers(value)
+	if Game.getStorageValue(GlobalStorage.ThePaleWorm.Battle) == 1 then
+		local pale
+		local damage = value
+		local monsters = getCustomSpectators(config.centerRoom, false, true, true, true, 14, 14, 14, 14)
+		for i = 1, #monsters do
+			if monsters[i]:getName():lower() == "the pale worm" then
+				pale = monsters[i]
+			end
+		end
+		if pale then 
+			local spectators = getCustomSpectators(config.centerRoom2, false, true, true, true, 14, 14, 14, 14)
+			for i = 1, #spectators do
+				if spectators[i]:isPlayer() then
+					doTargetCombatHealth(pale, spectators[i], COMBAT_PHYSICALDAMAGE, -damage, -damage, CONST_ME_HITBYPOISON, ORIGIN_NONE)
+					damage = damage + 100
+				end
+			end
+			addEvent(function()
+				local damage = 100
+				damagePlayers(damage)
+			end, 5000)
+		end
 	end
 end
 
@@ -200,6 +171,7 @@ function paleworm.onUse(player, item, fromPosition, target, toPosition, isHotkey
 		addEvent(clearRoom, config.clearRoomTime * 60 * 1000, config.centerRoom2)
 		Game.createMonster(config.bossName, config.bossPosition)
 		Game.createMonster(config.bossName2, config.boss_2_pos)
+		Game.setStorageValue(GlobalStorage.ThePaleWorm.Battle, 1)
 
 		-- Teleport team participants
 		for i = 1, #team do
@@ -209,13 +181,6 @@ function paleworm.onUse(player, item, fromPosition, target, toPosition, isHotkey
 			-- Assign boss timer
 			team[i]:setStorageValue(config.storage, os.time() + config.timeToFightAgain * 60 * 60) -- 20 hours
 			item:transform(config.leverId)
-			--set storage summon and damage
-			team[i]:setStorageValue(config.storage_summon, 1) 
-			team[i]:setStorageValue(config.storage_damage, 1) 
-			addEvent(function()
-				team[i]:setStorageValue(config.storage_summon, 0) 
-				team[i]:setStorageValue(config.storage_damage, 0) 
-			end, config.timeToDefeatBoss * 60 * 1000)
 			
 			addEvent(function()
 				local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
@@ -225,8 +190,7 @@ function paleworm.onUse(player, item, fromPosition, target, toPosition, isHotkey
 							spec:teleportTo(config.specPos)
 							spec:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 							spec:say("Time out! You were teleported out by strange forces.", TALKTYPE_MONSTER_SAY)
-							spec:setStorageValue(config.storage_summon, 0) 
-							spec:setStorageValue(config.storage_damage, 0) 
+							Game.setStorageValue(GlobalStorage.ThePaleWorm.Battle, 0)
 						end
 					end
 				end, config.timeToDefeatBoss * 60 * 1000)
@@ -238,8 +202,7 @@ function paleworm.onUse(player, item, fromPosition, target, toPosition, isHotkey
 							spec2:teleportTo(config.specPos)
 							spec2:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 							spec2:say("Time out! You were teleported out by strange forces.", TALKTYPE_MONSTER_SAY)
-							spec2:setStorageValue(config.storage_summon, 0) 
-							spec2:setStorageValue(config.storage_damage, 0) 
+							Game.setStorageValue(GlobalStorage.ThePaleWorm.Battle, 0)
 						end
 					end
 				end, config.timeToDefeatBoss * 60 * 1000)
@@ -247,8 +210,14 @@ function paleworm.onUse(player, item, fromPosition, target, toPosition, isHotkey
 		addEvent(function()
 			Game.createMonster("Hunger Worm", Position({x = 33802, y = 31500, z = 14}), false, true)
 		end, 30000)
-		addEvent(spawnGreedWormUp, 30000)
-		addEvent(damagePlayers,  45000)
+		addEvent(function()
+			spawnGreedWorm()
+			spawnGreedWormDown()
+		end, 10000)
+		addEvent(function()
+			local damage = 100
+			damagePlayers(damage)
+		end, 45000)
 	end
 	return true
 end

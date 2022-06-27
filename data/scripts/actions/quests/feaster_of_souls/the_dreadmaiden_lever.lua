@@ -21,7 +21,7 @@ local config = {
 	damage_storage = GlobalStorage.TheDreadMaiden.Damage
 }
 
-function spawnGhosts()
+local function spawnGhosts()
 	local player
 	local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
 	for i = 1, #specs do
@@ -48,10 +48,10 @@ function spawnGhosts()
 				end
 			end
 		end
-		if counter <= 3 then
+		if counter <= 4 then
 			Game.createMonster(summons[index], {x = setX, y=setY, z = 14})
 		end
-		addEvent(spawnGhosts, 10 * 10000)
+		addEvent(spawnGhosts, 5000)
 	end
 end
 

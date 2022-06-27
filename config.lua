@@ -125,7 +125,7 @@ toggleImbuementShrineStorage = false
 -- toggleFreeQuest = enable/disable the system
 -- freeQuestStage = if you add more quests to the table, change this value to run freeQuest again
 toggleFreeQuest = true
-freeQuestStage = 3
+freeQuestStage = 1
 
 -- Deaths
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default

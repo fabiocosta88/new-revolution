@@ -1715,8 +1715,7 @@ Storage = {
 			UnaztheMean = 53007,
 			BrainDead = 53008,
 			Thaian = 53009,
-			ThePaleWormSummon = 53010,
-			ThePaleWormDamage = 53011,
+			ThePaleWormBattle = 53010,
 			TheFearFeasterTeleported1 = 53012,
 			TheFearFeasterTeleported2 = 53013,
 			TheFearFeasterTeleported3 = 53014
@@ -2529,12 +2528,13 @@ GlobalStorage = {
 		Active = 60021
 	},
 	FacelessBane = {
-		-- Reserved storage from 60029 - 60029
 		Damage = 60028,
 		Count = 60027,
 	},
+	ThePaleWorm = {
+		Battle = 60022,
+	},
 	TheDreadMaiden = {
-		-- Reserved storage from 60029 - 60029
 		Damage = 60029,
 	},
 	FerumbrasAscendant = {

@@ -20,7 +20,7 @@ local config = {
     storage = Storage.FeasterOfSouls.BossTimer.TheUnwelcome
 }
 
-function hasPlayers()
+local function hasPlayers()
 	local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
 	for i = 1, #specs do
 		spec = specs[i]
@@ -31,7 +31,7 @@ function hasPlayers()
 	return false
 end
 
-function countMonster()
+local function countMonster()
     local counter = 0
 	local specs, spec = Game.getSpectators(config.centerRoom, false, false, 14, 14, 13, 13)
 	for i = 1, #specs do
@@ -45,7 +45,7 @@ function countMonster()
     return counter
 end
 
-function spawnGreedWorm()
+local function spawnGreedWorm()
 	local player = hasPlayers()
 	if player then 
 		local from = {x=33704,y=31534}
@@ -130,7 +130,7 @@ function unwelcome.onUse(player, item, fromPosition, target, toPosition, isHotke
 		addEvent(function()
 			Game.createMonster("Brother Worm", Position({x = 33703, y = 31540, z = 14}), false, true)
 		end, 30000)
-		addEvent(spawnGreedWorm, 30000)
+		addEvent(spawnGreedWorm, 10000)
 	end
 	return true
 end

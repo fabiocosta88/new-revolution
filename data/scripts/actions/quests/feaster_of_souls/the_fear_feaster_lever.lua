@@ -100,11 +100,6 @@ function fearfeaster.onUse(player, item, fromPosition, target, toPosition, isHot
 			team[i]:setStorageValue(config.storage_teleported, 0)
 			team[i]:setStorageValue(config.storage_teleported1, 0)
 			team[i]:setStorageValue(config.storage_teleported2, 0)
-			addEvent(function()
-				team[i]:setStorageValue(config.storage_teleported, 0)
-				team[i]:setStorageValue(config.storage_teleported1, 0)
-				team[i]:setStorageValue(config.storage_teleported2, 0)
-			end, config.timeToDefeatBoss)
 			item:transform(config.leverId)
 			
 			addEvent(function()

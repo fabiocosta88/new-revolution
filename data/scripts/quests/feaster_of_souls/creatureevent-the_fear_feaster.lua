@@ -1,6 +1,6 @@
 local the_fear_feaster_damage = CreatureEvent("the_fear_feaster_damage")
 
-config = {
+local config = {
     storage_teleported = Storage.FeasterOfSouls.BossTimer.TheFearFeasterTeleported1,
 	storage_teleported1 = Storage.FeasterOfSouls.BossTimer.TheFearFeasterTeleported2,
     storage_teleported2 = Storage.FeasterOfSouls.BossTimer.TheFearFeasterTeleported3,
@@ -10,31 +10,28 @@ config = {
 }
 
 function the_fear_feaster_damage.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
-    if creature:getName():lower() == "the fear feaster" then
-        local the_fear_feaster = creature
-        if attacker:isPlayer() then
-            local player = attacker
-            local hp = (the_fear_feaster:getHealth()/the_fear_feaster:getMaxHealth())*100
-            if hp < 75 then
-                if player:getStorageValue(config.storage_teleported) == 0 then
-                    player:setStorageValue(config.storage_teleported, 1)
-                    player:teleportTo(config.totem_room)
-                    Game.createMonster(config.totem_name, config.totem_pos)
-                end
+    if attacker:isPlayer() then
+        local player = attacker
+        local hp = (creature:getHealth()/creature:getMaxHealth())*100
+        if hp < 75 then
+            if player:getStorageValue(config.storage_teleported) == 0 then
+                player:setStorageValue(config.storage_teleported, 1)
+                player:teleportTo(config.totem_room)
+                Game.createMonster(config.totem_name, config.totem_pos)
             end
-            if hp < 50 then
-                if player:getStorageValue(config.storage_teleported1) == 0 then
-                    player:setStorageValue(config.storage_teleported1, 1)
-                    player:teleportTo(config.totem_room)
-                    Game.createMonster(config.totem_name, config.totem_pos)
-                end
+        end
+        if hp < 50 then
+            if player:getStorageValue(config.storage_teleported1) == 0 then
+                player:setStorageValue(config.storage_teleported1, 1)
+                player:teleportTo(config.totem_room)
+                Game.createMonster(config.totem_name, config.totem_pos)
             end
-            if hp < 25 then
-                if player:getStorageValue(config.storage_teleported1) == 0 then
-                    player:setStorageValue(config.storage_teleported1, 1)
-                    player:teleportTo(config.totem_room)
-                    Game.createMonster(config.totem_name, config.totem_pos)
-                end
+        end
+        if hp < 25 then
+            if player:getStorageValue(config.storage_teleported1) == 0 then
+                player:setStorageValue(config.storage_teleported1, 1)
+                player:teleportTo(config.totem_room)
+                Game.createMonster(config.totem_name, config.totem_pos)
             end
         end
     end
