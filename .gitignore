@@ -367,6 +367,7 @@ TODO
 
 ## CUSTOM
 # Files
+config.lua
 client_assertions.txt
 # Extensions
 *.ini
