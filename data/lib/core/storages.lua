@@ -2465,7 +2465,7 @@ Storage = {
 			DreamWarriorOutfits = {},
 			TheDreamCourts = {
 				AndrewDoor = 14900,
-				StrickenSoul = 149001,
+				StrickenSoul = 14901,
 				FacelessBaneTime = 50283
 			},
 		},
