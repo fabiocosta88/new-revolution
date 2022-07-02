@@ -29,7 +29,7 @@ local cities = {
 }
 
 function teleport_stone.onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
-	if player:isPzLocked() or getCreatureCondition(player, CONDITION_INFIGHT) == true then
+	if player:getTile():hasFlag(TILESTATE_PROTECTIONZONE) == false and getCreatureCondition(player, CONDITION_INFIGHT) == true then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You cannot use this item in battle.')
         return true
     end

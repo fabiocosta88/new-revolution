@@ -10,7 +10,7 @@ function onGetFormulaValues(player, skill, attack, factor)
     local eledmg = ItemType(weapon):getElementDamage() ~= nil and ItemType(weapon):getElementDamage() or 0
     local skillTotal = skill * (attack + eledmg)
 	local levelTotal = player:getLevel() / 5
-	return -(((skillTotal * 0.17) + 13) + (levelTotal)) * 1.28, -(((skillTotal * 0.20) + 34) + (levelTotal)) * 1.28 -- TODO : Use New Real Formula instead of an %
+	return -(((skillTotal * 0.17) + 13) + (levelTotal)) * 1.18, -(((skillTotal * 0.20) + 34) + (levelTotal)) * 1.22 -- TODO : Use New Real Formula instead of an %
 end
 
 combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")

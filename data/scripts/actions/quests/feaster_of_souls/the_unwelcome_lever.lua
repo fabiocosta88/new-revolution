@@ -56,7 +56,7 @@ local function spawnGreedWorm()
 		if counter <= 5 then
 			Game.createMonster("Greed Worm", {x = setX, y=setY, z = 14})
 		end
-		addEvent(spawnGreedWorm, 15 * 1000)
+		addEvent(spawnGreedWorm, 5 * 1000)
 	end
 end
 

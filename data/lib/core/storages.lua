@@ -1715,9 +1715,6 @@ Storage = {
 			UnaztheMean = 53007,
 			BrainDead = 53008,
 			Thaian = 53009,
-			TheFearFeasterTeleported1 = 53012,
-			TheFearFeasterTeleported2 = 53013,
-			TheFearFeasterTeleported3 = 53014
 		}
 	},
 	RottinWoodAndMaried = {
@@ -2532,6 +2529,12 @@ GlobalStorage = {
 	},
 	ThePaleWorm = {
 		Battle = 60022,
+	},
+	TheFearFeaster = {
+		Teleported1 = 60023,
+		Teleported2 = 60024,
+		Teleported3 = 60025,
+		Teleported3 = 60026,
 	},
 	TheDreadMaiden = {
 		Damage = 60029,

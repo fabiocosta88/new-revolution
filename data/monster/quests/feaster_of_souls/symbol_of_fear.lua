@@ -13,8 +13,8 @@ monster.events = {
 
 monster.raceId = 298
 
-monster.health = 15000
-monster.maxHealth = 15000
+monster.health = 30000
+monster.maxHealth = 30000
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 0

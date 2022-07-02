@@ -58,18 +58,21 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 0
+	chance = 10,
+	{text = "What, are you afraid? So you should be!", yell = false}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 6000, chance = 12, type = COMBAT_HOLYDAMAGE, minDamage = -400, maxDamage = -500, radius = 3, effect = CONST_ME_HOLYAREA, target = false},
-	{name ="combat", interval = 4000, chance = 10, type = COMBAT_HOLYDAMAGE, minDamage = -200, maxDamage = -500, range = 5, radius = 3, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYAREA, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -450, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 4000, chance = 20, type = COMBAT_HOLYDAMAGE, minDamage = -400, maxDamage = -500, radius = 3, effect = CONST_ME_HOLYAREA, target = false},
+	{name ="combat", interval = 6000, chance = 16, type = COMBAT_ENERGYDAMAGE, minDamage = -100, maxDamage = -250, radius = 3, effect = CONST_ME_BIGCLOUDS, target = false},
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -150, maxDamage = -300, length = 4, spread = 0, effect = CONST_ME_ICEAREA, target = false}
 }
 
 monster.defenses = {
 	defense = 86,
-	armor = 86
+	armor = 86,
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_HEALING, minDamage = 200, maxDamage = 300, effect = CONST_ME_MAGIC_BLUE, target = false},
 }
 
 monster.elements = {

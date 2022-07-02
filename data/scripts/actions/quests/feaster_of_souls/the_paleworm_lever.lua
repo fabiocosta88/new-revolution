@@ -45,73 +45,57 @@ end
 
 local function spawnGreedWorm()
 	if Game.getStorageValue(GlobalStorage.ThePaleWorm.Battle) == 1 then
-		local spectators = getCustomSpectators(config.centerRoom, false, true, false, false, 14, 14, 14, 14)
-		if spectators then
-			local from = {x=33799,y=31499}
-			local to = {x=33811,y=31503}
-			local setX = math.random(from.x,to.x)
-			local setY = math.random(from.y,to.y)
-			local counter = 0
-			local monsters = getCustomSpectators(config.centerRoom, false, true, true, true, 14, 14, 14, 14)
-			for i = 1, #monsters do
-				if monsters[i]:getName():lower() == "greed worm" then
-					counter = counter + 1
-				end
-			end
-			if counter <= 5 then
-				Game.createMonster("Greed Worm", {x = setX, y=setY, z = 14})
+		local from = {x=33799,y=31499}
+		local to = {x=33811,y=31503}
+		local setX = math.random(from.x,to.x)
+		local setY = math.random(from.y,to.y)
+		local counter = 0
+		local monsters = getCustomSpectators(config.centerRoom, false, true, true, true, 14, 14, 14, 14)
+		for i = 1, #monsters do
+			if monsters[i]:getName():lower() == "greed worm" then
+				counter = counter + 1
 			end
 		end
-		addEvent(spawnGreedWorm, 10000)
+		if counter <= 5 then
+			Game.createMonster("Greed Worm", {x = setX, y=setY, z = 14})
+		end
+		addEvent(spawnGreedWorm, 7000)
 	end
 end
 
 local function spawnGreedWormDown()
 	if Game.getStorageValue(GlobalStorage.ThePaleWorm.Battle) == 1 then
-		local spectators = getCustomSpectators(config.centerRoom2, false, true, false, false, 14, 14, 14, 14)
-		if spectators then
-			local from = {x=33799,y=31499}
-			local to = {x=33811,y=31503}
-			local setX = math.random(from.x,to.x)
-			local setY = math.random(from.y,to.y)
-			local counter = 0
-			local monsters = getCustomSpectators(config.centerRoom2, false, true, true, true, 14, 14, 14, 14)
-			for i = 1, #monsters do
-				if monsters[i]:getName():lower() == "greed worm" then
-					counter = counter + 1
-				end
-			end
-			if counter <= 5 then
-				Game.createMonster("Greed Worm", {x = setX, y=setY, z = 15})
+		local from = {x=33799,y=31499}
+		local to = {x=33811,y=31503}
+		local setX = math.random(from.x,to.x)
+		local setY = math.random(from.y,to.y)
+		local counter = 0
+		local monsters = getCustomSpectators(config.centerRoom2, false, true, true, true, 14, 14, 14, 14)
+		for i = 1, #monsters do
+			if monsters[i]:getName():lower() == "greed worm" then
+				counter = counter + 1
 			end
 		end
-		addEvent(spawnGreedWormDown, 10000)
+		if counter <= 5 then
+			Game.createMonster("Greed Worm", {x = setX, y=setY, z = 15})
+		end
+		addEvent(spawnGreedWormDown, 3000)
 	end
 end
 
 local function damagePlayers(value)
 	if Game.getStorageValue(GlobalStorage.ThePaleWorm.Battle) == 1 then
-		local pale
 		local damage = value
-		local monsters = getCustomSpectators(config.centerRoom, false, true, true, true, 14, 14, 14, 14)
-		for i = 1, #monsters do
-			if monsters[i]:getName():lower() == "the pale worm" then
-				pale = monsters[i]
+		local spectators = getCustomSpectators(config.centerRoom2, false, true, true, true, 14, 14, 14, 14)
+		for i = 1, #spectators do
+			if spectators[i]:isPlayer() then
+				doTargetCombatHealth(pale, spectators[i], COMBAT_PHYSICALDAMAGE, -damage, -damage, CONST_ME_HITBYPOISON, ORIGIN_NONE)
+				damage = damage + 50
 			end
 		end
-		if pale then 
-			local spectators = getCustomSpectators(config.centerRoom2, false, true, true, true, 14, 14, 14, 14)
-			for i = 1, #spectators do
-				if spectators[i]:isPlayer() then
-					doTargetCombatHealth(pale, spectators[i], COMBAT_PHYSICALDAMAGE, -damage, -damage, CONST_ME_HITBYPOISON, ORIGIN_NONE)
-					damage = damage + 100
-				end
-			end
-			addEvent(function()
-				local damage = 100
-				damagePlayers(damage)
-			end, 5000)
-		end
+		addEvent(function()
+			damagePlayers(damage)
+		end, 5000)
 	end
 end
 

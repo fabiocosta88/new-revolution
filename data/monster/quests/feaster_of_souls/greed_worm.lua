@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 4000
-monster.maxHealth = 4000
+monster.health = 4500
+monster.maxHealth = 4500
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 250
@@ -66,8 +66,8 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -450},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -450, radius = 3, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -550},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -250, maxDamage = -650, radius = 3, effect = CONST_ME_GREEN_RINGS, target = false},
 }
 
 monster.defenses = {

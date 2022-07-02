@@ -38,8 +38,8 @@ end
 local function spawnFrozenSoul()
 	local spectators = getCustomSpectators(config.centerRoom, false, true, false, false, 14, 14, 14, 14)
 	if spectators then
-		local from = {x=33452,y=31433}
-		local to = {x=33460,y=31442}
+		local from = {x=33484,y=31433}
+		local to = {x=33492,y=31443}
 		local setX = math.random(from.x,to.x)
 		local setY = math.random(from.y,to.y)
 		local counter = 0

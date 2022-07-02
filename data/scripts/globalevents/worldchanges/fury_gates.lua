@@ -157,8 +157,8 @@ function teleport.onStepIn(creature, item, position, fromPosition)
 	-- Enter gates
 	if item.actionid == 9710 then
 		-- Check requirements
-		if not player:isPremium() or not player:isPromoted() or player:getLevel() < 60 then
-			player:say("Only Premium promoted players of level 60 or higher are able to enter this portal.", TALKTYPE_MONSTER_SAY, false, player, fromPosition)
+		if not player:isPromoted() or player:getLevel() < 60 then
+			player:say("Only promoted players of level 60 or higher are able to enter this portal.", TALKTYPE_MONSTER_SAY, false, player, fromPosition)
 			player:teleportTo(fromPosition)
 			fromPosition:sendMagicEffect(CONST_ME_TELEPORT)
 			return true

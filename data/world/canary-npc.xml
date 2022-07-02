@@ -2314,8 +2314,8 @@
 	<npc centerx="32592" centery="31445" centerz="9" radius="1">
 		<npc name="Harog" x="0" y="0" z="9" spawntime="60" />
 	</npc>
-	<npc centerx="32695" centery="31544" centerz="9" radius="1">
-		<npc name="Tigo" x="0" y="0" z="9" spawntime="60" />
+	<npc centerx="32696" centery="31544" centerz="9" radius="1">
+		<npc name="Tigo" x="-1" y="0" z="9" spawntime="60" />
 	</npc>
 	<npc centerx="32644" centery="31655" centerz="9" radius="1">
 		<npc name="Shirith" x="0" y="0" z="9" spawntime="60" />

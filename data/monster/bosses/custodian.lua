@@ -57,6 +57,13 @@ monster.light = {
 	color = 0
 }
 
+monster.summon = {
+	maxSummons = 1,
+	summons = {
+		{name = "ugly monster", chance = 5, interval = 4000, count = 1}
+	}
+}
+
 monster.voices = {
 	interval = 5000,
 	chance = 10,
