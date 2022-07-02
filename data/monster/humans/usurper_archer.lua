@@ -108,10 +108,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -430, range = 7, shootEffect = CONST_ANI_BURSTARROW, target = true},
-	{name ="combat", interval = 6000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -160, maxDamage = -485, range = 7, shootEffect = CONST_ANI_SMALLHOLY, target = true},
-	{name ="combat", interval = 4000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -160, maxDamage = -545, range = 7, effect = CONST_ME_MORTAREA, shootEffect = CONST_ANI_SUDDENDEATH, target = true},
-	{name ="combat", interval = 4000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -150, maxDamage = -425, radius = 3, effect = CONST_ME_ICEAREA, target = true}
+	{name ="combat", interval = 2000, chance = 100, type = COMBAT_PHYSICALDAMAGE, minDamage = -200, maxDamage = -530, range = 7, shootEffect = CONST_ANI_BURSTARROW, target = true},
+	{name ="combat", interval = 6000, chance = 12, type = COMBAT_DEATHDAMAGE, minDamage = -260, maxDamage = -585, range = 7, shootEffect = CONST_ANI_SMALLHOLY, target = true},
+	{name ="combat", interval = 4000, chance = 10, type = COMBAT_DEATHDAMAGE, minDamage = -260, maxDamage = -645, range = 7, effect = CONST_ME_MORTAREA, shootEffect = CONST_ANI_SUDDENDEATH, target = true},
+	{name ="combat", interval = 4000, chance = 10, type = COMBAT_ICEDAMAGE, minDamage = -150, maxDamage = -490, radius = 3, effect = CONST_ME_ICEAREA, target = true}
 }
 
 monster.defenses = {

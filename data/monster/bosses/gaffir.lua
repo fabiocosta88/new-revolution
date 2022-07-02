@@ -60,7 +60,7 @@ monster.light = {
 monster.summon = {
 	maxSummons = 1,
 	summons = {
-		{name = "Black Cobra", chance = 10, interval = 2000, count = 1}
+		{name = "Black Cobra", chance = 10, interval = 2000, count = 1},
 	}
 }
 
@@ -87,9 +87,9 @@ monster.loot = {
 	{name = "spellbook of warding", chance = 6500},
 	{name = "amulet of loss", chance = 3400},
 	{name = "wand of everblazing", chance = 3400},
-	{name = "cobra wand", chance = 1500},
-	{name = "cobra axe", chance = 1500},
-	{name = "cobra rod", chance = 1500}
+	{name = "cobra wand", chance = 500},
+	{name = "cobra axe", chance = 500},
+	{name = "cobra rod", chance = 500}
 }
 
 monster.attacks = {

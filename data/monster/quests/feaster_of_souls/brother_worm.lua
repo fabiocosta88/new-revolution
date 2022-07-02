@@ -17,8 +17,8 @@ monster.events = {
 	"brother_worm_damage"
 }
 
-monster.health = 300000
-monster.maxHealth = 300000
+monster.health = 300150
+monster.maxHealth = 300150
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 250

@@ -20,6 +20,42 @@ local config = {
     storage = Storage.GraveDanger.BossTimer.CountVlarkorthTimer
 }
 
+local function getCustomSpectators(position, multifloor, showPlayers, showMonsters, showNPCs, minRangeX, maxRangeX, minRangeY, maxRangeY)
+    --getSpectators(position[, multifloor = false[, onlyPlayer = false[, minRangeX = 0[, maxRangeX = 0[, minRangeY = 0[, maxRangeY = 0]]]]]])
+    local spectators = Game.getSpectators(position, multifloor, false, minRangeX, maxRangeX, minRangeY, maxRangeY)
+    customSpectatorsList = {}
+    for _, spectatorCreature in ipairs(spectators) do
+        if (showPlayers and spectatorCreature:isPlayer()) or
+            (showMonsters and spectatorCreature:isMonster()) or
+            (showNPCs and spectatorCreature:isNpc()) then
+            table.insert(customSpectatorsList, spectatorCreature)
+        end
+    end
+    return customSpectatorsList
+end
+
+
+local function spawnSoullessMinion()
+	local spectators = getCustomSpectators(config.centerRoom, false, true, false, false, 14, 14, 14, 14)
+	if spectators then
+		local from = {x=33452,y=31433}
+		local to = {x=33460,y=31442}
+		local setX = math.random(from.x,to.x)
+		local setY = math.random(from.y,to.y)
+		local counter = 0
+		local monsters = getCustomSpectators(config.centerRoom, false, true, true, true, 14, 14, 14, 14)
+		for i = 1, #monsters do
+			if monsters[i]:getName():lower() == "soulless minion" then
+				counter = counter + 1
+			end
+		end
+		if counter <= 4 then
+			Game.createMonster("Soulless Minion", {x = setX, y=setY, z = 13})
+		end
+		addEvent(spawnSoullessMinion, 5000)
+	end
+end
+
 local countvlarkorth = Action()
 function countvlarkorth.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == config.leverId then
@@ -87,6 +123,7 @@ function countvlarkorth.onUse(player, item, fromPosition, target, toPosition, is
 						end
 				end, config.timeToDefeatBoss * 60 * 1000)
 		end
+		addEvent(spawnSoullessMinion, 15000)
 	end
 	return true
 end

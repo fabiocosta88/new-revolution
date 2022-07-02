@@ -1,7 +1,6 @@
 local config = {
     boss_name = "Brain Head",
     action_id_entrance = 4601,
-    action_id_block = 4603,
     minion_name = "Cerebellum",
     destination = Position(31963, 32325, 10),
     boss_pos = Position(31954, 32325, 10),
@@ -35,12 +34,6 @@ function FOSbrain_head.onStepIn(creature, item, position, fromPosition)
 		return
 	end
 
-    if item.actionid == config.action_id_block then 
-        player:getPosition():sendMagicEffect(CONST_ME_POFF)
-        player:teleportTo(fromPosition)
-        return
-    end 
-
     if item.actionid == config.action_id_entrance then
         if player:getLevel() < config.requiredLevel then
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to be level ".. teleport.requiredLevel .." or higher to face " .. teleport.boss_name .. ".")
@@ -55,11 +48,17 @@ function FOSbrain_head.onStepIn(creature, item, position, fromPosition)
         end
 
         local specs, spec = Game.getSpectators(config.centerRoom, false, false, config.radius_center, config.radius_center, config.radius_center, config.radius_center)
+        local counter = 0
         for i = 1, #specs do
             spec = specs[i]
             if spec:isPlayer() then
-                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There's someone fighting with ".. teleport.name ..".")
-                return true
+                counter += 1
+                if (counter >= 5) {
+                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There are already 5 players fighting with the ".. teleport.name ..".")
+                    player:teleportTo(fromPosition)
+                    player:getPosition():sendMagicEffect(CONST_ME_POFF)
+                    return true
+                }
             end
             spec:remove()
         end
@@ -93,5 +92,4 @@ end
 
 FOSbrain_head:type("stepin")
 FOSbrain_head:aid(4601)
-FOSbrain_head:aid(4063)
 FOSbrain_head:register()

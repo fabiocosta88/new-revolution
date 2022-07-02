@@ -17,8 +17,10 @@ local config = {
 	},
 	teleportPosition = Position(33423, 31448, 13),
 	bossPosition = Position(33424, 31438, 13),
+	bossPosition2 = Position(33424,31428,13),
 	specPos = Position(33426, 31407, 13),
-    storage = Storage.GraveDanger.BossTimer.SirBaelocSirNictrosTimer
+    storage = Storage.GraveDanger.BossTimer.SirBaelocSirNictrosTimer,
+	storage_fight = GlobalStorage.GraveDanger.SirBossesFight,
 }
 
 local sirbaelocsirnictros = Action()
@@ -45,7 +47,7 @@ function sirbaelocsirnictros.onUse(player, item, fromPosition, target, toPositio
 				-- Check participant boss timer
 				if config.daily and participant:getStorageValue(config.storage) > os.time() then
 					player:getPosition():sendMagicEffect(CONST_ME_POFF)
-					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You or a member in your team have to wait ".. config.timeToFightAgain .."  hours to face ".. config.bossName .." again!")
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You or a member in your team have to wait ".. config.timeToFightAgain .."  hours to face ".. config.bossName .." and " .. config.bossName2 .. " again!")
 					return true
 				end
 				team[#team + 1] = participant
@@ -57,7 +59,7 @@ function sirbaelocsirnictros.onUse(player, item, fromPosition, target, toPositio
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There's someone fighting with ".. config.bossName ..".")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There's someone fighting with ".. config.bossName .." and " .. config.bossName2 .. ".")
 				return true
 			end
 			spec:remove()
@@ -66,7 +68,8 @@ function sirbaelocsirnictros.onUse(player, item, fromPosition, target, toPositio
 		-- One hour for clean the room
 		addEvent(clearRoom, config.clearRoomTime * 60 * 1000, config.centerRoom)
 		Game.createMonster(config.bossName, config.bossPosition)
-		Game.createMonster(config.bossName2, config.bossPosition)
+		Game.createMonster(config.bossName2, config.bossPosition2)
+		Game.setStorageValue(config.storage_fight, 1)
 
 		-- Teleport team participants
 		for i = 1, #team do

@@ -8,7 +8,8 @@ monster.outfit = {
 }
 
 monster.events = {
-	"weak_spot_damage"
+	"weak_spot_damage",
+	"paleWormKill"
 }
 
 monster.health = 400000

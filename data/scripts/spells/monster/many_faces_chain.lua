@@ -1,4 +1,4 @@
-function getCustomSpectators(position, multifloor, showPlayers, showMonsters, showNPCs, minRangeX, maxRangeX, minRangeY, maxRangeY)
+local function getCustomSpectators(position, multifloor, showPlayers, showMonsters, showNPCs, minRangeX, maxRangeX, minRangeY, maxRangeY)
     local spectators = Game.getSpectators(position, multifloor, false, minRangeX, maxRangeX, minRangeY, maxRangeY)
     customSpectatorsList = {}
     for _, spectatorCreature in ipairs(spectators) do
@@ -21,7 +21,6 @@ local spell = Spell("instant")
 function spell.onCastSpell(creature, var)
 	local tmpTargets = getCustomSpectators(creature:getPosition(), false, true, false, false, 4, 4, 4, 4)
 	local target = Creature(var.number)
-	local damage = math.random(950,1100)
 	local min = 1000
 	local max = 1350
 	if not target then return false end

@@ -25,9 +25,10 @@ local config = {
 	bossPosition_4 = Position(33712, 31467, 14),
 	specPos = Position(33741, 31471, 14),
     storage = Storage.FeasterOfSouls.BossTimer.TheFearFeaster,
-	storage_teleported = Storage.FeasterOfSouls.BossTimer.TheFearFeasterTeleported1,
-	storage_teleported1 = Storage.FeasterOfSouls.BossTimer.TheFearFeasterTeleported2,
-	storage_teleported2 = Storage.FeasterOfSouls.BossTimer.TheFearFeasterTeleported3
+	storage_teleported = GlobalStorage.TheFearFeaster.Teleported1,
+	storage_teleported1 = GlobalStorage.TheFearFeaster.Teleported2,
+	storage_teleported2 = GlobalStorage.TheFearFeaster.Teleported3,
+	storage_teleported3 = GlobalStorage.TheFearFeaster.Teleported4,
 }
 
 local fearfeaster = Action()
@@ -89,6 +90,10 @@ function fearfeaster.onUse(player, item, fromPosition, target, toPosition, isHot
 		Game.createMonster(config.summon_1, config.bossPosition_2)
 		Game.createMonster(config.summon_2, config.bossPosition_3)
 		Game.createMonster(config.summon_3, config.bossPosition_4)
+		Game.setStorageValue(config.storage_teleported, 0)
+		Game.setStorageValue(config.storage_teleported1, 0)
+		Game.setStorageValue(config.storage_teleported2, 0)
+		Game.setStorageValue(config.storage_teleported3, 0)
 
 		-- Teleport team participants
 		for i = 1, #team do
@@ -97,14 +102,6 @@ function fearfeaster.onUse(player, item, fromPosition, target, toPosition, isHot
 			team[i]:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have ".. config.timeToDefeatBoss .." minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.")
 			-- Assign boss timer
 			team[i]:setStorageValue(config.storage, os.time() + config.timeToFightAgain * 60 * 60) -- 20 hours
-			team[i]:setStorageValue(config.storage_teleported, 0)
-			team[i]:setStorageValue(config.storage_teleported1, 0)
-			team[i]:setStorageValue(config.storage_teleported2, 0)
-			addEvent(function()
-				team[i]:setStorageValue(config.storage_teleported, 0)
-				team[i]:setStorageValue(config.storage_teleported1, 0)
-				team[i]:setStorageValue(config.storage_teleported2, 0)
-			end, config.timeToDefeatBoss)
 			item:transform(config.leverId)
 			
 			addEvent(function()

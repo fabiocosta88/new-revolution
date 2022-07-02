@@ -54,8 +54,12 @@ monster.light = {
 	color = 0
 }
 
+monster.events = {
+	"sir_bosses"
+}
+
 monster.summon = {
-	maxSummons = 6,
+	maxSummons = 4,
 	summons = {
 		{name = "Retainer of Baeloc", chance = 20, interval = 2000, count = 6}
 	}

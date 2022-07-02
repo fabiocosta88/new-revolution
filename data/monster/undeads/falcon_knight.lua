@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Falcon Knight")
 local monster = {}
 
 monster.description = "a falcon knight"
-monster.experience = 5985
+monster.experience = 8977
 monster.outfit = {
 	lookType = 1071,
 	lookHead = 57,
@@ -30,7 +30,7 @@ monster.health = 9000
 monster.maxHealth = 9000
 monster.race = "blood"
 monster.corpse = 28621
-monster.speed = 220
+monster.speed = 250
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -103,9 +103,9 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400},
-	{name ="combat", interval = 2000, chance = 18, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -500, radius = 2, effect = CONST_ME_GROUNDSHAKER, target = false},
-	{name ="combat", interval = 2000, chance = 14, type = COMBAT_HOLYDAMAGE, minDamage = -290, maxDamage = -360, length = 5, spread = 3, effect = CONST_ME_BLOCKHIT, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -200, maxDamage = -550},
+	{name ="combat", interval = 2000, chance = 22, type = COMBAT_EARTHDAMAGE, minDamage = -400, maxDamage = -600, radius = 2, effect = CONST_ME_GROUNDSHAKER, target = false},
+	{name ="combat", interval = 2000, chance = 18, type = COMBAT_HOLYDAMAGE, minDamage = -290, maxDamage = -560, length = 4, spread = 0, effect = CONST_ME_HOLYDAMAGE, target = false}
 }
 
 monster.defenses = {

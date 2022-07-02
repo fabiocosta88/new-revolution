@@ -421,7 +421,6 @@ Storage = {
 		KroazurTimer = 50280,
 		CoupleMission01 = 50281,
 		CoupleMission02 = 50282,
-		FacelessBaneTime = 50283,
 		Reward01 = 50284,
 		Reward02 = 50285,
 		Reward03 = 50286,
@@ -1699,7 +1698,7 @@ Storage = {
 			EarlOsamTimer = 52316,
 			SirBaelocSirNictrosTimer = 52317,
 			DukeKruleTimer = 52318,
-			KingZelos = 52319
+			KingZelos = 52319,
 		}
 	},
 
@@ -1716,11 +1715,6 @@ Storage = {
 			UnaztheMean = 53007,
 			BrainDead = 53008,
 			Thaian = 53009,
-			ThePaleWormSummon = 53010,
-			ThePaleWormDamage = 53011,
-			TheFearFeasterTeleported1 = 53012,
-			TheFearFeasterTeleported2 = 53013,
-			TheFearFeasterTeleported3 = 53014
 		}
 	},
 	RottinWoodAndMaried = {
@@ -2468,7 +2462,7 @@ Storage = {
 			DreamWarriorOutfits = {},
 			TheDreamCourts = {
 				AndrewDoor = 14900,
-				StrickenSoul = 149001
+				StrickenSoul = 14901,
 				FacelessBaneTime = 50283
 			},
 		},
@@ -2530,12 +2524,19 @@ GlobalStorage = {
 		Active = 60021
 	},
 	FacelessBane = {
-		-- Reserved storage from 60029 - 60029
 		Damage = 60028,
 		Count = 60027,
 	},
+	ThePaleWorm = {
+		Battle = 60022,
+	},
+	TheFearFeaster = {
+		Teleported1 = 60023,
+		Teleported2 = 60024,
+		Teleported3 = 60025,
+		Teleported3 = 60026,
+	},
 	TheDreadMaiden = {
-		-- Reserved storage from 60029 - 60029
 		Damage = 60029,
 	},
 	FerumbrasAscendant = {
@@ -2650,6 +2651,9 @@ GlobalStorage = {
 		ThalasSwitchesGlobalStorage = 60160,
 		DiprathSwitchesGlobalStorage = 60161,
 		AshmunrahSwitchesGlobalStorage = 60162
+	},
+	GraveDanger = {
+		SirBossesFight = 60163
 	},
 	FuryGates = 65000,
 	Yakchal = 65001,

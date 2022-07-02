@@ -17,8 +17,8 @@ monster.events = {
 	"hungerWormDeath"
 }
 
-monster.health = 200000
-monster.maxHealth = 200000
+monster.health = 100000
+monster.maxHealth = 100000
 monster.race = "undead"
 monster.corpse = 0
 monster.speed = 250
@@ -71,9 +71,9 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -250, maxDamage = -500, condition = {type = CONDITION_POISON, totalDamage = 4, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -200, maxDamage = -550, radius = 3, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="askarak wave", interval = 2000, chance = 15, minDamage = -350, maxDamage = -700, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -350, maxDamage = -750, condition = {type = CONDITION_POISON, totalDamage = 50, interval = 4000}},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -650, radius = 3, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="askarak wave", interval = 2000, chance = 15, minDamage = -450, maxDamage = -900, target = false},
 }
 
 monster.defenses = {
@@ -84,16 +84,16 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
+	{type = COMBAT_ENERGYDAMAGE, percent = 10},
+	{type = COMBAT_EARTHDAMAGE, percent = 10},
+	{type = COMBAT_FIREDAMAGE, percent = 10},
+	{type = COMBAT_LIFEDRAIN, percent = 10},
+	{type = COMBAT_MANADRAIN, percent = 10},
+	{type = COMBAT_DROWNDAMAGE, percent = 10},
+	{type = COMBAT_ICEDAMAGE, percent = 10},
+	{type = COMBAT_HOLYDAMAGE , percent = 10},
+	{type = COMBAT_DEATHDAMAGE , percent = 10}
 }
 
 monster.immunities = {

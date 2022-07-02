@@ -73,10 +73,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2000, minDamage = -900, maxDamage = -1900},
-	{name = "combat", type = COMBAT_FIREDAMAGE, interval = 2000, chance = 22, length = 8, spread = 0, minDamage = -1200, maxDamage = -3200, effect = CONST_ME_HITBYFIRE},
-	{name = "combat", type = COMBAT_LIFEDRAIN, interval = 2000, chance = 18, length = 8, spread = 3, minDamage = -600, maxDamage = -1600, effect = CONST_ME_SMALLCLOUDS},
-	{name ="king zelos death wave", interval = 2000, chance = 10, minDamage = -1000, maxDamage = -2000, target = false},
+	{name = "melee", type = COMBAT_PHYSICALDAMAGE, interval = 2000, minDamage = -1200, maxDamage = -2200},
+	{name = "combat", type = COMBAT_FIREDAMAGE, interval = 2000, chance = 30, length = 8, spread = 0, minDamage = -2000, maxDamage = -3600, effect = CONST_ME_HITBYFIRE},
+	{name = "combat", type = COMBAT_LIFEDRAIN, interval = 2000, chance = 22, length = 8, spread = 3, minDamage = -800, maxDamage = -1800, effect = CONST_ME_SMALLCLOUDS},
+	{name ="king zelos death wave", interval = 2000, chance = 20, minDamage = -2000, maxDamage = -4500, target = false},
 }
 
 monster.defenses = {

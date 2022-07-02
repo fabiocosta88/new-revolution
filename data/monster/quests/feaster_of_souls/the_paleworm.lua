@@ -57,6 +57,10 @@ monster.light = {
 	color = 0
 }
 
+monster.events = {
+	"paleWormKill"
+}
+
 monster.voices = {
 	interval = 5000,
 	chance = 10,
@@ -110,16 +114,20 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 0},
-	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 0},
-	{type = COMBAT_LIFEDRAIN, percent = 0},
-	{type = COMBAT_MANADRAIN, percent = 0},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_PHYSICALDAMAGE, percent = 99},
+	{type = COMBAT_ENERGYDAMAGE, percent = 99},
+	{type = COMBAT_EARTHDAMAGE, percent = 99},
+	{type = COMBAT_FIREDAMAGE, percent = 99},
+	{type = COMBAT_LIFEDRAIN, percent = 99},
+	{type = COMBAT_MANADRAIN, percent = 99},
+	{type = COMBAT_DROWNDAMAGE, percent = 99},
+	{type = COMBAT_ICEDAMAGE, percent = 99},
+	{type = COMBAT_HOLYDAMAGE , percent = 99},
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
+}
+
+monster.heals = {
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 
 monster.immunities = {

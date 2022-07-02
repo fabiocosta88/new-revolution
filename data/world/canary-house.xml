@@ -985,5 +985,5 @@
 	<house name="Pilchard Bin 10" houseid="3685" entryx="32281" entryy="31148" entryz="6" rent="0" townid="16" size="7" />
 	<house name="Mammoth House" houseid="3686" entryx="32234" entryy="31227" entryz="7" rent="300000" townid="16" size="160" />
 	<house name="Mill Avenue 6" houseid="3687" entryx="32347" entryy="32185" entryz="7" rent="45000" townid="8" size="32" />
-	<house name="Mill Avenue 7" houseid="3688" entryx="32349" entryy="32181" entryz="6" rent="145000" townid="8" size="123" />
+	<house name="Mill Avenue 7" houseid="3688" entryx="32349" entryy="32181" entryz="6" rent="145000" townid="8" size="120" />
 </houses>

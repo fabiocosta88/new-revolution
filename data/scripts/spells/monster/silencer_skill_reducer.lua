@@ -1,6 +1,6 @@
 local combat = {}
 
-for i = 40, 70 do
+for i = 10, 30 do
 	combat[i] = Combat()
 	combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYHIT)
 	combat[i]:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_ENERGY)

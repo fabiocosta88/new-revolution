@@ -104,7 +104,7 @@ function scarlettHealth.onHealthChange(creature, attacker, primaryDamage, primar
 		return primaryDamage*0.01, primaryType, secondaryDamage*0.01, secondaryType
 	end
 
-	local spec = Game.getSpectators(creature:getPosition(), false, false, 4, 4, 4, 4)
+	local spec = Game.getSpectators(creature:getPosition(), false, false, 3, 3, 3, 3)
 	for _, c in pairs(spec) do
 		if c and (c:isPlayer() or c:getMaster()) then
 			doTargetCombatHealth(creature:getId(), c, COMBAT_EARTHDAMAGE, -7500, -7500, CONST_ME_GROUNDSHAKER)

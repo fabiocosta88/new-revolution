@@ -45,6 +45,11 @@ QuestDoorAction = {
 		itemId = false,
 		itemPos = {{x = 32455, y = 31967, z = 14}}
 	},
+	-- To Outfox a Fox Quest, mining helmet door
+	[Storage.toOutfoxAFoxQuest] = {
+		itemId = false,
+		itemPos = {{x = 32467, y = 31969, z = 5}}
+	},
 	-- Edron
 	[Storage.Kilmaresh.Sixth.Favor] = {
 		itemId = false,
@@ -145,6 +150,18 @@ QuestDoorAction = {
 		itemPos = {
 			{x = 32318, y = 31137, z = 6},
 			{x = 32360, y = 32808, z = 6}
+		}
+	},
+	-- Grave Danger
+	[Storage.GraveDanger.BossAccessDoor] = {
+		itemId = false,
+		itemPos = {
+			{x = 33288, y = 32479, z = 9},
+			{x = 32355, y = 32163, z = 11},
+			{x = 32191, y = 31823, z = 8},
+			{x = 32173, y = 31922, z = 8},
+			{x = 33264, y = 31993, z = 7},
+			{x = 33197, y = 31684, z = 7},
 		}
 	},
 	-- Mission in Calassa
@@ -682,7 +699,12 @@ QuestDoorAction = {
 		itemPos = {
 			{x = 32700, y = 32244, z = 9},
 			{x = 32671, y = 32652, z = 7},
-			{x = 33088, y = 32388, z = 8}
+			{x = 33088, y = 32388, z = 8},
+			{x = 32700, y = 32275, z = 8},
+			{x = 32719, y = 32264, z = 8},
+			{x = 32728, y = 32280, z = 8},
+			{x = 32700, y = 32255, z = 9},
+			{x = 32724, y = 32283, z = 8}
 		}
 	},
 	-- Kilmaresh doors
