@@ -52,13 +52,13 @@ function FOSbrain_head.onStepIn(creature, item, position, fromPosition)
         for i = 1, #specs do
             spec = specs[i]
             if spec:isPlayer() then
-                counter += 1
-                if (counter >= 5) {
+                counter = counter + 1
+                if counter >= 5 then
                     player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There are already 5 players fighting with the ".. teleport.name ..".")
                     player:teleportTo(fromPosition)
                     player:getPosition():sendMagicEffect(CONST_ME_POFF)
                     return true
-                }
+                end
             end
             spec:remove()
         end
