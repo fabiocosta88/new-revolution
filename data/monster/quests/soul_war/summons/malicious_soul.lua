@@ -1,35 +1,33 @@
-local mType = Game.createMonsterType("Greed Worm")
+local mType = Game.createMonsterType("Malicious Soul")
 local monster = {}
 
-monster.description = "a greed worm"
+monster.description = "a malicious soul"
 monster.experience = 0
 monster.outfit = {
-	lookType = 1275,
+	lookType = 1268,
 	lookHead = 0,
-	lookBody = 0,
+	lookBody = 80,
 	lookLegs = 0,
 	lookFeet = 0,
-	lookAddons = 0,
+	lookAddons = 1,
 	lookMount = 0
 }
 
-monster.health = 4500
-monster.maxHealth = 4500
+
+monster.health = 15000
+monster.maxHealth = 15000
 monster.race = "undead"
-monster.corpse = 32733
-monster.speed = 250
+monster.corpse = 0
+monster.speed = 240
 monster.manaCost = 0
 
 monster.changeTarget = {
-	interval = 6000,
-	chance = 10
+	interval = 5000,
+	chance = 8
 }
 
 monster.strategiesTarget = {
-	nearest = 70,
-	health = 10,
-	damage = 10,
-	random = 10,
+	nearest = 100,
 }
 
 monster.flags = {
@@ -39,16 +37,16 @@ monster.flags = {
 	convinceable = false,
 	pushable = false,
 	rewardBoss = false,
-	illusionable = false,
+	illusionable = true,
 	canPushItems = true,
-	canPushCreatures = false,
-	staticAttackChance = 95,
+	canPushCreatures = true,
+	staticAttackChance = 90,
 	targetDistance = 1,
-	runHealth = 1,
+	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
 	canWalkOnPoison = true
 }
 
@@ -59,21 +57,20 @@ monster.light = {
 
 monster.voices = {
 	interval = 5000,
-	chance = 10
+	chance = 10,
 }
 
 monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -550},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_EARTHDAMAGE, minDamage = -250, maxDamage = -650, radius = 3, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -350},
+	{name ="combat", interval = 1700, chance = 35, type = COMBAT_EARTHDAMAGE, minDamage = -550, maxDamage = -950, radius = 3, effect = CONST_ME_POISONAREA, target = false}
 }
 
 monster.defenses = {
-	defense = 15,
-	armor = 10,
-	{name ="speed", interval = 10000, chance = 40, speedChange = 450, effect = CONST_ME_MAGIC_GREEN, target = false, duration = 20000},
+	defense = 40,
+	armor = 79
 }
 
 monster.elements = {
@@ -95,20 +92,5 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)
