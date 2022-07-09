@@ -1226,7 +1226,8 @@ Storage = {
 		DoorNorthMine = 51460,
 		DoorWestMine = 51461,
 		DoorSouthMine = 51462,
-		BrownMushrooms = 51463
+		BrownMushrooms = 51463,
+		TunnellingGuide = 51464
 	},
 	TibiaTales = {
 		-- Reserved storage from 51480 - 51539
