@@ -2472,7 +2472,9 @@ Storage = {
 			TheDreamCourts = {
 				AndrewDoor = 14900,
 				StrickenSoul = 14901,
-				FacelessBaneTime = 50283
+				FacelessBaneTime = 50283,
+				ArenaBossTimer = 14902,
+				TheNightmareBeastTimer = 14903
 			},
 		},
 		U12_02 = { -- update 12.02 - Reserved Storages 46601 - 46800
@@ -2682,6 +2684,7 @@ GlobalStorage = {
 	Inquisition = 65013,
 	Yasir = 65014,
 	NightmareIsle = 65015,
+	DreamCourtsBoss = 65016,
 	KeysUpdate = 40000, -- Reserved storage from 40000 - 40000
 }
 

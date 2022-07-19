@@ -1,7 +1,7 @@
 local mType = Game.createMonsterType("Nightmare Tendril")
 local monster = {}
 
-monster.description = "a Nightmare Tendril"
+monster.description = "a nightmare tendril"
 monster.experience = 0
 monster.outfit = {
 	lookType = 681,
@@ -13,16 +13,16 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 2100
-monster.maxHealth = 2100
+monster.health = 8000
+monster.maxHealth = 8000
 monster.race = "blood"
 monster.corpse = 0
-monster.speed = 150
-monster.manaCost = 290
+monster.speed = 200
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 5000,
-	chance = 0
+	chance = 20
 }
 
 monster.strategiesTarget = {
@@ -66,9 +66,9 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250},
-	{name ="drunk", interval = 2000, chance = 8, shootEffect = CONST_ANI_EARTHARROW, effect = CONST_ME_STUN, target = true, duration = 5000},
-	{name ="speed", interval = 2000, chance = 7, speedChange = -120, range = 7, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MAGIC_RED, target = false, duration = 3000}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -450},
+	{name ="drunk", interval = 2000, chance = 20, shootEffect = CONST_ANI_EARTHARROW, effect = CONST_ME_STUN, target = true, duration = 5000},
+	{name ="speed", interval = 2000, chance = 20, speedChange = -250, range = 7, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MAGIC_RED, target = false, duration = 3000}
 }
 
 monster.defenses = {
@@ -86,7 +86,7 @@ monster.elements = {
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 20},
 	{type = COMBAT_HOLYDAMAGE , percent = -10},
-	{type = COMBAT_DEATHDAMAGE , percent = 0}
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
 }
 
 monster.immunities = {

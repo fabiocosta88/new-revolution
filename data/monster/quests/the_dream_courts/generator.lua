@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Generator")
 local monster = {}
 
 monster.description = "a Generator"
-monster.experience = 3000
+monster.experience = 0
 monster.outfit = {
 	lookTypeEx = 20710
 }
@@ -10,7 +10,7 @@ monster.outfit = {
 monster.health = 8000
 monster.maxHealth = 8000
 monster.race = "blood"
-monster.corpse = 21940
+monster.corpse = 0
 monster.speed = 0
 monster.manaCost = 0
 
@@ -60,13 +60,12 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTHDAMAGE, minDamage = -206, maxDamage = -252, radius = 6, effect = CONST_ME_GREEN_RINGS, target = false}
+	{name ="Generator Mass Healing", interval = 2000, chance = 30, target = false}
 }
 
 monster.defenses = {
 	defense = 30,
 	armor = 30,
-	{name ="combat", interval = 4000, chance = 15, type = COMBAT_HEALING, minDamage = 133, maxDamage = 454, effect = CONST_ME_MAGIC_BLUE, target = false}
 }
 
 monster.elements = {

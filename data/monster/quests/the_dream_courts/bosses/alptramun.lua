@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 200000
-monster.maxHealth = 200000
+monster.health = 320000
+monster.maxHealth = 320000
 monster.race = "blood"
 monster.corpse = 30155
 monster.speed = 250
@@ -63,12 +63,11 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "silver token", chance = 100000000, maxCount = 5},
-	{name = "skull staff", chance = 100000000, maxCount = 5},
-	{name = "energy bar", chance = 100000000, maxCount = 5},
-	{name = "purple tendril lantern", chance = 100000000},
+	{name = "skull staff", chance = 65000, maxCount = 5},
+	{name = "energy bar", chance = 85000, maxCount = 5},
+	{name = "purple tendril lantern", chance = 95000},
 	{name = "crystal coin", chance = 100000000, maxCount = 2},
-	{name = "blue gem", chance = 100000000},
+	{name = "blue gem", chance = 100000},
 	{name = "platinum coin", chance = 29580, maxCount = 5},
 	{name = "supreme health potion", chance = 21540, maxCount = 20},
 	{name = "ultimate spirit potion", chance = 22540, maxCount = 20},
@@ -97,21 +96,20 @@ monster.loot = {
 	{name = "soul stone", chance = 820},
 	{id = 23529, chance = 10590}, -- ring of blue plasma
 	{name = "pomegranate", chance = 880},
-	{name = "dream shroud", chance = 980},
 	{id = 23530, chance = 10590} -- ring of blue plasma
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1000},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -190, maxDamage = -300, range = 7, length = 6, spread = 3, shootEffect = CONST_ANI_POISON, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_DEATHDAMAGE, minDamage = -70, maxDamage = -160, range = 3, length = 6, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -90, maxDamage = -160, range = 3, length = 6, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="stone shower rune", interval = 2000, chance = 10, minDamage = -230, maxDamage = -450, range = 7, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -1000},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_DEATHDAMAGE, minDamage = -400, maxDamage = -700, radius = 4, effect = CONST_ME_POFF, target = false},
+	{name ="combat", interval = 2000, chance = 30, type = COMBAT_LIFEDRAIN, minDamage = -300, maxDamage = -700, radius = 5, effect = CONST_ME_PURPLEENERGY, target = false},
+	{name ="alptramun death beam", interval = 2000, chance = 40, target = false}
 }
 
 monster.defenses = {
-	defense = 20,
-	armor = 20
+	defense = 100,
+	armor = 80,
+	{name ="invisible", interval = 2000, chance = 25, effect = CONST_ME_MAGIC_BLUE}
 }
 
 monster.elements = {

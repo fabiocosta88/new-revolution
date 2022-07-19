@@ -174,7 +174,6 @@ function paleworm.onUse(player, item, fromPosition, target, toPosition, isHotkey
 							spec:teleportTo(config.specPos)
 							spec:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 							spec:say("Time out! You were teleported out by strange forces.", TALKTYPE_MONSTER_SAY)
-							Game.setStorageValue(GlobalStorage.ThePaleWorm.Battle, 0)
 						end
 					end
 				end, config.timeToDefeatBoss * 60 * 1000)
@@ -186,7 +185,6 @@ function paleworm.onUse(player, item, fromPosition, target, toPosition, isHotkey
 							spec2:teleportTo(config.specPos)
 							spec2:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 							spec2:say("Time out! You were teleported out by strange forces.", TALKTYPE_MONSTER_SAY)
-							Game.setStorageValue(GlobalStorage.ThePaleWorm.Battle, 0)
 						end
 					end
 				end, config.timeToDefeatBoss * 60 * 1000)

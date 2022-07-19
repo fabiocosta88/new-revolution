@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Heat Of Summer")
 local monster = {}
 
 monster.description = "the heat of summer"
-monster.experience = 220
+monster.experience = 0
 monster.outfit = {
 	lookType = 49,
 	lookHead = 0,
@@ -13,10 +13,10 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 280
-monster.maxHealth = 280
+monster.health = 3000
+monster.maxHealth = 3000
 monster.race = "fire"
-monster.corpse = 8136
+monster.corpse = 0
 monster.speed = 200
 monster.manaCost = 0
 
@@ -66,14 +66,14 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -45, maxDamage = -160, range = 7, radius = 2, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="firefield", interval = 2000, chance = 25, range = 7, radius = 1, shootEffect = CONST_ANI_FIRE, target = true}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -255},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_FIREDAMAGE, minDamage = -250, maxDamage = -550, range = 7, radius = 2, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 }
 
+
 monster.defenses = {
-	defense = 15,
-	armor = 15
+	defense = 95,
+	armor = 90
 }
 
 monster.elements = {
@@ -81,12 +81,16 @@ monster.elements = {
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 100},
-	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = -25},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
 	{type = COMBAT_HOLYDAMAGE , percent = 0},
 	{type = COMBAT_DEATHDAMAGE , percent = 100}
+}
+
+monster.heals = {
+	{type = COMBAT_FIREDAMAGE, percent = 100}
 }
 
 monster.immunities = {

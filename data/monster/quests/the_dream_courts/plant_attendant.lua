@@ -13,12 +13,16 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 90
-monster.maxHealth = 90
+monster.events = {
+	"plaguerootSummonKill",
+}
+
+monster.health = 3900
+monster.maxHealth = 3900
 monster.race = "undead"
-monster.corpse = 19041
-monster.speed = 140
-monster.manaCost = 390
+monster.corpse = 0
+monster.speed = 250
+monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
@@ -66,8 +70,8 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -15, range = 7, shootEffect = CONST_ANI_SMALLSTONE, target = true},
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100},
+	{name ="combat", interval = 2000, chance = 15, type = COMBAT_PHYSICALDAMAGE, minDamage = 0, maxDamage = -100, range = 7, shootEffect = CONST_ANI_SMALLSTONE, target = true},
 	{name ="speed", interval = 2000, chance = 20, speedChange = -600, radius = 3, effect = CONST_ME_SMALLPLANTS, target = false, duration = 9000}
 }
 

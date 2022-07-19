@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Izcandar the Banished")
 local monster = {}
 
 monster.description = "Izcandar the Banished"
-monster.experience = 6900
+monster.experience = 55000
 monster.outfit = {
 	lookType = 1137,
 	lookHead = 19,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 7600
-monster.maxHealth = 7600
+monster.health = 320000
+monster.maxHealth = 320000
 monster.race = "blood"
 monster.corpse = 6068
 monster.speed = 250
@@ -67,8 +67,6 @@ monster.loot = {
 	{name = "crystal coin", chance = 100000},
 	{name = "energy bar", chance = 100000},
 	{name = "giant sapphire", chance = 100000},
-	{name = "gold token", chance = 100000, maxCount = 2},
-	{name = "silver token", chance = 100000, maxCount = 2},
 	{name = "royal star", chance = 100000, maxCount = 100},
 	{name = "green gem", chance = 100000, maxCount = 2},
 	{name = "huge chunk of crude iron", chance = 25100},
@@ -76,16 +74,25 @@ monster.loot = {
 	{name = "piggy bank", chance = 12800},
 	{name = "platinum coin", chance = 12000, maxCount = 10},
 	{name = "supreme health potion", chance = 12000, maxCount = 10},
-	{name = "ultimate mana potion", chance = 12000, maxCount = 20}
+	{name = "ultimate mana potion", chance = 12000, maxCount = 20},
+	{name = "pomegranate", chance = 880},
+	{name = "purple tendril lantern", chance = 25000},
+	{name = "ornate locket", chance = 20000},
+	{name = "ice shield", chance = 20000},
+	{name = "soul stone", chance = 20000},
+	{name = "summerblade", chance = 500},
+	{name = "winterblade", chance = 500},
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -5}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -500, maxDamage = -800},
+	{name ="combat", interval = 2000, chance = 45, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -800, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false},
+	{name ="combat", interval = 2000, chance = 45, type = COMBAT_ICEDAMAGE, minDamage = -500, maxDamage = -800, length = 8, spread = 3, effect = CONST_ME_ICEAREA, target = false}
 }
 
 monster.defenses = {
-	defense = 0,
-	armor = 76
+	defense = 90,
+	armor = 100
 }
 
 monster.elements = {

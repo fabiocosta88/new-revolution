@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("The Nightmare Beast")
 local monster = {}
 
 monster.description = "a The Nightmare Beast"
-monster.experience = 255000
+monster.experience = 75000
 monster.outfit = {
 	lookType = 1144,
 	lookHead = 0,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 22
-monster.maxHealth = 22
+monster.health = 550000
+monster.maxHealth = 550000
 monster.race = "blood"
 monster.corpse = 30159
 monster.speed = 250
@@ -22,7 +22,7 @@ monster.manaCost = 0
 
 monster.changeTarget = {
 	interval = 4000,
-	chance = 10
+	chance = 50
 }
 
 monster.strategiesTarget = {
@@ -47,9 +47,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true
 }
 
 monster.light = {
@@ -112,7 +112,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -1000, maxDamage = -3000},
+	{name ="combat", interval = 2000, chance = 35, type = COMBAT_DEATHDAMAGE, minDamage = -700, maxDamage = -1000, radius = 6, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 25, type = COMBAT_DEATHDAMAGE, minDamage = -1000, maxDamage = -2100, length = 8, spread = 0, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -1000, maxDamage = -2000, length = 8, spread = 3, effect = CONST_ME_DEATHAREA, target = false},
 }
 
 monster.defenses = {
@@ -121,15 +124,15 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 20},
 	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 20},
+	{type = COMBAT_FIREDAMAGE, percent = 45},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
 	{type = COMBAT_ICEDAMAGE, percent = 0},
-	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 15},
 	{type = COMBAT_DEATHDAMAGE , percent = 0}
 }
 

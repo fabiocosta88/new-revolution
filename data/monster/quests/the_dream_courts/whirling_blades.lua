@@ -16,8 +16,8 @@ monster.outfit = {
 monster.health = 1
 monster.maxHealth = 1
 monster.race = "undead"
-monster.corpse = 3138
-monster.speed = 78
+monster.corpse = 0
+monster.speed = 0
 monster.manaCost = 0
 
 monster.changeTarget = {
@@ -26,10 +26,7 @@ monster.changeTarget = {
 }
 
 monster.strategiesTarget = {
-	nearest = 70,
-	health = 10,
-	damage = 10,
-	random = 10,
+	nearest = 100,
 }
 
 monster.flags = {
@@ -40,11 +37,11 @@ monster.flags = {
 	pushable = false,
 	rewardBoss = false,
 	illusionable = false,
-	canPushItems = true,
+	canPushItems = false,
 	canPushCreatures = true,
 	staticAttackChance = 90,
 	targetDistance = 1,
-	runHealth = 20,
+	runHealth = 100,
 	healthHidden = false,
 	isBlockable = false,
 	canWalkOnEnergy = false,
@@ -66,8 +63,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-	{name ="combat", interval = 2000, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -200, maxDamage = -400, radius = 2, effect = CONST_ME_BLOCKHIT, target = false}
+	{name ="combat", interval = 2000, chance = 100, type = COMBAT_ENERGYDAMAGE, minDamage = -450, maxDamage = -1500, radius = 3, effect = CONST_ME_BLOCKHIT, target = false}
 }
 
 monster.defenses = {
@@ -82,7 +78,7 @@ monster.elements = {
 	{type = COMBAT_FIREDAMAGE, percent = 100},
 	{type = COMBAT_LIFEDRAIN, percent = 100},
 	{type = COMBAT_MANADRAIN, percent = 100},
-	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
 	{type = COMBAT_ICEDAMAGE, percent = 100},
 	{type = COMBAT_HOLYDAMAGE , percent = 100},
 	{type = COMBAT_DEATHDAMAGE , percent = 100}
