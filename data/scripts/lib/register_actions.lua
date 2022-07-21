@@ -388,6 +388,8 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		target:transform(target.itemid + 1)
 		player:addAchievementProgress("The Undertaker", 500)
 		target:decay()
+	elseif target.itemid == 1822 and target:getPosition() == Position(33222, 31100, 7) then
+		player:teleportTo(Position(33223, 31100, 8))
 	elseif table.contains({231, 231}, target.itemid) then
 		local rand = math.random(100)
 		if target.actionid == 100 and rand <= 20 then
