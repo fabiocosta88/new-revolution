@@ -138,6 +138,8 @@ Storage = {
 	ChayenneKeyTime = 30056,
 	FreeQuests = 30057,
 	PremiumAccount = 30058,
+	AddonSelected = 30059,
+	OutfitSelected = 30060,
 
 	--[[
 	Old storages

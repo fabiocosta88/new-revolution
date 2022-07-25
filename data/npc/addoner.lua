@@ -476,15 +476,24 @@ local function openAddonsChooseWindow(player)
 
     player:registerEvent("ModalWindow_AddonModal")
  
-    local title = "Lista de Addons"
-    local message = "Abaixo esta todos os addons que voce nao possui, escolha um e veja seus requisitos e caso possua todos resgate o addon."
+    local title = "Lista de Outfits"
+    local message = "Abaixo esta todos os outfits que voce nao possui, escolha um e veja seus requisitos."
 
     local window = ModalWindow(1008, title, message)
     
     window:addButton(101, "Cancelar")
 	window:addButton(100, "Confirmar")
+
     for index, value in ipairs(addon_config) do
-        window:addChoice(index, value.name)
+        if player:getSex() == PLAYERSEX_MALE then
+            if not player:hasOutfit(value.outfit.male, 1) or not player:hasOutfit(value.outfit.male, 2) then
+                window:addChoice(index, value.name)
+            end
+        else
+            if not player:hasOutfit(value.outfit.female, 1) or not player:hasOutfit(value.outfit.female, 2) then
+                window:addChoice(index, value.name)
+            end
+        end
     end
 
     window:setDefaultEnterButton(100)
@@ -494,30 +503,94 @@ local function openAddonsChooseWindow(player)
     return true
 end
 
-local modalAddonsChoose = CreatureEvent("ModalWindow_AddonModal")
-modalAddonsChoose:type("modalwindow")
+local modalOutfitsChoose = CreatureEvent("ModalWindow_AddonModal")
+modalOutfitsChoose:type("modalwindow")
 
-function modalAddonsChoose.onModalWindow(player, modalWindowId, buttonId, choiceId)
+function modalOutfitsChoose.onModalWindow(player, modalWindowId, buttonId, choiceId)
     player:unregisterEvent("ModalWindow_AddonModal")
     if modalWindowId == 1008 then
         if buttonId == 100 then
             player:registerEvent("ModalWindow_AddonNumberchooseModal")
- 
-            local title = addon_config[choiceId].name
-            local message = "Escolha o addon que deseja fazer.\nEste addon da o achivement: " .. addon_config[choiceId].achivement .. "."
 
+            player:setStorageValue(Storage.AddonSelected, choiceId)
+            local addonPlayerSelected = player:getStorageValue(Storage.AddonSelected)
+
+            local title = addon_config[addonPlayerSelected].name
+            local message = "Escolha o addon que deseja fazer.\n\nAchivement: " .. addon_config[addonPlayerSelected].achivement .. "."
             local window = ModalWindow(1009, title, message)
             
-            window:addButton(101, "Cancelar")
+            window:addButton(101, "Voltar")
             window:addButton(100, "Confirmar")
 
-            window:addChoice(1, "First addon")
-            window:addChoice(2, "Second addon")
+            if player:getSex() == PLAYERSEX_MALE then
+                if not (player:hasOutfit(addon_config[addonPlayerSelected].outfit.male, 1)) then
+                    window:addChoice(1, "First addon")
+                end
+                if not (player:hasOutfit(addon_config[addonPlayerSelected].outfit.male, 2)) then
+                    window:addChoice(2, "Second addon")
+                end
+            else
+                if not (player:hasOutfit(addon_config[addonPlayerSelected].outfit.female, 1)) then
+                    window:addChoice(1, "First addon")
+                end
+                if not (player:hasOutfit(addon_config[addonPlayerSelected].outfit.female, 2)) then
+                    window:addChoice(2, "Second addon")
+                end
+            end
 
             window:setDefaultEnterButton(100)
             window:setDefaultEscapeButton(101)
         
             window:sendToPlayer(player)
+        end
+    end
+    return true
+end
+
+modalOutfitsChoose:register()
+
+local modalAddonsChoose = CreatureEvent("ModalWindow_AddonNumberchooseModal")
+modalAddonsChoose:type("modalwindow")
+
+function modalAddonsChoose.onModalWindow(player, modalWindowId, buttonId, choiceId)
+    player:unregisterEvent("ModalWindow_AddonNumberchooseModal")
+    if modalWindowId == 1009 then
+        if buttonId == 100 then
+            player:registerEvent("ModalWindow_ConfirmOutfit")
+            local addonPlayerSelected = player:getStorageValue(Storage.AddonSelected)
+            local message = "Requisitos: \n\n"
+            local addonPlayerSelected = player:getStorageValue(Storage.AddonSelected)
+            player:setStorageValue(Storage.OutfitSelected, choiceId)
+            local title
+
+            if choiceId == 1 then  
+                title = addon_config[addonPlayerSelected].name .. " Outfit I"
+                for _, item in ipairs(addon_config[addonPlayerSelected].first.items) do
+                    local itemType = ItemType(item[1])
+                    message = message .. "- "  .. item[2] .. "x " .. itemType:getName() .. "\n"
+                end
+            else
+                title = addon_config[addonPlayerSelected].name .. " Outfit II"
+                for _, item in ipairs(addon_config[addonPlayerSelected].second.items) do
+                    local itemType = ItemType(item[1])
+                    message = message .. "- "  .. item[2] .. "x " .. itemType:getName() .. "\n"
+                end
+            end
+
+            message = message .. "\nVoce gostaria de trocar todos estes items pelo addon?"
+
+            local window = ModalWindow(1010, title, message)
+            
+            window:addButton(101, "Voltar")
+            window:addButton(100, "Confirmar")
+
+            
+            window:setDefaultEnterButton(100)
+            window:setDefaultEscapeButton(101)
+        
+            window:sendToPlayer(player)
+        elseif buttonId == 101 then
+            openAddonsChooseWindow(player)
         end
     end
     return true
@@ -525,59 +598,78 @@ end
 
 modalAddonsChoose:register()
 
+local modalConfirmOutfit = CreatureEvent("ModalWindow_ConfirmOutfit")
+modalConfirmOutfit:type("modalwindow")
 
-local modalFinishAddon = CreatureEvent("ModalWindow_AddonNumberchooseModal")
-modalFinishAddon:type("modalwindow")
+function modalConfirmOutfit.onModalWindow(player, modalWindowId, buttonId, choiceId)
+    player:unregisterEvent("ModalWindow_ConfirmOutfit")
+    if modalWindowId == 1010 then
+        if buttonId == 100 then 
+            local addonPlayerSelected = player:getStorageValue(Storage.AddonSelected)
+            local outfitPlayerSelected = player:getStorageValue(Storage.OutfitSelected)
+            local itemList = {}
+            local itemCounts = {}
+            local wichOutift = ""
+            local sex = "male"
 
-function modalFinishAddon.onModalWindow(player, modalWindowId, buttonId, choiceId)
-    player:unregisterEvent("ModalWindow_AddonNumberchooseModal")
-    if modalWindowId == 1009 then
-        if buttonId == 100 then
+            if player:getSex() == PLAYERSEX_MALE then
+                sex = "male"
+            else
+                sex = "female"
+            end
 
-            player:registerEvent("ModalWindow_AddonChooseModal")
- 
-            local title = "Requisitos do Addon"
-            local message = "Assasin outfit Addon 1\n50x Cloth xxx\n50x Cloth yyy"
-        
-            local window = ModalWindow(1010, title, message)
-            
-            window:addButton(101, "Voltar")
-            window:addButton(100, "Confirmar")
-        
-            window:setDefaultEnterButton(100)
-            window:setDefaultEscapeButton(101)
-         
-            window:sendToPlayer(player)
+            if not player:hasOutfit(addon_config[addonPlayerSelected].outfit[sex], outfitPlayerSelected) then
+                if outfitPlayerSelected == 1 then
+                    wichOutift = "first"
+                else
+                    wichOutift = "second"
+                end
+
+                for _, item in ipairs(addon_config[addonPlayerSelected][wichOutift].items) do
+                    table.insert(itemList, item[1])
+                    table.insert(itemCounts, item[2])
+                end
+
+                local items_okay = 0
+
+                if #itemList > 0 then
+                    for _, items in ipairs(itemList) do
+                        local item = itemList[_]
+                        if (player:getItemCount(item) >= itemCounts[_]) then
+                            items_okay = items_okay + 1
+                        end
+                    end
+                end
+
+                if items_okay == #itemList then
+                    for _, item in ipairs(itemList) do
+                        player:removeItem(item, itemCounts[_])
+                    end
+                    player:addOutfitAddon(addon_config[addonPlayerSelected].outfit[sex], 0)
+                    player:addOutfitAddon(addon_config[addonPlayerSelected].outfit[sex], outfitPlayerSelected)
+                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Voce recebeu o outfit " .. outfitPlayerSelected .. " do addon " .. addon_config[addonPlayerSelected].name .. ".")
+                    player:getPosition():sendMagicEffect(CONST_ME_STUN)
+                    if player:hasOutfit(addon_config[addonPlayerSelected].outfit[sex], 1) and player:hasOutfit(addon_config[addonPlayerSelected].outfit[sex], 2) then
+                        player:addAchievement(addon_config[addonPlayerSelected].achivement)
+                    end
+                    return
+                else
+                    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Voce nao possui todos os items para esse outfit.")
+                    return
+                end
+            else
+                player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Voce ja possui este outfit.")
+                return
+            end
+        elseif buttonId == 101 then
+            openAddonsChooseWindow(player) 
         end
     end
-    return true
 end
 
-modalFinishAddon:register()
+modalConfirmOutfit:register()
 
-local function openSpecificAddon(player)
-    if not player or addon then
-        return false
-    end
-
-    player:registerEvent("ModalWindow_AddonChooseModal")
- 
-    local title = "Requisitos do Addon"
-    local message = "Assasin outfit Addon 1\n50x Cloth xxx\n50x Cloth yyy"
-
-    local window = ModalWindow(1010, title, message)
-    
-    window:addButton(101, "Voltar")
-	window:addButton(100, "Confirmar")
-
-    window:setDefaultEnterButton(100)
-    window:setDefaultEscapeButton(101)
- 
-    window:sendToPlayer(player)
-end
-
-
-local internalNpcName = "Addoner"
+local internalNpcName = "Outfiter"
 local npcType = Game.createNpcType(internalNpcName)
 local npcConfig = {}
 
@@ -590,7 +682,12 @@ npcConfig.walkInterval = 2000
 npcConfig.walkRadius = 2
 
 npcConfig.outfit = {
-	lookType = 9
+	lookType = 367,
+	lookHead = 91,
+	lookBody = 91,
+	lookLegs = 91,
+	lookFeet = 91,
+    lookAddons = 3
 }
 
 npcConfig.flags = {
@@ -612,16 +709,12 @@ local function creatureSayCallback(npc, creature, type, message)
         if MsgContains(message, "addons") then
             openAddonsChooseWindow(creature)
         end
-        if MsgContains(message, "batata") then
-            openAddonNumberChoose(creature)
-        end
-        if MsgContains(message, "teste") then
-            openSpecificAddon(creature)
-        end
     end
 	return true
 end
 
+npcHandler:setMessage(MESSAGE_GREET, "Bem vindo |PLAYERNAME|, interessado em algumas roupas novas? Pergunte-me sobre {addons} e veja o que tenho disponivel!")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Ate logo e cuide-se!")
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
 npcType.onThink = function(npc, interval)
