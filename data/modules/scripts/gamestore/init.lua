@@ -31,8 +31,7 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_HIRELING_NAMECHANGE = 21,
 	OFFER_TYPE_HIRELING_SEXCHANGE = 22,
 	OFFER_TYPE_HIRELING_SKILL = 23,
-	OFFER_TYPE_HIRELING_OUTFIT = 24,
-	OFFER_TYPE_TOURNAMENT = 25
+	OFFER_TYPE_HIRELING_OUTFIT = 24
 }
 
 GameStore.ActionType = {
@@ -368,16 +367,10 @@ function parseBuyStoreOffer(playerId, msg)
 
 	-- At this point the purchase is assumed to be formatted correctly
 	local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)] or offer.price
-
-	if not player:canRemoveCoins(offerPrice) then
-		return queueSendStoreAlertToUser("You don't have enough coins. Your purchase has been cancelled.", 250, playerId)
-	end
-=======
 	local offerCoinType = offer.coinType
 	-- Check if offer can be honored
 	if not player:canPayForOffer(offerPrice, offerCoinType) then
 		return queueSendStoreAlertToUser("You don't have enough coins. Your purchase has been cancelled.", 250, playerId)
->>>>>>> upstream/main
 	end
 
 	-- Use pcall to catch unhandled errors and send an alert to the user because the client expects it at all times; (OTClient will unlock UI)
@@ -409,8 +402,6 @@ function parseBuyStoreOffer(playerId, msg)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE   then GameStore.processHirelingChangeSexPurchase(player, offer)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL       then GameStore.processHirelingSkillPurchase(player, offer)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT      then GameStore.processHirelingOutfitPurchase(player, offer)
-		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT      then GameStore.processHirelingOutfitPurchase(player, offer)
-		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_TOURNAMENT      then GameStore.processTournamentItemPurchase(player, offer.id, offer.count)
 		else
 			-- This should never happen by our convention, but just in case the guarding condition is messed up...
 			error({code = 0, message = "This offer is unavailable [2]"})
@@ -430,8 +421,9 @@ function parseBuyStoreOffer(playerId, msg)
 
 	local configure = useOfferConfigure(offer.type)
 	if configure ~= GameStore.ConfigureOffers.SHOW_CONFIGURE then
-		player:removeCoinsBalance(offerPrice)
-		GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, offer.name, (offerPrice) * -1)
+
+		player:makeCoinTransaction(offer)
+
 		local message = string.format("You have purchased %s for %d coins.", offer.name, offerPrice)
 		sendUpdatedStoreBalances(playerId)
 		return addPlayerEvent(sendStorePurchaseSuccessful, 650, playerId, message)
@@ -918,10 +910,10 @@ function sendUpdatedStoreBalances(playerId)
 	msg:addByte(GameStore.SendingPackets.S_CoinBalance)
 	msg:addByte(0x01)
 
-	msg:addU32(player:getCoinsBalance())
-	msg:addU32(player:getCoinsBalance())
-	msg:addU32(player:getCoinsBalance())
-	msg:addU32(0) -- Tournament Coins
+	msg:addU32(player:getCoinsBalance()) -- Tibia Coins
+	msg:addU32(player:getCoinsBalance()) -- How many are Transferable
+	msg:addU32(0) -- How many are reserved for a Character Auction
+	msg:addU32(player:getTournamentBalance()) -- Tournament Coins
 
 	msg:sendToPlayer(player)
 end
@@ -1259,21 +1251,6 @@ function GameStore.processItemPurchase(player, offerId, offerCount)
 	end
 end
 
-function GameStore.processTournamentItemPurchase(player, offerId, offerCount)
-	if player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount) then
-		return error({ code = 0, message = "Please make sure you have free capacity to hold this item."})
-	end
-
-	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-	if inbox and inbox:getEmptySlots() > offerCount then
-		for t = 1, offerCount do
-			inbox:addItem(offerId, offerCount or 1)
-		end
-	else
-		return error({ code = 0, message = "Please make sure you have free slots in your store inbox."})
-	end
-end
-
 function GameStore.processChargesPurchase(player, itemtype, name, charges)
 	if player:getFreeCapacity() < ItemType(itemtype):getWeight(1) then
 		return error({ code = 0, message = "Please make sure you have free capacity to hold this item."})
@@ -1321,9 +1298,6 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
 	local function isKegItem(itemId)
 		return itemId >= ITEM_KEG_START and itemId <= ITEM_KEG_END
 	end
-
-	local PARCEL_ID = 3504
-	local isKeg = isKegItem(offerId) 
 
 	local PARCEL_ID = 3504
 	local isKeg = isKegItem(offerId)
@@ -1630,9 +1604,79 @@ end
 
 function Player.addCoinsBalance(self, coins, update)
 	self:setCoinsBalance(self:getCoinsBalance() + coins)
-	if update then sendCoinBalanceUpdating(self, true) end
+	if update then sendStoreBalanceUpdating(self, true) end
 	return true
 end
+
+--- Tournament Coins
+function Player.getTournamentBalance(self)
+	resultId = db.storeQuery("SELECT `tournament_coins` FROM `accounts` WHERE `id` = " .. self:getAccountId())
+	if not resultId then
+		return 0
+	end
+	return result.getDataInt(resultId, "tournament_coins")
+end
+
+function Player.setTournamentBalance(self, tournament)
+	db.query("UPDATE `accounts` SET `tournament_coins` = " .. tournament .. " WHERE `id` = " .. self:getAccountId())
+	return true
+end
+
+function Player.canRemoveTournament(self, tournament)
+	if self:getTournamentBalance() < tournament then
+		return false
+	end
+	return true
+end
+
+function Player.removeTournamentBalance(self, tournament)
+	if self:canRemoveTournament(tournament) then
+		return self:setTournamentBalance(self:getTournamentBalance() - tournament)
+	end
+
+	return false
+end
+
+function Player.addTournamentBalance(self, tournament, update)
+	self:setTournamentBalance(self:getTournamentBalance() + tournament)
+	if update then sendStoreBalanceUpdating(self, true) end
+	return true
+end
+
+--- Support Functions
+function Player.makeCoinTransaction(self, offer, desc)
+	local op = true
+
+	if desc then
+		desc = offer.name .. ' (' .. desc ..')'
+	else
+		desc = offer.name
+	end
+	
+	-- Remove coins
+	if offer.coinType == GameStore.CointType.Tournament then
+		op = self:removeTournamentBalance(offer.price)
+	else
+		op = self:removeCoinsBalance(offer.price)
+	end
+
+	-- When the transaction is suscessfull add to the history
+	if op then
+		GameStore.insertHistory(self:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, desc, (offer.price) * -1, offer.coinType)
+	end
+
+	return op
+end
+
+function Player.canPayForOffer(self, coins, type)
+	if type == GameStore.CointType.Tournament then
+		return self:canRemoveTournament(coins)
+	else
+		return self:canRemoveCoins(coins)
+	end
+end
+
+--- Other players functions
 
 function Player.sendButtonIndication(self, value1, value2)
 	local msg = NetworkMessage()
