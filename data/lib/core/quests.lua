@@ -4498,7 +4498,7 @@ if not Quests then
 					}
 				},
 				[2] = {
-					name = "Arito\'s Task",
+					name = "Arito's Task",
 					storageId = Storage.TibiaTales.AritosTask,
 					missionId = 10318,
 					startValue = 1,
@@ -4510,59 +4510,64 @@ if not Quests then
 					}
 				},
 				[3] = {
-					name = "Lion\'s Rock",
+					name = "Lion's Rock",
 					storageId = Storage.LionsRock.Questline,
 					missionId = 10319,
 					startValue = 1,
-					endValue = 12,
+					endValue = 11,
 					states = {
-						[1] = "You have discovered the Lion's Rock. If you pass the following tests you may enter the inner sanctum.\z
-						\n\nThe Lion's Strength 0/1\nThe Lion's Beauty 0/1\nThe Lion's Tears 0/1",
-						[2] = "You have discovered the Lion's Rock. If you pass the following tests you may enter the inner sanctum.\z
-						\n\nThe Lion's Strength 1/1\nThe Lion's Beauty 0/1\nThe Lion's Tears 0/1",
-						[3] = "You have discovered the Lion's Rock. If you pass the following tests you may enter the inner sanctum.\z
-						\n\nThe Lion's Strength 1/1\nThe Lion's Beauty 1/1\nThe Lion's Tears 0/1",
-						[4] = "You have passed the three tests of Lion's Rock and thus lit the three mystical pyramids. You may enter\z
-						 the inner sanctum now. - What other secrets could be hidden down there?",
-						[5] = "You found a mysterious scroll in the debris of an old amphora. It seems it could help to translate the\z
-						 old temple inscriptions.",
+						[1] = function(player)
+							return string.format("You have discovered the Lion's Rock. If you pass the following tests you may enter the inner sanctum.\n\nThe Lion's Strength %d/1\nThe Lion's Beauty %d/1\nThe Lion's Tears %d/1",
+								(math.max(player:getStorageValue(Storage.LionsRock.OuterSanctum.LionsStrength), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.OuterSanctum.LionsBeauty), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.OuterSanctum.LionsTears), 0))
+							)
+						end,
+						[2] = function(player)
+							return string.format("You have discovered the Lion's Rock. If you pass the following tests you may enter the inner sanctum.\n\nThe Lion's Strength %d/1\nThe Lion's Beauty %d/1\nThe Lion's Tears %d/1",
+								(math.max(player:getStorageValue(Storage.LionsRock.OuterSanctum.LionsStrength), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.OuterSanctum.LionsBeauty), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.OuterSanctum.LionsTears), 0))
+							)
+						end,
+						[3] = function(player)
+							return string.format("You have discovered the Lion's Rock. If you pass the following tests you may enter the inner sanctum.\n\nThe Lion's Strength %d/1\nThe Lion's Beauty %d/1\nThe Lion's Tears %d/1",
+								(math.max(player:getStorageValue(Storage.LionsRock.OuterSanctum.LionsStrength), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.OuterSanctum.LionsBeauty), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.OuterSanctum.LionsTears), 0))
+							)
+						end,
+						[4] = "You have passed the three tests of Lion's Rock and thus lit the three mystical pyramids. You may enter the inner sanctum now. - What other secrets could be hidden down there?",
+						[5] = "You found a mysterious scroll in the debris of an old amphora. It seems it could help to translate the old temple inscriptions.",
 						[6] = function(player)
 							return string.format(
-								"lions' enemies in this area of the temple. What could be the resolution?\z
-								\n\nblood %d/1\negg %d/1\neye %d/1\npoison %d/1",
-								(math.max(player:getStorageValue(Storage.LionsRock.SnakeSign), 0)),
-								(math.max(player:getStorageValue(Storage.LionsRock.LizardSign), 0)),
-								(math.max(player:getStorageValue(Storage.LionsRock.ScorpionSign), 0)),
-								(math.max(player:getStorageValue(Storage.LionsRock.HyenaSign), 0))
+								"lions' enemies in this area of the temple. What could be the resolution?\n\nblood %d/1\negg %d/1\neye %d/1\npoison %d/1",
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.SnakeSign), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.LizardSign), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.ScorpionSign), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.HyenaSign), 0))
 							)
 						end,
 						[7] = function(player)
 							return string.format(
-								"lions' enemies in this area of the temple. What could be the resolution?\z
-								\n\nblood %d/1\negg %d/1\neye %d/1\npoison %d/1",
-								(math.max(player:getStorageValue(Storage.LionsRock.SnakeSign), 0)),
-								(math.max(player:getStorageValue(Storage.LionsRock.LizardSign), 0)),
-								(math.max(player:getStorageValue(Storage.LionsRock.ScorpionSign), 0)),
-								(math.max(player:getStorageValue(Storage.LionsRock.HyenaSign), 0))
+								"lions' enemies in this area of the temple. What could be the resolution?\n\nblood %d/1\negg %d/1\neye %d/1\npoison %d/1",
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.SnakeSign), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.LizardSign), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.ScorpionSign), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.HyenaSign), 0))
 							)
 						end,
 						[8] = function(player)
 							return string.format(
-								"lions' enemies in this area of the temple. What could be the resolution?\z
-								\n\nblood %d/1\negg %d/1\neye %d/1\npoison %d/1",
-								(math.max(player:getStorageValue(Storage.LionsRock.SnakeSign), 0)),
-								(math.max(player:getStorageValue(Storage.LionsRock.LizardSign), 0)),
-								(math.max(player:getStorageValue(Storage.LionsRock.ScorpionSign), 0)),
-								(math.max(player:getStorageValue(Storage.LionsRock.HyenaSign), 0))
+								"lions' enemies in this area of the temple. What could be the resolution?\n\nblood %d/1\negg %d/1\neye %d/1\npoison %d/1",
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.SnakeSign), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.LizardSign), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.ScorpionSign), 0)),
+								(math.max(player:getStorageValue(Storage.LionsRock.InnerSanctum.HyenaSign), 0))
 							)
 						end,
-						[9] = "lions' enemies in this area of the temple. What could be the resolution?\z
-						\n\nblood 1/1\negg 1/1\neye 1/1\npoison 1/1",
-						[10] = 'In the north-west area of the Inner Sanctum, find the southern rectangular room to the south-west. \z
-						In this room you will find 4 "sun" floor inscriptions as well as a rock in the center. The sun inscriptions \z
-						represent gem slots.',
-						[11] = "By solving the gem puzzle you unveiled the last secret of the Lion's Rock. You drew a treasure out \z
-						of the ornamented fountain in the lower temple areas."
+						[9] = 'In the north-west area of the Inner Sanctum, find the southern rectangular room to the south-west. In this room you will find 4 "sun" floor inscriptions as well as a rock in the center. The sun inscriptions represent gem slots.',
+						[11] = "By solving the gem puzzle you unveiled the last secret of the Lion's Rock. You drew a treasure out of the ornamented fountain in the lower temple areas."
 					}
 				},
 				[4] = {
@@ -4746,7 +4751,43 @@ if not Quests then
 						[1] = "Budrik asked you to look for the hideout of the Horned Fox and bring his stolen mining helmet back. The Fox's lair is presumed to be west of Kazordoon near the coast.",
 						[2] = "You succesfully helped Budrik in stealing back his old mining helemt."
 					}
+				},
+				[15] = {
+					name = "Fish for a Serpent",
+					storageId = Storage.Quest.U8_2.FishForASerpent.QuestLine,
+					missionId = 10097,
+					startValue = 1,
+					endValue = 5,
+					states = {
+						[1] = "Your first task is to bring 5 fish.",
+						[2] = "Your second task is to bring 5 northern pike.",
+						[3] = "Your third task is to bring 5 green perch.",
+						[4] = "Your forth task is to bring 5 rainbow trout.",
+						[5] = "You bring enough fish to make the bait. Now you're ready for the hunt."
+					}
+				},
+				[16] = {
+					name = "The hunt for the Sea Serpent",
+					storageId = Storage.Quest.U8_2.TheHuntForTheSeaSerpent.QuestLine,
+					missionId = 10098,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "",
+						[2] = "You navigated the ship to the right location. You are now able to dive down and explore the caves."
+					}
 				}
+				-- [17] = {
+					-- name = "Nomads Land",
+					-- storageId = PLACEHOLDER,
+					-- missionId = PLACEHOLDER,
+					-- startValue = 1,
+					-- endValue = 2,
+					-- states = {
+						-- [1] = "",
+						-- [2] = ""
+					-- }
+				-- }
 			}
 		},
 		[32] = {
@@ -6346,6 +6387,232 @@ if not Quests then
 				}
 			}
 		},
+		[47] = {
+			name = "Blood Brothers",
+			startStorageId = Storage.Quest.U8_4.BloodBrothers.QuestLine,
+			startStorageValue = 1,
+			missions = {
+				[1] = {
+					name = "Mission 01: Gaining Trust",
+					storageId =  Storage.Quest.U8_4.BloodBrothers.Mission01,
+					missionId = 10433,
+					startValue = 1,
+					endValue = 4,
+					states = {
+						[1] = "Think of a way to earn Julius' trust and prove that you are not a vampire. Once you thought of something, talk to him again about your mission.",
+						[2] = "",
+						[3] = "",
+						[4] = "You have Julius' trust."
+					}
+				},
+				[2] = {
+					name = "Mission 02: Bad Eggs",
+					storageId = Storage.Quest.U8_4.BloodBrothers.Mission02,
+					missionId = 10434,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Bake garlic cookies by using the garlic dough on a baking tray before you put it on the oven. Hand out cookies to the citizens and watch their reactions. Report any suspicious people to Julius.",
+						[2] = "You have reported five suspects - probably vamires - to Julius."
+					}
+				},
+				[3] = {
+					name = "Mission 03: His True Face",
+					storageId = Storage.Quest.U8_4.BloodBrothers.Mission03,
+					missionId = 10435,
+					startValue = 1,
+					endValue = 3,
+					states = {
+						[1] = "Use the magic words 'alori mort' in front of the suspicious citizens you discovered to hopefully reveal who among them is their leader.",
+						[2] = "",
+						[3] = "You reported the incident with Armenius to Julius."
+					}
+				},
+				[4] = {
+					name = "Mission 04: The Dark Lands",
+					storageId = Storage.Quest.U8_4.BloodBrothers.Mission04,
+					missionId = 10436,
+					startValue = 1,
+					endValue = 1,
+					states = {
+						[1] = "Your task is to find someone to bring you to Vengoth. Explore the island and use Julius' map whenever you find an unusual spot to mark it. Mark at least 5 spots including the castle and report back."
+					}
+				}
+			}
+		},
+		[48] = {
+			name = "Grave Danger",
+			startStorageId = Storage.Quest.U12_20.GraveDanger.QuestLine,
+			startStorageValue = 1,
+			missions = {
+				[1] = {
+					name = "* Grave Danger - The Lich Knights",
+					storageId =  Storage.Quest.U12_20.GraveDanger.QuestLine,
+					missionId = 10437,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = function(player) return string.format("Prevent the raising of twelve lich knights. Sanctify the graves yet untouched and destroy any lich knights that might have been raised. Graves exlored: %d/12",
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.Edron) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.DarkCathedral) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.Ghostlands) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.Cormaya) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.FemorHills) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.Ankrahmun) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.Kilmaresh) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.Vengoth) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.Darashia) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.Thais) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.Orclands) +
+							player:getStorageValue(Storage.Quest.U12_20.GraveDanger.Graves.IceIslands) - 12)
+						end
+					}
+				},
+				[2] = {
+					name = "01 The grave in Edron",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.Edron,
+					missionId = 10438,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave in Edron's north.",
+						[2] = "The Edron grave was visited."
+					}
+				},
+				[3] = {
+					name = "02 The grave in the dark cathedral",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.DarkCathedral,
+					missionId = 10439,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave in the dark cathedral.",
+						[2] = "The grave in the dark cathedral was visited."
+					}
+				},
+				[4] = {
+					name = "03 The grave in Ghostlands",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.Ghostlands,
+					missionId = 10440,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave in the ghostlands.",
+						[2] = "The grave in the Ghostlands was visited."
+					}
+				},
+				[5] = {
+					name = "04 The grave in Cormaya",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.Cormaya,
+					missionId = 10441,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave in Cormaya.",
+						[2] = "The grave in Cormaya was visited."
+					}
+				},
+				[6] = {
+					name = "05 The grave in the Femor Hills",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.FemorHills,
+					missionId = 10442,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave in the Femor Hills.",
+						[2] = "The grave in the Femor Hills was visited."
+					}
+				},
+				[7] = {
+					name = "06 The grave on an isle NE of Ankrahmun",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.Ankrahmun,
+					missionId = 10443,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave on an isle north-east of Ankrahmun.",
+						[2] = "The grave on an isle north-east of Ankrahmun was visited."
+					}
+				},
+				[8] = {
+					name = "07 The grave in Kilmaresh",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.Kilmaresh,
+					missionId = 10444,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave in Kilmaresh.",
+						[2] = "The grave in Kilmaresh was visited."
+					}
+				},
+				[9] = {
+					name = "08 The grave in Vengoth",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.Vengoth,
+					missionId = 10445,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave in Vengoth.",--
+						[2] = "The grave in Vengoth was visited."
+					}
+				},
+				[10] = {
+					name = "09 The grave in Darashia",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.Darashia,
+					missionId = 10446,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave in Darashia.",--
+						[2] = "The grave in Darashia was visited."
+					}
+				},
+				[11] = {
+					name = "10 The grave in the old Thais temple",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.Thais,
+					missionId = 10447,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave in the old Thais temple.",--
+						[2] = "The grave in the old temple of Thais has been visited."
+					}
+				},
+				[12] = {
+					name = "11 The grave at the orclands entrance",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.Orclands,
+					missionId = 10448,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave at the orclands entrance.",--
+						[2] = "The grave at the orcland entrance was visited."
+					}
+				},
+				[13] = {
+					name = "12 The grave on the southern ice islands",
+					storageId = Storage.Quest.U12_20.GraveDanger.Graves.IceIslands,
+					missionId = 10449,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "Find the grave on the southern ice islands.",--
+						[2] = "The grave on the southern ice islands was visited."
+					}
+				},
+				[14] = {
+					name = "The Order of the Cobra",
+					storageId = Storage.Quest.U12_20.GraveDanger.Cobra,
+					missionId = 10450,
+					startValue = 1,
+					endValue = 2,
+					states = {
+						[1] = "",--
+						[2] = "Scarlett Etzel once stood proud and righteous. The assassins she rallied around her under the Order of the Cobra, however, where of ill repute and had to be vanquished. And so did she, you prevailed."
+					}
+				}
+			}
+		}
 	}
 end
 

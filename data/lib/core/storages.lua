@@ -138,8 +138,8 @@ Storage = {
 	ChayenneKeyTime = 30056,
 	FreeQuests = 30057,
 	PremiumAccount = 30058,
-	AddonSelected = 30059,
-	OutfitSelected = 30060,
+	BattleAxeQuest = 30059,
+	ShrineEntrance = 30060,
 
 	--[[
 	Old storages
@@ -218,7 +218,7 @@ Storage = {
 		UrmahlulluTimer = 50042
 	},
 	TheSecretLibrary = {
-		-- Reserved storage from 50050 - 50069
+		-- Reserved storage from 50050 - 50074
 		TheOrderOfTheFalcon = {
 			OberonTimer = 50050
 		},
@@ -233,14 +233,29 @@ Storage = {
 		BlackTel = 50059,
 		PinkTel = 50060,
 		Peacock = 50061,
-		HighDry = 50062
+		HighDry = 50062,
+		FalconBastionAccess = 50063,
+		FalconBastionChestsTimer = {
+			Key0909 = 50064
+		},
+		MiniBosses = {
+			GrandCommanderSoeren = 50065,
+			PreceptorLazare = 50066,
+			GrandChaplainGaunder = 50067,
+			GrandCanonDominus = 50068,
+			DazedLeafGolem = 50069
+		},
+		LowerBastionAccess = 50070,
+		UndergroundBastionAccess = 50071,
+		OberonAccess = 50072,
+		ShortcutToBastion = 50073
 	},
 	DeeplingBosses = {
-		-- Reserved storage from 50070 - 50079
-		Jaul = 50070,
-		Tanjis = 50071,
-		Obujos = 50072,
-		DeeplingStatus = 50073
+		-- Reserved storage from 50075 - 50079
+		Jaul = 50075,
+		Tanjis = 50076,
+		Obujos = 50077,
+		DeeplingStatus = 50078
 	},
 	DangerousDepths = {
 		-- Reserved storage from 50080 - 50199
@@ -407,33 +422,6 @@ Storage = {
 			BossTimer = 50262,
 			AccessDoor = 50263
 		}
-	},
-	ThreatenedDreams = {
-		-- Reserved storage from 50270 - 50349
-		Start = 50270,
-		TroubledMission01 = 50271,
-		TroubledMission02 = 50272,
-		TroubledMission03 = 50273,
-		FairyMission01 = 50274,
-		FairyMission02 = 50275,
-		FairyMission03 = 50276,
-		FairyMission04 = 50277,
-		DreamMission01 = 50278,
-		DreamCounter = 50279,
-		KroazurTimer = 50280,
-		CoupleMission01 = 50281,
-		CoupleMission02 = 50282,
-		Reward01 = 50284,
-		Reward02 = 50285,
-		Reward03 = 50286,
-		TatteredSwanFeathers = 50300,
-		TatteredSwanFeathers01 = 50301,
-		TatteredSwanFeathers02 = 50302,
-		TatteredSwanFeathers03 = 50303,
-		TatteredSwanFeathers04 = 50304,
-		TatteredSwanFeathers05 = 50305,
-		PoacherChest = 50306,
-		FacelessBaneWalk = 50307
 	},
 	FirstDragon = {
 		-- Reserved storage from 50350 - 50379
@@ -1198,7 +1186,6 @@ Storage = {
 	},
 	TheHuntForTheSeaSerpent = {
 		-- Reserved storage from 51410 - 51419
-		CaptainHaba = 51410
 	},
 	SecretService = {
 		-- Reserved storage from 51420 - 51449
@@ -1694,15 +1681,19 @@ Storage = {
 	LionsRock = {
 		-- Reserved storage from 52290 - 52309
 		Questline = 52290,
-		LionsStrength = 52291,
-		LionsBeauty = 52292,
-		LionsTears = 52293,
-		GetLionsMane = 52294,
-		GetHolyWater = 52295,
-		SnakeSign = 52296,
-		LizardSign = 52297,
-		ScorpionSign = 52298,
-		HyenaSign = 52299,
+		OuterSanctum = {
+			Skeleton = 52291,
+			LionsStrength = 52292,
+			LionsBeauty = 52293,
+			LionsTears = 52294,
+		},
+		InnerSanctum = {
+			SnakeSign = 52295,
+			LizardSign = 52296,
+			ScorpionSign = 52297,
+			HyenaSign = 52298,
+			Message = 52299
+		},
 		Time = 52300
 	},
 	GraveDanger = {
@@ -1711,31 +1702,6 @@ Storage = {
 		CobraBastion = {
 			Questline = 52311,
 			ScarlettTimer = 52312
-		},
-		BossAccessDoor = 52313,
-		BossTimer = {
-			CountVlarkorthTimer = 52314,
-			LordAzaramTimer = 52315,
-			EarlOsamTimer = 52316,
-			SirBaelocSirNictrosTimer = 52317,
-			DukeKruleTimer = 52318,
-			KingZelos = 52319,
-		}
-	},
-
-	-- 53000 - 53004
-	FeasterOfSouls = {
-		BossTimer = {
-			ThePaleWorm = 53000,
-			TheUnwelcome = 53001,
-			TheFearFeaster = 53002,
-			TheDreadMaiden = 53004,
-			VokTheFreakish = 53005,
-			IrgixTheFlimsy = 53006,
-			IrgixTheFlimsy = 53006,
-			UnaztheMean = 53007,
-			BrainDead = 53008,
-			Thaian = 53009,
 		}
 	},
 	RottinWoodAndMaried = {
@@ -1770,6 +1736,8 @@ Storage = {
 	Quest = {
 		Key = {
 			ID0010 = 103,
+			ID0808 = 808,
+			ID0909 = 909,
 			ID3001 = 3001,
 			ID3002 = 3002,
 			ID3003 = 3003,
@@ -1779,6 +1747,7 @@ Storage = {
 			ID3007 = 3007,
 			ID3008 = 3008,
 			ID3012 = 3012,
+			ID3600 = 3600,
 			ID3620 = 3620,
 			ID3666 = 3666,
 			ID3702 = 3702,
@@ -2154,16 +2123,36 @@ Storage = {
 			MachineryOfWar = {},
 			TheBeginning = {},
 			TheDemonOak = {},
-			TheHuntForTheSeaSerpent = {},
+			FishForASerpent = {
+				QuestLine = 41651},
+			TheHuntForTheSeaSerpent = {
+				QuestLine = 41652,
+				SuccessSwitch = 41653,
+				Bait = 41654,
+				Direction = 41655,
+				Access = 41656},
 			TheInquisition = {},
 			TheThievesGuild = {},
 			TrollSabotage = {
-			Questline = 41840,
-			JumpTimer = 41841},
+				Questline = 41840,
+				JumpTimer = 41841},
 			VampireHunter = {},
 		},
 		U8_4 = { -- update 8.4 - Reserved Storages 41901 - 42145
-			BloodBrothers = {},
+			BloodBrothers = {
+				QuestLine = 41901,
+				Mission01 = 41902,
+				GarlicBread = 41903,
+				Mission02 = 41904,
+				Cookies = {
+					Serafin = 41905,
+					Lisander = 41906,
+					Ortheus = 41907,
+					Maris = 41908,
+					Armenius = 41909},
+				Mission03 = 41910,
+				Mission04 = 41911,
+				VengothAccess = 41912},
 			InServiceOfYalahar = {},
 			TheHiddenCityOfBeregar = {},
 			TopOfTheCity = {},
@@ -2666,16 +2655,22 @@ Storage = {
 			BattleMageOutfits = {},
 			DiscovererOutfits = {},
 			MeasuringTibia = {},
-			TheSecretLibrary = {},
+			TheSecretLibrary = {
+				FalconBastionChestsTimer = {
+					Coast = 46281,
+					Island = 46282,
+					ThroneHall = 46283,
+					Shortcut = 46284,
+					LowerBastion = 46285,
+					UndergroundBastion = 46286
+				},
+			},
 		},
 		U12_00 = { -- update 12.00 - Reserved Storages 46301 - 46600
 			DreamWarriorOutfits = {},
 			TheDreamCourts = {
 				AndrewDoor = 14900,
-				StrickenSoul = 14901,
-				FacelessBaneTime = 50283,
-				ArenaBossTimer = 14902,
-				TheNightmareBeastTimer = 14903
+				FacelessBaneTime = 50283
 			},
 		},
 		U12_02 = { -- update 12.02 - Reserved Storages 46601 - 46800
@@ -2686,7 +2681,22 @@ Storage = {
 			GoldenOutfits = {},
 		},
 		U12_20 = { -- update 12.20 - Reserved Storages 46851 - 47000
-			GraveDanger = {},
+			GraveDanger = {
+				QuestLine = 46851,
+				Graves = {
+					Edron = 46852,
+					DarkCathedral = 46853,
+					Ghostlands = 46854,
+					Cormaya = 46855,
+					FemorHills = 46856,
+					Ankrahmun = 46857,
+					Kilmaresh = 46858,
+					Vengoth = 46859,
+					Darashia = 46860,
+					Thais = 46861,
+					Orclands = 46862,
+					IceIslands = 46863},
+				Cobra = 46864},
 			HandOfTheInquisitionOutfits = {},
 			-- Kilmaresh = {}, done earlier in the file
 		},
@@ -2697,9 +2707,7 @@ Storage = {
 		},
 		U12_40 = { -- update 12.40 - Reserved Storages 47201 - 47500
 			RevenantOutfits = {},
-			SoulWar = {
-				GoshnarMaliceTimer = 47201,
-			},
+			SoulWar = {},
 			TheOrderOfTheLion = {}
 		},
 		U12_60 = { -- update 12.60 - Reserved Storages 47501 - 47600
@@ -2733,25 +2741,9 @@ GlobalStorage = {
 		ServantsKilled = 60011
 	},
 	Feroxa = {
-		-- Reserved storage from 60020 - 60028
+		-- Reserved storage from 60020 - 60029
 		Chance = 60020,
 		Active = 60021
-	},
-	FacelessBane = {
-		Damage = 60028,
-		Count = 60027,
-	},
-	ThePaleWorm = {
-		Battle = 60022,
-	},
-	TheFearFeaster = {
-		Teleported1 = 60023,
-		Teleported2 = 60024,
-		Teleported3 = 60025,
-		Teleported3 = 60026,
-	},
-	TheDreadMaiden = {
-		Damage = 60029,
 	},
 	FerumbrasAscendant = {
 		-- Reserved storage from 60030 - 60069
@@ -2845,7 +2837,7 @@ GlobalStorage = {
 		}
 	},
 	ElementalSphere = {
-		-- Reserved storage from 60140 - 60158
+		-- Reserved storage from 60140 - 60159
 		BossRoom = 60140,
 		KnightBoss = 60141,
 		SorcererBoss = 60142,
@@ -2856,18 +2848,11 @@ GlobalStorage = {
 		Machine3 = 60147,
 		Machine4 = 60148
 	},
-	KingZelos = {
-		-- Reserved storage from 60159 - 60159
-		Minibosses = 60159,
-	},
 	TheAncientTombs = {
 		-- Reserved storage from 60160 - 60169
 		ThalasSwitchesGlobalStorage = 60160,
 		DiprathSwitchesGlobalStorage = 60161,
 		AshmunrahSwitchesGlobalStorage = 60162
-	},
-	GraveDanger = {
-		SirBossesFight = 60163
 	},
 	FuryGates = 65000,
 	Yakchal = 65001,
@@ -2885,7 +2870,8 @@ GlobalStorage = {
 	Inquisition = 65013,
 	Yasir = 65014,
 	NightmareIsle = 65015,
-	DreamCourtsBoss = 65016,
+	IceCrack = 65016,
+	UglyMonster = 65017,
 	KeysUpdate = 40000, -- Reserved storage from 40000 - 40000
 }
 

@@ -20,6 +20,11 @@ monster.corpse = 31551
 monster.speed = 140
 monster.manaCost = 0
 
+monster.events = {
+	"UglyMonsterDeath",
+	"UglyMonsterDrop"
+}
+
 monster.changeTarget = {
 	interval = 4000,
 	chance = 10
@@ -60,14 +65,14 @@ monster.voices = {
 }
 
 monster.loot = {
-	{name = "cobra axe", chance = 200, maxCount = 1},
-	{name = "cobra boots", chance = 200, maxCount = 1},
-	{name = "cobra club", chance = 200, maxCount = 1},
-	{name = "cobra crossbow", chance = 200, maxCount = 1},
-	{name = "cobra hood", chance = 200, maxCount = 1},
-	{name = "cobra rod", chance = 200, maxCount = 1},
-	{name = "cobra sword", chance = 200, maxCount = 1},
-	{name = "cobra wand", chance = 200, maxCount = 1},
+	{name = "cobra crossbow", chance = 670},
+	{name = "cobra hood", chance = 670},
+	{name = "cobra axe", chance = 670},
+	{name = "cobra boots", chance = 670},
+	{name = "cobra sword", chance = 670},
+	{name = "cobra wand", chance = 670},
+	{name = "cobra rod", chance = 670},
+	{name = "cobra club", chance = 670}
 }
 
 monster.attacks = {
@@ -79,7 +84,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 48,
 	armor = 48,
-	{name ="invisible", interval = 2000, chance = 20, effect = CONST_ME_HITAREA}
+	{name ="invisible", interval = 2000, chance = 8, effect = CONST_ME_HITAREA}
 }
 
 monster.elements = {

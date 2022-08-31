@@ -50,7 +50,7 @@ monster.flags = {
 }
 
 monster.events = {
-	"sir_bosses"
+	-- "Sir_Baeloc_Sir_NictrosCharge"
 }
 
 monster.light = {
@@ -61,13 +61,6 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-}
-
-monster.summon = {
-	maxSummons = 4,
-	summons = {
-		{name = "Squire of Nictros", chance = 20, interval = 2000, count = 4}
-	}
 }
 
 monster.loot = {
